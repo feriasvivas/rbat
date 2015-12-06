@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151206202923) do
+ActiveRecord::Schema.define(version: 20151206204457) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 20151206202923) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "cities", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "inductor_destination"
+    t.integer  "state_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "cities", ["state_id"], name: "index_cities_on_state_id"
 
   create_table "purposes", force: :cascade do |t|
     t.string   "name"
