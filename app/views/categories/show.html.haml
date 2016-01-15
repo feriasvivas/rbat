@@ -1,0 +1,24 @@
+%h2 Categoria
+
+%ul#details
+  %li
+    Nome:
+    = @category.name
+
+%h3 Sub-categorias
+%table
+  %thead
+    %tr
+      %th Nome
+      %th Ação
+  %tbody
+    - @category.sub_categories.each do |sub_category|
+      %tr
+        %td= link_to sub_category.name, edit_category_sub_category_path(@category, sub_category)
+        %td= link_to 'Apagar', category_sub_category_path(@category, sub_category), :method => :delete
+    %tr
+      %td= link_to 'Adicionar', new_category_sub_category_path(@category)
+
+= link_to 'Editar', edit_category_path(@category)
+= link_to 'Apagar', category_path(@category), :method => :delete
+= link_to 'Voltar', categories_path

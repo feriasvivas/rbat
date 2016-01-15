@@ -1,0 +1,13 @@
+%h2 Categorias
+
+%table
+  %thead
+    %th Nome
+    %th Ação
+  %tbody
+    - @categories.each do |category|
+      %tr
+        %td= link_to category.name, category_path(category)
+        %td= link_to 'Apagar', category_path(category), :method => :delete
+
+=link_to "Adicionar", new_category_path

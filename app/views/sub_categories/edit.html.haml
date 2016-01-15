@@ -1,0 +1,4 @@
+%h2 Atualizar sub-categoria
+
+= form_tag category_sub_category_path(@sub_category.category, @sub_category), :method => :put do
+  = render :partial => 'sub_categories_form'
