@@ -93,3 +93,10 @@ SubCategory.create(name: 'Jangada', category: Category.find_by(name: 'Embarcaç�
 SubCategory.create(name: 'Bote', category: Category.find_by(name: 'Embarcação'))
 SubCategory.create(name: 'Jet Ski', category: Category.find_by(name: 'Embarcação'))
 SubCategory.create(name: 'Embarcação (Outros)', category: Category.find_by(name: 'Embarcação'))
+
+Chapter.create(name: 'Cicloturismo')
+Chapter.create(name: 'Piscina')
+Chapter.create(name: 'Trilha e atividades autoguiadas')
+Chapter.create(name: 'Turismo de Aventura Contratado')
+Chapter.create(name: 'Hotelaria')
+Chapter.create(name: 'Embarcações')
