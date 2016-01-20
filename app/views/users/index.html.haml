@@ -1,0 +1,13 @@
+%h2 Usuários
+
+%table
+  %thead
+    %th Nome
+    %th e-mail
+    %th supervisor
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= link_to user.name, edit_user_path(user)
+        %td= link_to user.email, edit_user_path(user)
+        %td= user.supervisor

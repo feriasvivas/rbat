@@ -1,0 +1,13 @@
+%h2 Atualizar usuário
+
+=form_tag user_path(@user), :method => :put do
+  = label :user, :name, 'Nome'
+  = text_field :user, :name
+
+  = label :user, :email, 'e-mail'
+  = text_field :user, :email
+
+  = label :user, :supervisor, 'Supervisor'
+  = check_box :user, :supervisor
+
+  = submit_tag 'Salvar'

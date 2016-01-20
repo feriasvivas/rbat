@@ -11,6 +11,8 @@ Rails.application.routes.draw do
      resources :sub_categories
    end
 
+   resources :users
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
