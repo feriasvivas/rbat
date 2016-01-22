@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120181104) do
+ActiveRecord::Schema.define(version: 20160122144120) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -34,6 +34,25 @@ ActiveRecord::Schema.define(version: 20160120181104) do
   end
 
   add_index "cities", ["state_id"], name: "index_cities_on_state_id"
+
+  create_table "incidents", force: :cascade do |t|
+    t.datetime "date"
+    t.integer  "city_id"
+    t.string   "post_code"
+    t.string   "location"
+    t.string   "tourist_attraction"
+    t.string   "description"
+    t.integer  "user_id"
+    t.string   "contact"
+    t.integer  "sub_category_id"
+    t.integer  "occurrence_factor"
+    t.integer  "chapter_id"
+    t.integer  "purpose_id"
+    t.string   "proposal_for_action"
+    t.boolean  "following",           default: false, null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
 
   create_table "purposes", force: :cascade do |t|
     t.string   "name"
