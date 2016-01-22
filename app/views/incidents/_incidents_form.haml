@@ -1,0 +1,49 @@
+= label :incident, :date, 'Data do acidente'
+= text_field :incident, :date
+
+UF
+= select_tag options_from_collection_for_select(@states, 'id', 'name')
+
+= label :incident, :city, 'Cidade'
+= select :incident, :city, []
+
+= label :incident, :post_code, 'CEP'
+= text_field :incident, :post_code
+
+= label :incident, :location, 'Localização'
+= text_field :incident, :location
+
+= label :incident, :tourist_attraction, 'Polo turístico'
+= text_field :incident, :tourist_attraction
+
+= label :incident, :contact, 'Contato'
+= text_field :incident, :contact
+
+= label :incident, :categoria, 'Categoria'
+= select_tag options_from_collection_for_select(@categories, 'id', 'name')
+
+
+= label :incident, :sub_category, 'Sub-categoria'
+= select :incident, :sub_category, []
+
+= label :incident, :occurrence_factor, 'Fator de ocorrência'
+= select :incident, :occurrence_factor, [['Terra', 1], ['Água', 2], ['Ar', 3]]
+
+= label :incident, :chapter_id, 'Capítulo'
+= select :incident, :chapter_id, options_from_collection_for_select(@chapters, 'id', 'name')
+
+= label :incident, :purpose_id, 'Finalidade (não preencher)'
+= select :incident, :purpose_id, options_from_collection_for_select(@purposes, 'id', 'name')
+
+= label :incident, :proposal_for_action, 'Proposta de ação'
+= text_field :incident, :proposal_for_action
+
+= label :incident, :following, 'Acompanhamento AFV'
+= check_box :incident, :contact
+
+= label :incident, :description, 'Descrição'
+= text_area :incident, :description, :size => '50x10'
+
+
+
+= submit_tag 'Salvar'

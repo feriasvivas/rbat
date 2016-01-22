@@ -1,0 +1,60 @@
+%h2 Detalhes da ocorrência
+
+%ul#details
+  %li
+    Data:
+    = @incident.date.strftime("%d/%m/%Y")
+  %li
+    Cidade:
+    = @incident.city
+  %li
+    UF:
+    - if @incident.city
+      = @incident.city.state
+  %li
+    CEP:
+    = @incident.post_code
+  %li
+    Localização:
+    = @incident.location
+  %li
+    Polo turístico:
+    = @incident.tourist_attraction
+  %li
+    Contato:
+    = @incident.contact
+  %li
+    Categoria:
+    - if @incident.sub_category
+      = @incident.sub_category.category
+  %li
+    Subcategoria:
+    = @incident.sub_category
+  %li
+    Fator de ocorrência:
+    = @incident.occurrence_factor
+  %li
+    Capítulo:
+    = @incident.chapter_id
+  %li
+    Finalidade:
+    = @incident.purpose_id
+  %li
+    Proposta de ação:
+    = @incident.proposal_for_action
+  %li
+    Acompanhamento AFV:
+    - if @incident.following
+      Sim
+    - else
+      Não
+  %li
+    Responsável:
+    = @incident.user
+
+%h3 Descrição:
+%p#descricao= @incident.description
+
+= link_to 'Editar', edit_incident_path(@incident)
+= link_to 'Apagar', incident_path(@incident), :method => :delete
+= link_to 'Voltar para listagem', incidents_path

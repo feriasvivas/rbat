@@ -1,0 +1,24 @@
+%h2 Ocorrêcnias
+
+%table
+  %thead
+    %tr
+      %th Data
+      %th Cidade
+      %th UF
+      %th Categoria
+      %th Sub-categoria
+      %th Mais detalhes
+  %tbody
+    - @incidents.each do |incident|
+      %tr
+        %td= incident.date.strftime("%d/%m/%Y")
+        %td= incident.city
+        - if incident.city != nil; state = incident.city.state; end
+        %td= state
+        - if incident.sub_category != nil; category = incident.sub_category.category; end
+        %td= category
+        %td= incident.sub_category
+        %td= link_to "Mais...", incident_path(incident)
+
+= link_to "Adicionar", new_incident_path
