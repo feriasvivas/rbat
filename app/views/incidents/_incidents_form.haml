@@ -27,13 +27,13 @@
 = select :incident, :sub_category, []
 
 = label :incident, :occurrence_factor, 'Fator de ocorrência'
-= select :incident, :occurrence_factor_id, options_from_collection_for_select(@occurrence_factors, 'id', 'name')
+= select :incident, :occurrence_factor_id, options_from_collection_for_select(@occurrence_factors, 'id', 'name', @occurrence_factor)
 
 = label :incident, :chapter_id, 'Capítulo'
-= select :incident, :chapter_id, options_from_collection_for_select(@chapters, 'id', 'name')
+= select :incident, :chapter_id, options_from_collection_for_select(@chapters, 'id', 'name', @chapter)
 
 = label :incident, :purpose_id, 'Finalidade (não preencher)'
-= select :incident, :purpose_id, options_from_collection_for_select(@purposes, 'id', 'name')
+= select :incident, :purpose_id, options_from_collection_for_select(@purposes, 'id', 'name', @purpose)
 
 = label :incident, :proposal_for_action, 'Proposta de ação'
 = text_field :incident, :proposal_for_action
@@ -46,4 +46,7 @@
 
 %br
 = submit_tag 'Salvar'
-= link_to 'Voltar', incident_path(@incident)
+- if @incident
+  = link_to 'Voltar', incident_path(@incident)
+- else
+  = link_to 'Voltar', incidents_path
