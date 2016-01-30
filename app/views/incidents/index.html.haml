@@ -8,6 +8,7 @@
       %th UF
       %th Categoria
       %th Sub-categoria
+      %th Acompanhamento AFV
       %th Mais detalhes
   %tbody
     - @incidents.each do |incident|
@@ -16,9 +17,11 @@
         %td= incident.city
         - if incident.city != nil; state = incident.city.state; end
         %td= state
-        - if incident.sub_category != nil; category = incident.sub_category.category; end
+        - if incident.sub_category; category = incident.sub_category.category.name; end
         %td= category
-        %td= incident.sub_category
+        - if incident.sub_category; sub_category = incident.sub_category.name; end
+        %td= sub_category
+        %td= if incident.following; 'Sim'; else; 'Não'; end
         %td= link_to "Mais...", incident_path(incident)
 
 = link_to "Adicionar", new_incident_path
