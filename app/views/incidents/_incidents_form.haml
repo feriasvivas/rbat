@@ -19,12 +19,8 @@
 = label :incident, :contact, 'Contato'
 = text_field :incident, :contact
 
-= label :incident, :category, 'Categoria'
-= select_tag options_from_collection_for_select(@categories, 'id', 'name')
-
-
-= label :incident, :sub_category, 'Sub-categoria'
-= select :incident, :sub_category, []
+= label :incident, :sub_category, 'Categoria/Sub-categoria'
+= select :incident, :sub_category_id, option_groups_from_collection_for_select(@categories, :sub_categories, :name, :id, :name, @sub_category)
 
 = label :incident, :occurrence_factor, 'Fator de ocorrência'
 = select :incident, :occurrence_factor_id, options_from_collection_for_select(@occurrence_factors, 'id', 'name', @occurrence_factor)
