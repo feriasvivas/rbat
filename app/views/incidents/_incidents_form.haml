@@ -1,7 +1,7 @@
 = label :incident, :date, 'Data do acidente'
 = text_field :incident, :date
 
-UF
+= label :incident, :state, 'UF'
 = select_tag options_from_collection_for_select(@states, 'id', 'name')
 
 = label :incident, :city, 'Cidade'
@@ -19,7 +19,7 @@ UF
 = label :incident, :contact, 'Contato'
 = text_field :incident, :contact
 
-= label :incident, :categoria, 'Categoria'
+= label :incident, :category, 'Categoria'
 = select_tag options_from_collection_for_select(@categories, 'id', 'name')
 
 
@@ -44,6 +44,6 @@ UF
 = label :incident, :description, 'Descrição'
 = text_area :incident, :description, :size => '50x10'
 
-
-
+%br
 = submit_tag 'Salvar'
+= link_to 'Voltar', incident_path(@incident)
