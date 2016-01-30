@@ -24,6 +24,7 @@ class IncidentsController < ApplicationController
     @categories = Category.all
     @chapters = Chapter.all
     @purposes = Purpose.all
+    @occurrence_factors = OccurrenceFactor.all
   end
 
   def edit
@@ -32,6 +33,7 @@ class IncidentsController < ApplicationController
     @categories = Category.all
     @chapters = Chapter.all
     @purposes = Purpose.all
+    @occurrence_factors = OccurrenceFactor.all
   end
 
   def update

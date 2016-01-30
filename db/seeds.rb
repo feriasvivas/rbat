@@ -107,3 +107,7 @@ Purpose.create(name: 'Turismo de Eventos')
 Purpose.create(name: 'Turismo de Lazer')
 Purpose.create(name: 'Turismo Ecológico')
 Purpose.create(name: 'Turismo Náutico')
+
+OccurrenceFactor.create(name: 'Terra')
+OccurrenceFactor.create(name: 'Ar')
+OccurrenceFactor.create(name: 'Água')
