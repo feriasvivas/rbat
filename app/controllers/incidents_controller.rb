@@ -11,6 +11,7 @@ class IncidentsController < ApplicationController
 
   def create
     @incident = Incident.new(incident_params)
+    @incident.user_id = current_user.id
     if @incident.save
       redirect_to incidents_path
     else
