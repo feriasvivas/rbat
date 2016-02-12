@@ -2,7 +2,7 @@
 = text_field :incident, :date
 
 = label :incident, :state, 'UF'
-= select_tag options_from_collection_for_select(@states, 'id', 'name')
+= select_tag :state, options_from_collection_for_select(@states, 'id', 'name'), include_blank: true
 
 = label :incident, :city, 'Cidade'
 = select :incident, :city, []
@@ -20,16 +20,16 @@
 = text_field :incident, :contact
 
 = label :incident, :sub_category, 'Categoria/Sub-categoria'
-= select :incident, :sub_category_id, option_groups_from_collection_for_select(@categories, :sub_categories, :name, :id, :name, @sub_category)
+= select :incident, :sub_category_id, option_groups_from_collection_for_select(@categories, :sub_categories, :name, :id, :name, @sub_category), include_blank: true
 
 = label :incident, :occurrence_factor, 'Fator de ocorrência'
-= select :incident, :occurrence_factor_id, options_from_collection_for_select(@occurrence_factors, 'id', 'name', @occurrence_factor)
+= select :incident, :occurrence_factor_id, options_from_collection_for_select(@occurrence_factors, 'id', 'name', @occurrence_factor), include_blank: true
 
 = label :incident, :chapter_id, 'Capítulo'
-= select :incident, :chapter_id, options_from_collection_for_select(@chapters, 'id', 'name', @chapter)
+= select :incident, :chapter_id, options_from_collection_for_select(@chapters, 'id', 'name', @chapter), include_blank: true
 
 = label :incident, :purpose_id, 'Finalidade (não preencher)'
-= select :incident, :purpose_id, options_from_collection_for_select(@purposes, 'id', 'name', @purpose)
+= select :incident, :purpose_id, options_from_collection_for_select(@purposes, 'id', 'name', @purpose), include_blank: true
 
 = label :incident, :proposal_for_action, 'Proposta de ação'
 = text_field :incident, :proposal_for_action
