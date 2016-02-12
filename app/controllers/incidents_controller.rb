@@ -25,6 +25,7 @@ class IncidentsController < ApplicationController
     @chapters = Chapter.all
     @purposes = Purpose.all
     @occurrence_factors = OccurrenceFactor.all
+    @states = State.all
   end
 
   def edit
