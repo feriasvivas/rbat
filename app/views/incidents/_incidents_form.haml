@@ -2,10 +2,13 @@
 = text_field :incident, :date
 
 = label :incident, :state, 'UF'
-= select_tag :state, options_from_collection_for_select(@states, 'id', 'name'), include_blank: true
+= select_tag :state, options_from_collection_for_select(@states, 'id', 'name', @state), include_blank: true
 
 = label :incident, :city, 'Cidade'
-= select :incident, :city, []
+- if @cities
+  = select :incident, :city_id, options_from_collection_for_select(@cities, 'id', 'name', @city), include_blank: true
+- else
+  = select :incident, :city, []
 
 = label :incident, :post_code, 'CEP'
 = text_field :incident, :post_code

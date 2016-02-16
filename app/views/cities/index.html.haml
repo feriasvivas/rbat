@@ -1,0 +1,9 @@
+%h2 Cidades
+
+%table
+  %thead
+    %th Nome
+  %tbody
+    - @cities.each do |city|
+      %tr
+        %td= city.name
