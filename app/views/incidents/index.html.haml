@@ -14,9 +14,9 @@
     - @incidents.each do |incident|
       %tr
         %td= incident.date.strftime("%d/%m/%Y")
-        %td= incident.city
-        - if incident.city != nil; state = incident.city.state; end
-        %td= state
+        - if incident.city != nil; city_name = incident.city.name; state_name = incident.city.state.name; end
+        %td= city_name
+        %td= state_name
         - if incident.sub_category; category = incident.sub_category.category.name; end
         %td= category
         - if incident.sub_category; sub_category = incident.sub_category.name; end

@@ -39,6 +39,11 @@ class IncidentsController < ApplicationController
     @purpose = @incident.purpose_id
     @occurrence_factor = @incident.occurrence_factor_id
     @sub_category = @incident.sub_category_id
+    @city = @incident.city_id
+    if @incident.city
+      @state = @incident.city.state_id
+      @cities = City.where(state_id: @state)
+    end
   end
 
   def update
