@@ -58,7 +58,7 @@
     = @incident.user.name
 
 %h3 Descrição:
-%p#descricao= @incident.description
+%p#descricao= simple_format @incident.description
 
 = link_to 'Editar', edit_incident_path(@incident)
 = link_to 'Apagar', incident_path(@incident), :method => :delete
