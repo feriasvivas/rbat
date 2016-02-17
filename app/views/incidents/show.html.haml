@@ -60,6 +60,34 @@
 %h3 Descrição:
 %p#descricao= simple_format @incident.description
 
+%h3 Dados do local:
+%ul#location
+  %li
+    Uso da propriedade:
+    - if @incident.property_usage
+      = @incident.property_usage.name
+  %li
+    Jurisdição
+    = @incident.property_jurisdiction
+  %li
+    Empresa atuante:
+    = @incident.property_company
+  %li
+    CNPJ:
+    = @incident.property_inscription
+  %li
+    Guia contratado:
+    = @incident.tourist_guide
+  %li
+    Sinalização:
+    = yesNoNA2text @incident.property_signaling
+  %li
+    Falha de equipamento:
+    = yesNoNA2text @incident.equipment_failure
+  %li
+    Adequação às normas:
+    = yesNoNA2text @incident.adequacy_to_norms
+
 = link_to 'Editar', edit_incident_path(@incident)
 = link_to 'Apagar', incident_path(@incident), :method => :delete
 = link_to 'Voltar para listagem', incidents_path

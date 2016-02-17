@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160130191537) do
+ActiveRecord::Schema.define(version: 20160217171835) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -48,15 +48,29 @@ ActiveRecord::Schema.define(version: 20160130191537) do
     t.integer  "chapter_id"
     t.integer  "purpose_id"
     t.string   "proposal_for_action"
-    t.boolean  "following",            default: false, null: false
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.boolean  "following",             default: false, null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.integer  "occurrence_factor_id"
+    t.integer  "property_usage_id"
+    t.string   "property_jurisdiction"
+    t.string   "property_company"
+    t.string   "property_inscription"
+    t.string   "tourist_guide"
+    t.integer  "property_signaling"
+    t.integer  "equipment_failure"
+    t.integer  "adequacy_to_norms"
   end
 
   add_index "incidents", ["occurrence_factor_id"], name: "index_incidents_on_occurrence_factor_id"
 
   create_table "occurrence_factors", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "property_usages", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

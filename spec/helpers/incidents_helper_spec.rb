@@ -1,15 +1,18 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the IncidentsHelper. For example:
-#
-# describe IncidentsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe IncidentsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "convert number to Sim, Não or NA" do
+    it "translates 1 to Sim" do
+      expect(helper.yesNoNA2text(1)).to eq("Sim")
+    end
+    it "translates 2 to Não" do
+      expect(helper.yesNoNA2text(2)).to eq("Não")
+    end
+    it "translates 0 to NA" do
+      expect(helper.yesNoNA2text(0)).to eq("NA")
+    end
+    it "translates nil to NA" do
+      expect(helper.yesNoNA2text(nil)).to eq("NA")
+    end
+  end
 end

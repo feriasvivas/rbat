@@ -5705,3 +5705,7 @@ City.create(state_id: State.where(name: 'GO').first.id, name: "Vicentinópolis")
 City.create(state_id: State.where(name: 'GO').first.id, name: "Vila Boa")
 City.create(state_id: State.where(name: 'GO').first.id, name: "Vila Propício")
 City.create(state_id: State.where(name: 'DF').first.id, name: "Brasília")
+
+PropertyUsage.create(name: "Pública")
+PropertyUsage.create(name: "Coletiva")
+PropertyUsage.create(name: "Particular")

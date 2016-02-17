@@ -26,6 +26,7 @@ class IncidentsController < ApplicationController
     @purposes = Purpose.all
     @occurrence_factors = OccurrenceFactor.all
     @states = State.all
+    @property_usages = PropertyUsage.all
   end
 
   def edit
@@ -35,11 +36,16 @@ class IncidentsController < ApplicationController
     @chapters = Chapter.all
     @purposes = Purpose.all
     @occurrence_factors = OccurrenceFactor.all
+    @property_usages = PropertyUsage.all
     @chapter = @incident.chapter_id
     @purpose = @incident.purpose_id
     @occurrence_factor = @incident.occurrence_factor_id
     @sub_category = @incident.sub_category_id
     @city = @incident.city_id
+    @property_usage = @incident.property_usage_id
+    @property_signaling = @incident.property_signaling
+    @equipment_failure = @incident.equipment_failure
+    @adequacy_to_norms = @incident.adequacy_to_norms
     if @incident.city
       @state = @incident.city.state_id
       @cities = City.where(state_id: @state)
