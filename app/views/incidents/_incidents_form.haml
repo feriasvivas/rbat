@@ -31,9 +31,6 @@
 = label :incident, :chapter_id, 'Capítulo'
 = select :incident, :chapter_id, options_from_collection_for_select(@chapters, 'id', 'name', @chapter), include_blank: true
 
-= label :incident, :purpose_id, 'Finalidade (não preencher)'
-= select :incident, :purpose_id, options_from_collection_for_select(@purposes, 'id', 'name', @purpose), include_blank: true
-
 = label :incident, :proposal_for_action, 'Proposta de ação'
 = text_field :incident, :proposal_for_action
 
@@ -42,6 +39,11 @@
 
 = label :incident, :description, 'Descrição'
 = text_area :incident, :description, :size => '50x10'
+
+- if current_user.supervisor?
+  = label :incident, :purpose_id, 'Finalidade'
+  = select :incident, :purpose_id, options_from_collection_for_select(@purposes, 'id', 'name', @purpose), include_blank: true
+
 
 %br
 = submit_tag 'Salvar'
