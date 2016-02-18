@@ -5709,3 +5709,8 @@ City.create(state_id: State.where(name: 'DF').first.id, name: "Brasília")
 PropertyUsage.create(name: "Pública")
 PropertyUsage.create(name: "Coletiva")
 PropertyUsage.create(name: "Particular")
+
+Severity.create(name: "Fatal")
+Severity.create(name: "Grave")
+Severity.create(name: "Moderado")
+Severity.create(name: "Leve")
