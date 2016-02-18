@@ -5714,3 +5714,8 @@ Severity.create(name: "Fatal")
 Severity.create(name: "Grave")
 Severity.create(name: "Moderado")
 Severity.create(name: "Leve")
+
+Experience.create(name: "Leigo")
+Experience.create(name: "Amador")
+Experience.create(name: "Experiente")
+Experience.create(name: "Profissional")
