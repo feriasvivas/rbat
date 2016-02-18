@@ -88,6 +88,35 @@
     Adequação às normas:
     = yesNoNA2text @incident.adequacy_to_norms
 
+    %h3 Vítimas
+    %table#victims
+      %thead
+        %tr
+          %th Nome
+          %th Idade
+          %th Gênero
+          %th Gravidade
+          %th Sob efeito de álcool
+          %th sob efeito de entorpecentes
+          %th Limitação física
+          %th Experiência
+          %th Ação
+      %tbody
+        - @incident.victims.each do |victim|
+          %tr
+            %td= victim.name
+            %td= victim.age
+            %td= victim.gender
+            %td= victim.severity.name if victim.severity
+            %td= yesNoNA2text victim.effect_alcohol
+            %td= yesNoNA2text victim.effect_drugs
+            %td= yesNoNA2text victim.physically_challenged
+            %td= victim.experience.name if victim.experience
+            %td= link_to 'Alterar', edit_incident_victim_path(@incident, victim)
+        %tr
+          %td= link_to 'Adicionar vítima', new_incident_victim_path(@incident)
+
+
 = link_to 'Editar', edit_incident_path(@incident)
 = link_to 'Apagar', incident_path(@incident), :method => :delete
 = link_to 'Voltar para listagem', incidents_path

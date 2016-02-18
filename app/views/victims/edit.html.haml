@@ -1,0 +1,4 @@
+%h2 Atualizar vítima
+
+= form_tag incident_victim_path(@incident, @victim), :method => :put do
+	= render :partial => 'victims_form'

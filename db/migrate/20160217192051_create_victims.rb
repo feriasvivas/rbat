@@ -3,12 +3,13 @@ class CreateVictims < ActiveRecord::Migration
     create_table :victims do |t|
       t.string :name
       t.string :age
-      t.string :gender, limit: 1
-      t.references :severities
+      t.string :gender
+      t.references :severity
       t.integer :effect_alcohol
       t.integer :effect_drugs
       t.integer :physically_challenged
-      t.references :experiences
+      t.references :experience
+      t.references :incident
       t.timestamps null: false
     end
   end

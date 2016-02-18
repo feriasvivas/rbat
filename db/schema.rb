@@ -132,14 +132,15 @@ ActiveRecord::Schema.define(version: 20160217192051) do
   create_table "victims", force: :cascade do |t|
     t.string   "name"
     t.string   "age"
-    t.string   "gender",                limit: 1
-    t.integer  "severities_id"
+    t.string   "gender"
+    t.integer  "severity_id"
     t.integer  "effect_alcohol"
     t.integer  "effect_drugs"
     t.integer  "physically_challenged"
-    t.integer  "experiences_id"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.integer  "experience_id"
+    t.integer  "incident_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
 end

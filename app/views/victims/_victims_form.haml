@@ -1,0 +1,25 @@
+= label :victim, :name, 'Nome'
+= text_field :victim, :name
+
+= label :victim, :gender, 'Gênero'
+= select :victim, :gender, options_for_select(['Masculino', 'Feminino'], @gender), include_blank: true
+
+=label :victim, :age, 'Idade'
+= text_field :victim, :age
+
+= label :victim, :severity_id, 'Gravidade'
+= select :victim, :severity_id, options_from_collection_for_select(@severities, 'id', 'name', @severity), include_blank: true
+
+= label :victim, :effect_alcohol, 'Sob efeito de álcool'
+= yesNoNAselect :victim, :effect_alcohol, @effect_alcohol
+
+= label :victim, :effect_drugs, 'Sob efeito de entorpecentes'
+= yesNoNAselect :victim, :effect_drugs, @effect_drugs
+
+= label :victim, :physically_challenged, 'Limitação física'
+= yesNoNAselect :victim, :physically_challenged, @physically_challenged
+
+= label :victim, :experience_id, 'Experiência com turismo'
+= select :victim, :experience_id, options_from_collection_for_select(@experiences, 'id', 'name', @experience), include_blank: true
+
+= submit_tag 'Salvar'

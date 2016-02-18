@@ -11,6 +11,7 @@ class VictimsController < ApplicationController
 
 	public
 	def new
+    fillLists
 		@victim = @incident.victims.build
 	end
 
@@ -20,18 +21,30 @@ class VictimsController < ApplicationController
 	end
 
 	def edit
+    fillLists
 		@victim = Victim.find params[:id]
+    @gender = @victim.gender
+    @experience = @victim.experience_id
+    @severity = @victim.severity_id
 		@incident = @victim.incident
+    @effect_alcohol = @victim.effect_alcohol
+    @effect_drugs = @victim.effect_drugs
+    @physically_challenged = @victim.physically_challenged
 	end
 
 	def update
 		@victim = Victim.find params[:id]
 		if @victim.update_attributes(victim_params)
-		  redirect_to incident_path(@vitima.incident)
+		  redirect_to incident_path(@victim.incident)
 		else
 		  render 'edit'
 		end
 	end
+
+  def fillLists
+    @experiences = Experience.all
+    @severities = Severity.all
+  end
 
 	private
 	def victim_params
