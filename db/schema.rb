@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160217171835) do
+ActiveRecord::Schema.define(version: 20160217192051) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -34,6 +34,12 @@ ActiveRecord::Schema.define(version: 20160217171835) do
   end
 
   add_index "cities", ["state_id"], name: "index_cities_on_state_id"
+
+  create_table "experiences", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "incidents", force: :cascade do |t|
     t.datetime "date"
@@ -82,6 +88,12 @@ ActiveRecord::Schema.define(version: 20160217171835) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "severities", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "states", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -116,5 +128,18 @@ ActiveRecord::Schema.define(version: 20160217171835) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "victims", force: :cascade do |t|
+    t.string   "name"
+    t.string   "age"
+    t.string   "gender",                limit: 1
+    t.integer  "severities_id"
+    t.integer  "effect_alcohol"
+    t.integer  "effect_drugs"
+    t.integer  "physically_challenged"
+    t.integer  "experiences_id"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
 
 end
