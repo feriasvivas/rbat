@@ -1,4 +1,4 @@
-%h2 Sign up
+%h2 Registro
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = devise_error_messages!
   .field
@@ -6,16 +6,16 @@
     %br/
     = f.email_field :email, autofocus: true
   .field
-    = f.label :password
+    = f.label :password, "Senha"
     - if @minimum_password_length
       %em
-        (#{@minimum_password_length} characters minimum)
+        (no mínimo #{@minimum_password_length} caracteres)
     %br/
     = f.password_field :password, autocomplete: "off"
   .field
-    = f.label :password_confirmation
+    = f.label :password_confirmation, "Confirmação da senha"
     %br/
     = f.password_field :password_confirmation, autocomplete: "off"
   .actions
-    = f.submit "Sign up"
+    = f.submit "Enviar"
 = render "devise/shared/links"
