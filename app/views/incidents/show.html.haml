@@ -112,9 +112,10 @@
             %td= yesNoNA2text victim.effect_drugs
             %td= yesNoNA2text victim.physically_challenged
             %td= victim.experience.name if victim.experience
-            %td= link_to 'Alterar', edit_incident_victim_path(@incident, victim)
+            %td= link_to('Alterar', edit_incident_victim_path(@incident, victim)) + " " + link_to('Apagar', incident_victim_path(@incident, victim), :method => :delete)
         %tr
           %td= link_to 'Adicionar vítima', new_incident_victim_path(@incident)
+
 
 
 = link_to 'Editar', edit_incident_path(@incident)

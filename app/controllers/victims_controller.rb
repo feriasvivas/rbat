@@ -41,6 +41,12 @@ class VictimsController < ApplicationController
 		end
 	end
 
+  def destroy
+    @victim = Victim.find(params[:id])
+    @victim.delete
+    redirect_to incident_path(params[:incident_id])
+  end
+
   def fillLists
     @experiences = Experience.all
     @severities = Severity.all
