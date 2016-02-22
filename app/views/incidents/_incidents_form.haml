@@ -1,5 +1,5 @@
 = label :incident, :date, 'Data do acidente'
-= text_field :incident, :date, :value => @incident.date.strftime("%d/%m/%Y")
+= text_field :incident, :date, :value => @date
 
 = label :incident, :state, 'UF'
 = select_tag :state, options_from_collection_for_select(@states, 'id', 'name', @state), include_blank: true
