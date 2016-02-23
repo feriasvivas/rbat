@@ -5,9 +5,16 @@
     %th Nome
     %th e-mail
     %th supervisor
+    %th confirmado
   %tbody
     - @users.each do |user|
       %tr
         %td= link_to user.name, edit_user_path(user)
         %td= link_to user.email, edit_user_path(user)
-        %td= user.supervisor
+        %td= 'X' if user.supervisor?
+        - if user.confirmed?
+          %td= 'Sim'
+        - elsif user.confirmation_sent_at
+          %td= 'Pendente'
+        - else
+          %td 'Não'

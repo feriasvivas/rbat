@@ -2,20 +2,24 @@
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = devise_error_messages!
   .field
+    = f.label :name
+    %br
+    = f.text_field :name, autofocus: true
+  .field
     = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
+    %br
+    = f.email_field :email
   .field
     = f.label :password, "Senha"
     - if @minimum_password_length
       %em
         (no mínimo #{@minimum_password_length} caracteres)
-    %br/
+    %br
     = f.password_field :password, autocomplete: "off"
   .field
     = f.label :password_confirmation, "Confirmação da senha"
-    %br/
+    %br
     = f.password_field :password_confirmation, autocomplete: "off"
   .actions
     = f.submit "Enviar"
-= render "devise/shared/links"
+= render "users/shared/links"
