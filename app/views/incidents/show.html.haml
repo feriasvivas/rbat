@@ -23,7 +23,7 @@
     = @incident.tourist_attraction
   %li
     Contato:
-    = @incident.contact
+    = simple_format @incident.contact
   %li
     Categoria:
     - if @incident.sub_category

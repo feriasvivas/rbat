@@ -20,7 +20,7 @@
 = text_field :incident, :tourist_attraction
 
 = label :incident, :contact, 'Contato'
-= text_field :incident, :contact
+= text_area :incident, :contact, :size => '50x10'
 
 = label :incident, :sub_category_id, 'Categoria/Sub-categoria'
 = select :incident, :sub_category_id, option_groups_from_collection_for_select(@categories, :sub_categories, :name, :id, :name, @sub_category), include_blank: true
