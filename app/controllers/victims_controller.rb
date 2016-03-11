@@ -35,6 +35,10 @@ class VictimsController < ApplicationController
     @guide_malpractice = @victim.guide_malpractice
     @guide_negligence = @victim.guide_negligence
     @climate_conditions = @victim.climate_conditions
+    @first_aid_conducted = @victim.first_aid_conducted
+    @first_aid_equipment = @victim.first_aid_equipment
+    @staff_trained_in_first_aid = @victim.staff_trained_in_first_aid
+    @doctor_on_call = @victim.doctor_on_call
 	end
 
 	def update

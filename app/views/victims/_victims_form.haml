@@ -48,4 +48,21 @@
 = text_field :victim, :process_number
 
 
+%h3 Primeiros socorros
+= label :victim, :first_aid_conducted, 'Realização de primeiros socorros'
+= yesNoNAselect :victim, :first_aid_conducted, @first_aid_conducted
+
+= label :victim, :first_aid_equipment, 'Existência de equipamentos de primeiros socorros'
+= yesNoNAselect :victim, :first_aid_equipment, @first_aid_equipment
+
+= label :victim, :staff_trained_in_first_aid, 'Funcionários capacitados como socorristas'
+= yesNoNAselect :victim, :staff_trained_in_first_aid, @staff_trained_in_first_aid
+
+= label :victim, :doctor_on_call, 'Médico de plantão'
+= yesNoNAselect :victim, :doctor_on_call, @doctor_on_call
+
+
+
+
+
 = submit_tag 'Salvar'

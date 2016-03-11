@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311201057) do
+ActiveRecord::Schema.define(version: 20160311201809) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -143,8 +143,8 @@ ActiveRecord::Schema.define(version: 20160311201057) do
     t.integer  "physically_challenged"
     t.integer  "experience_id"
     t.integer  "incident_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "equipment"
     t.integer  "tourist_imprudence"
     t.integer  "guide_malpractice"
@@ -152,6 +152,10 @@ ActiveRecord::Schema.define(version: 20160311201057) do
     t.integer  "climate_conditions"
     t.string   "incident_report_number"
     t.string   "process_number"
+    t.integer  "first_aid_conducted"
+    t.integer  "first_aid_equipment"
+    t.integer  "staff_trained_in_first_aid"
+    t.integer  "doctor_on_call"
   end
 
 end
