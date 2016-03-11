@@ -22,4 +22,22 @@
 = label :victim, :experience_id, 'Experiência com turismo'
 = select :victim, :experience_id, options_from_collection_for_select(@experiences, 'id', 'name', @experience), include_blank: true
 
+%h3 Condições do acidente
+= label :victim, :equipment, 'Equipamento de segurança da atividade'
+= yesNoNAselect :victim, :equipment, @equipment
+
+= label :victim, :tourist_imprudence, 'Imprudência do turista'
+= yesNoNAselect :victim, :tourist_imprudence, @tourist_imprudence
+
+= label :victim, :guide_malpractice, 'Imperícia do prestador'
+= yesNoNAselect :victim, :guide_malpractice, @guide_malpractice
+
+= label :victim, :guide_negligence, 'Negligência do prestador'
+= yesNoNAselect :victim, :guide_negligence, @guide_negligence
+
+= label :victim, :climate_conditions, 'Condições climáticas'
+= yesNoNAselect :victim, :climate_conditions, @climate_conditions
+
+
+
 = submit_tag 'Salvar'

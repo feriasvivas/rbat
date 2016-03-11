@@ -30,6 +30,11 @@ class VictimsController < ApplicationController
     @effect_alcohol = @victim.effect_alcohol
     @effect_drugs = @victim.effect_drugs
     @physically_challenged = @victim.physically_challenged
+    @equipment = @victim.equipment
+    @tourist_imprudence = @victim.tourist_imprudence
+    @guide_malpractice = @victim.guide_malpractice
+    @guide_negligence = @victim.guide_negligence
+    @climate_conditions = @victim.climate_conditions
 	end
 
 	def update

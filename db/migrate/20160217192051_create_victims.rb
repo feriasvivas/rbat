@@ -2,7 +2,7 @@ class CreateVictims < ActiveRecord::Migration
   def change
     create_table :victims do |t|
       t.string :name
-      t.string :age
+      t.integer :age
       t.string :gender
       t.references :severity
       t.integer :effect_alcohol
