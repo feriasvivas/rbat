@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
    get 'cities/:id' => 'cities#index'
 
+   get 'users/confirm/:id' => 'users#confirm', as: :confirm
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

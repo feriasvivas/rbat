@@ -24,6 +24,12 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  def confirm
+    @user = User.find(params[:id])
+    @user.send_confirmation_instructions
+    redirect_to users_path
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :supervisor)

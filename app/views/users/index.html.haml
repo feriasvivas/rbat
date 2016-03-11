@@ -3,18 +3,18 @@
 %table
   %thead
     %th Nome
-    %th e-mail
-    %th supervisor
-    %th confirmado
+    %th Email
+    %th Supervisor
+    %th Liberado
+    %th Ação
   %tbody
     - @users.each do |user|
       %tr
         %td= link_to user.name, edit_user_path(user)
         %td= link_to user.email, edit_user_path(user)
         %td= 'X' if user.supervisor?
-        - if user.confirmed?
-          %td= 'Sim'
-        - elsif user.confirmation_sent_at
-          %td= 'Pendente'
+        - if user.confirmation_sent_at
+          %td Sim
         - else
-          %td 'Não'
+          %td Não
+        %td= link_to 'Liberar', confirm_url(user)

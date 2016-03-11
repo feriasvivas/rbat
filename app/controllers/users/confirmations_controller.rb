@@ -6,8 +6,8 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
 
   # POST /resource/confirmation
   def create
-    params[:user][:confirmation_sent_at] = nil
-   super
+    super
+    #redirect_to users_path
   end
 
   # GET /resource/confirmation?confirmation_token=abcdef
