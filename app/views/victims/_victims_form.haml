@@ -22,6 +22,7 @@
 = label :victim, :experience_id, 'Experiência com turismo'
 = select :victim, :experience_id, options_from_collection_for_select(@experiences, 'id', 'name', @experience), include_blank: true
 
+
 %h3 Condições do acidente
 = label :victim, :equipment, 'Equipamento de segurança da atividade'
 = yesNoNAselect :victim, :equipment, @equipment
@@ -38,6 +39,13 @@
 = label :victim, :climate_conditions, 'Condições climáticas'
 = yesNoNAselect :victim, :climate_conditions, @climate_conditions
 
+
+%h3 Processo judicial
+=label :victim, :incident_report_number, 'Número do B.O.'
+= text_field :victim, :incident_report_number
+
+=label :victim, :process_number, 'Número do processo'
+= text_field :victim, :process_number
 
 
 = submit_tag 'Salvar'
