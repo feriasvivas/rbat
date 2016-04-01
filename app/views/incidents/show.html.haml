@@ -56,6 +56,9 @@
   %li
     Responsável:
     = @incident.user.name
+  %li
+    Tags:
+    = tags2string(@incident.tags)
 
 %h3 Descrição:
 %p#descricao= simple_format @incident.description

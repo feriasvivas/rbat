@@ -71,12 +71,12 @@ ActiveRecord::Schema.define(version: 20160401190000) do
   add_index "incidents", ["occurrence_factor_id"], name: "index_incidents_on_occurrence_factor_id"
 
   create_table "incidents_tags", id: false, force: :cascade do |t|
-    t.integer "incidents_id"
-    t.integer "tags_id"
+    t.integer "incident_id"
+    t.integer "tag_id"
   end
 
-  add_index "incidents_tags", ["incidents_id"], name: "index_incidents_tags_on_incidents_id"
-  add_index "incidents_tags", ["tags_id"], name: "index_incidents_tags_on_tags_id"
+  add_index "incidents_tags", ["incident_id"], name: "index_incidents_tags_on_incident_id"
+  add_index "incidents_tags", ["tag_id"], name: "index_incidents_tags_on_tag_id"
 
   create_table "occurrence_factors", force: :cascade do |t|
     t.string   "name"

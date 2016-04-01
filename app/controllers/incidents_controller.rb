@@ -12,6 +12,7 @@ class IncidentsController < ApplicationController
   def create
     @incident = Incident.new(incident_params)
     @incident.user_id = current_user.id
+    tags2incident
     if @incident.save
       redirect_to incidents_path
     else
@@ -47,6 +48,7 @@ class IncidentsController < ApplicationController
     @equipment_failure = @incident.equipment_failure
     @adequacy_to_norms = @incident.adequacy_to_norms
     @date = @incident.date.strftime("%d/%m/%Y")
+    @tags = @incident.tags
     if @incident.city
       @state = @incident.city.state_id
       @cities = City.where(state_id: @state)
@@ -55,6 +57,7 @@ class IncidentsController < ApplicationController
 
   def update
     @incident = Incident.find(params[:id])
+    tags2incident
     if @incident.update_attributes(incident_params)
       redirect_to incident_path(@incident)
     else
@@ -66,6 +69,22 @@ class IncidentsController < ApplicationController
     @incident = Incident.find(param[:id])
     @incident.destroy
     redirect_to incidents_path
+  end
+
+  def tags2incident
+    formTags = params[:tags].split#.map{|e| e.strip!}
+    @incident.tags.each do |t|
+      unless formTags.include? t.name
+        @incident.tags.delete(t)
+      end
+    end
+    formTags.each do |t|
+      tag = Tag.where(name: t)[0]
+      tag = Tag.new(name: t) unless tag
+      unless @incident.tags.include? tag
+        @incident.tags << tag
+      end
+    end
   end
 
   private

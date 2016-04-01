@@ -69,6 +69,8 @@
 = label :incident, :adequacy_to_norms, 'Adequação às normas'
 = yesNoNAselect :incident, :adequacy_to_norms, @adequacy_to_norms
 
+= label_tag :tags, 'Tags'
+= text_field_tag :tags, tags2string(@tags), size: 50
 
 %br
 = submit_tag 'Salvar'
