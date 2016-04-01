@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311201809) do
+ActiveRecord::Schema.define(version: 20160401190000) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -70,6 +70,14 @@ ActiveRecord::Schema.define(version: 20160311201809) do
 
   add_index "incidents", ["occurrence_factor_id"], name: "index_incidents_on_occurrence_factor_id"
 
+  create_table "incidents_tags", id: false, force: :cascade do |t|
+    t.integer "incidents_id"
+    t.integer "tags_id"
+  end
+
+  add_index "incidents_tags", ["incidents_id"], name: "index_incidents_tags_on_incidents_id"
+  add_index "incidents_tags", ["tags_id"], name: "index_incidents_tags_on_tags_id"
+
   create_table "occurrence_factors", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -108,6 +116,12 @@ ActiveRecord::Schema.define(version: 20160311201809) do
   end
 
   add_index "sub_categories", ["category_id"], name: "index_sub_categories_on_category_id"
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
