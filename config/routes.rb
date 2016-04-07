@@ -14,6 +14,7 @@ Rails.application.routes.draw do
    resources :users
    resources :incidents do
      resources :victims
+     resources :sources
    end
 
    get 'cities/:id' => 'cities#index'

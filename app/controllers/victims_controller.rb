@@ -5,7 +5,7 @@ class VictimsController < ApplicationController
   protected
 	def incident_exists
 		unless (@incident = Incident.find_by_id(params[:incident_id]))
-			redirect_to incidentss_path
+			redirect_to incidents_path
 		end
 	end
 

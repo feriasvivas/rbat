@@ -119,7 +119,23 @@
     %tr
       %td= link_to 'Adicionar vítima', new_incident_victim_path(@incident)
 
-
+%h3 Fontes
+%table#sources
+  %thead
+    %tr
+      %th Fonte
+      %th Texto
+      %th Imagem
+      %th Ação
+  %tbody
+    - @incident.sources.each do |source|
+      %tr
+        %td= source.name
+        %td= source.text
+        %td= image_tag(source.file_url) if source.file?
+        %td= link_to('Alterar', edit_incident_source_path(@incident, source)) + " " + link_to('Apagar', incident_source_path(@incident, source), :method => :delete)
+    %tr
+      %td= link_to 'Adicionar fonte', new_incident_source_path(@incident)
 
 = link_to 'Editar', edit_incident_path(@incident)
 = link_to 'Apagar', incident_path(@incident), :method => :delete
