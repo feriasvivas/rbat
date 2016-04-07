@@ -107,8 +107,9 @@ ActiveRecord::Schema.define(version: 20160407172145) do
     t.string   "url"
     t.string   "text"
     t.string   "file"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "incident_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "states", force: :cascade do |t|
