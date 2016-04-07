@@ -7,5 +7,6 @@ class Incident < ActiveRecord::Base
   belongs_to :occurrence_factor
   belongs_to :property_usage
   has_many :victims, dependent: :destroy
+  has_many :sources, dependent: :destroy
   has_and_belongs_to_many :tags
 end
