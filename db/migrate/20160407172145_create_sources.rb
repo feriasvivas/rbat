@@ -4,7 +4,7 @@ class CreateSources < ActiveRecord::Migration
       t.string :name
       t.string :url
       t.string :text
-      t.string :file
+      t.string :image_file_id
       t.references :incident
       t.timestamps null: false
     end

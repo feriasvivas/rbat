@@ -132,7 +132,7 @@
       %tr
         %td= source.name
         %td= source.text
-        %td= image_tag(source.file_url) if source.file?
+        %td= image_tag(attachment_url(source, :image_file, 300, 300, format: "jpg")) if source.image_file_id
         %td= link_to('Alterar', edit_incident_source_path(@incident, source)) + " " + link_to('Apagar', incident_source_path(@incident, source), :method => :delete)
     %tr
       %td= link_to 'Adicionar fonte', new_incident_source_path(@incident)

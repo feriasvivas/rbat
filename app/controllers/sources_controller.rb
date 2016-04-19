@@ -35,7 +35,7 @@ class SourcesController < ApplicationController
   def destroy
     @source = Source.find params[:id]
     @source.delete
-    redirect_to indicent_path(params[:indicent_id])
+    redirect_to incident_path(params[:indicent_id])
   end
 
   private
