@@ -4,7 +4,7 @@
   %thead
     %th Nome
     %th Email
-    %th Supervisor
+    %th Perfil
     %th Liberado
     %th Ação
   %tbody
@@ -12,7 +12,7 @@
       %tr
         %td= link_to user.name, edit_user_path(user)
         %td= link_to user.email, edit_user_path(user)
-        %td= 'X' if user.supervisor?
+        %td= user.roles
         - if user.confirmation_sent_at
           %td Sim
         - else

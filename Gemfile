@@ -39,6 +39,8 @@ gem 'haml'
 gem "refile", require: "refile/rails"
 gem "refile-mini_magick"
 
+gem 'easy_roles'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

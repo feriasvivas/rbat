@@ -1,7 +1,8 @@
 %h1   Home
 
-= link_to 'Usuários', users_path
-%br
+- if current_user.is_admin?
+  = link_to 'Usuários', users_path
+  %br
 = link_to 'Categorias', categories_path
 %br
 = link_to 'Ocorrências', incidents_path

@@ -7,9 +7,13 @@
   = label :user, :email, 'e-mail'
   = text_field :user, :email
 
-  = label :user, :supervisor, 'Supervisor'
-  = check_box :user, :supervisor
+  = label :user, :roles, 'Perfil'
+  = radio_button_tag :roles, :researcher, @user.is_researcher?
+  Pesquisador
+  = radio_button_tag :roles, :supervisor, @user.is_supervisor?
+  Supervisor
+  = radio_button_tag :roles, :admin, @user.is_admin?
+  Administrador
 
   = submit_tag 'Salvar'
   = link_to 'Excluir', user_path(@user), :method => :delete
-  

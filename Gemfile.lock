@@ -61,6 +61,7 @@ GEM
     diff-lcs (1.2.5)
     domain_name (0.5.20160310)
       unf (>= 0.0.5, < 1.0.0)
+    easy_roles (1.2.0)
     erubis (2.7.0)
     execjs (2.6.0)
     globalid (0.3.6)
@@ -205,6 +206,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
+  easy_roles
   haml
   jbuilder (~> 2.0)
   jquery-rails

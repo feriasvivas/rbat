@@ -40,7 +40,7 @@
 = label :incident, :description, 'Descrição'
 = text_area :incident, :description, :size => '50x10'
 
-- if current_user.supervisor?
+- if current_user.is_supervisor?
   = label :incident, :purpose_id, 'Finalidade'
   = select :incident, :purpose_id, options_from_collection_for_select(@purposes, 'id', 'name', @purpose), include_blank: true
 
