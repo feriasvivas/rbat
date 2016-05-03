@@ -1,0 +1,13 @@
+%h2 Instituições
+
+%table
+  %thead
+    %th Nome
+    %th Ação
+  %tbody
+    - @institutions.each do |institution|
+      %tr
+        %td= link_to institution.name, edit_institution_path(institution)
+        %td= link_to 'Apagar', institution_path(institution), :method => :delete
+
+=link_to "Adicionar", new_institution_path

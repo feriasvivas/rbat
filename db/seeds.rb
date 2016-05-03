@@ -5719,3 +5719,5 @@ Experience.create(name: "Leigo")
 Experience.create(name: "Amador")
 Experience.create(name: "Experiente")
 Experience.create(name: "Profissional")
+
+Institution.create(name: "Associação Férias Vivas")
