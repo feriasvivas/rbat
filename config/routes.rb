@@ -17,6 +17,8 @@ Rails.application.routes.draw do
      resources :sources
    end
 
+   resources :institutions
+
    get 'cities/:id' => 'cities#index'
 
    get 'users/confirm/:id' => 'users#confirm', as: :confirm

@@ -7,6 +7,9 @@
   = label :user, :email, 'e-mail'
   = text_field :user, :email
 
+  = label :user, :institution_id, 'Instituição'
+  = select :user, :institution_id, options_from_collection_for_select(@institutions, 'id', 'name', @user.institution_id)
+
   = label :user, :roles, 'Perfil'
   = radio_button_tag :roles, :researcher, @user.is_researcher?
   Pesquisador

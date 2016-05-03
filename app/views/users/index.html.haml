@@ -4,6 +4,7 @@
   %thead
     %th Nome
     %th Email
+    %th Instituição
     %th Perfil
     %th Liberado
     %th Ação
@@ -12,6 +13,7 @@
       %tr
         %td= link_to user.name, edit_user_path(user)
         %td= link_to user.email, edit_user_path(user)
+        %td= user.institution.name if user.institution
         %td= user.roles
         - if user.confirmation_sent_at
           %td Sim
