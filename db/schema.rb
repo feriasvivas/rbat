@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160503011817) do
+ActiveRecord::Schema.define(version: 20160503015950) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -157,10 +157,12 @@ ActiveRecord::Schema.define(version: 20160503011817) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "roles",                  default: "--- []"
+    t.integer  "institution_id"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["institution_id"], name: "index_users_on_institution_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "victims", force: :cascade do |t|
