@@ -10,6 +10,19 @@
     %br
     = f.email_field :email
   .field
+    = f.label :institution
+    %br
+    = f.select :institution_id, options_from_collection_for_select(@institutions, 'id', 'name')
+  .field
+    = f.label :roles, 'Perfil'
+    = radio_button_tag :roles, :researcher
+    Pesquisador
+    = radio_button_tag :roles, :supervisor
+    Supervisor
+
+
+
+  .field
     = f.label :password, "Senha"
     - if @minimum_password_length
       %em
