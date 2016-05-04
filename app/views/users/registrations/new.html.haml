@@ -15,9 +15,9 @@
     = f.select :institution_id, options_from_collection_for_select(@institutions, 'id', 'name')
   .field
     = f.label :roles, 'Perfil'
-    = radio_button_tag :roles, :researcher
+    = f.radio_button :roles, 4
     Pesquisador
-    = radio_button_tag :roles, :supervisor
+    = f.radio_button :roles, 2
     Supervisor
 
 

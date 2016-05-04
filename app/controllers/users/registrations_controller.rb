@@ -9,10 +9,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
    end
 
   # POST /resource
-   def create
-     params[:roles] = "--- [#{params[:roles]}]"
-     super
-   end
+  #  def create
+  #    params[:roles] = "--- [#{params[:roles]}]"
+  #    super
+  #  end
 
   # GET /resource/edit
   # def edit

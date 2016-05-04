@@ -5,6 +5,12 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
-  easy_roles :roles
+  easy_roles :roles, method: :bitmask
+
+  ROLES = %w[admin supervisor pesquisador]
+
+  def roleLabel
+    ROLES[self.roles/2]
+  end
 
 end
