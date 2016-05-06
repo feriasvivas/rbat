@@ -19,7 +19,7 @@
 = label :victim, :physically_challenged, 'Limitação física'
 = yesNoNAselect :victim, :physically_challenged, @physically_challenged
 
-= label :victim, :experience_id, 'Experiência com turismo'
+= label :victim, :experience_id, 'Experiência do turista'
 = select :victim, :experience_id, options_from_collection_for_select(@experiences, 'id', 'name', @experience), include_blank: true
 
 
@@ -61,7 +61,7 @@
 = label :victim, :doctor_on_call, 'Médico de plantão'
 = yesNoNAselect :victim, :doctor_on_call, @doctor_on_call
 
-
+%br
 
 
 

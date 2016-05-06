@@ -40,6 +40,9 @@
 = label :incident, :description, 'Descrição'
 = text_area :incident, :description, :size => '50x10'
 
+= label_tag :tags, 'Tags'
+= text_field_tag :tags, tags2string(@tags), size: 50
+
 - if current_user.is_supervisor?
   = label :incident, :purpose_id, 'Finalidade'
   = select :incident, :purpose_id, options_from_collection_for_select(@purposes, 'id', 'name', @purpose), include_blank: true
@@ -68,9 +71,6 @@
 
 = label :incident, :adequacy_to_norms, 'Adequação às normas'
 = yesNoNAselect :incident, :adequacy_to_norms, @adequacy_to_norms
-
-= label_tag :tags, 'Tags'
-= text_field_tag :tags, tags2string(@tags), size: 50
 
 %br
 = submit_tag 'Salvar'
