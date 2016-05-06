@@ -11,7 +11,7 @@ var CityFilter = {
   },
   submit: function(state_id) {
     $.ajax({type: 'GET',
-            url: '/cities/'+state_id,  //no meu caso não é isso
+            url: '/cities/'+state_id,
             timeout: 5000,
             success: CityFilter.updateCities,
             error: function(xhrObj, textStatus, exception) {alert('Erro ao carregar cidades!\n'+exception);},

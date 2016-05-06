@@ -45,6 +45,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
    devise_parameter_sanitizer.for(:sign_up) << :name
    devise_parameter_sanitizer.for(:sign_up) << :institution_id
    devise_parameter_sanitizer.for(:sign_up) << :roles
+   devise_parameter_sanitizer.for(:sign_up) << :supervisor_id
   end
 
   # If you have extra params to permit, append them to the sanitizer.

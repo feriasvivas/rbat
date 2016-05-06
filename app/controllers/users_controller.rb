@@ -1,8 +1,17 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, unless: -> {request.xhr?}
 
   def index
     @users = User.all
+  end
+
+  def show
+    if request.xhr?
+      @users = User.where({institution_id: params[:id], roles: 2})
+      render :partial => 'users_select', :object => @users
+    else
+      @user = User.find(params[:id])
+    end
   end
 
   def edit

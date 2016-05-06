@@ -2,26 +2,20 @@
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = devise_error_messages!
   .field
-    = f.label :name
-    %br
+    = f.label :name, 'Nome'
     = f.text_field :name, autofocus: true
   .field
     = f.label :email
-    %br
     = f.email_field :email
   .field
-    = f.label :institution
-    %br
+    = f.label :roles, 'Perfil'
+    = f.select :roles, options_for_select([["Supervisor", 2], ["Pesquisador", 4]])
+  .field
+    = f.label :institution, 'Instituição'
     = f.select :institution_id, options_from_collection_for_select(@institutions, 'id', 'name')
   .field
-    = f.label :roles, 'Perfil'
-    = f.radio_button :roles, 4
-    Pesquisador
-    = f.radio_button :roles, 2
-    Supervisor
-
-
-
+    = f.label :supervisor
+    = f.select :supervisor_id, []
   .field
     = f.label :password, "Senha"
     - if @minimum_password_length
@@ -31,7 +25,6 @@
     = f.password_field :password, autocomplete: "off"
   .field
     = f.label :password_confirmation, "Confirmação da senha"
-    %br
     = f.password_field :password_confirmation, autocomplete: "off"
   .actions
     = f.submit "Enviar"
