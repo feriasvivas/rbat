@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def show
     if request.xhr?
-      @users = User.where({institution_id: params[:id], roles: 2})
+      @users = list_supervidors params[:id]
       render :partial => 'users_select', :object => @users
     else
       @user = User.find(params[:id])
@@ -17,6 +17,11 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     @institutions = Institution.all
+    if @user.is_pesquisador?
+      @supervisors = list_supervidors @user.institution_id
+    else
+      @supervisors = []
+    end
   end
 
   def update
@@ -45,7 +50,11 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :supervisor, :institution_id)
+    params.require(:user).permit(:name, :email, :supervisor, :institution_id, :roles, :supervisor_id)
+  end
+
+  def list_supervidors institution_id
+    User.where({institution_id: institution_id, roles: 2})
   end
 
 end

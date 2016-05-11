@@ -11,12 +11,12 @@
   = select :user, :institution_id, options_from_collection_for_select(@institutions, 'id', 'name', @user.institution_id)
 
   = label :user, :roles, 'Perfil'
-  = radio_button_tag :roles, :pesquisador, @user.is_pesquisador?
-  Pesquisador
-  = radio_button_tag :roles, :supervisor, @user.is_supervisor?
-  Supervisor
-  = radio_button_tag :roles, :admin, @user.is_admin?
-  Administrador
+  = select :user, :roles, options_for_select([["Administrador", 1], ["Supervisor", 2], ["Pesquisador", 4]], @user.roles)
+
+  = label :user, :supervisor_id, 'Supervidor'
+  = select :user, :supervisor_id, options_from_collection_for_select(@supervisors, 'id', 'name', @user.supervisor_id)
+
+  %br
 
   = submit_tag 'Salvar'
   = link_to 'Excluir', user_path(@user), :method => :delete
