@@ -72,17 +72,19 @@ class IncidentsController < ApplicationController
   end
 
   def tags2incident
-    formTags = params[:tags].split#.map{|e| e.strip!}
+    formTags = params[:tags].split(';').map{|e| e.strip}
     @incident.tags.each do |t|
       unless formTags.include? t.name
         @incident.tags.delete(t)
       end
     end
     formTags.each do |t|
-      tag = Tag.where(name: t)[0]
-      tag = Tag.new(name: t) unless tag
-      unless @incident.tags.include? tag
-        @incident.tags << tag
+      unless t.empty?
+        tag = Tag.where(name: t)[0]
+        tag = Tag.new(name: t) unless tag
+        unless @incident.tags.include? tag
+          @incident.tags << tag
+        end
       end
     end
   end

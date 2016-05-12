@@ -3,7 +3,7 @@ module IncidentsHelper
     a_tags = ''
     if tags
       tags.each do |t|
-        a_tags += (t.name + ' ')
+        a_tags += (t.name + '; ')
       end
     end
     a_tags
