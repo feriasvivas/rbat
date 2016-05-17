@@ -3,6 +3,7 @@
 %table
   %thead
     %tr
+      %th ID
       %th Data
       %th Cidade
       %th UF
@@ -13,6 +14,7 @@
   %tbody
     - @incidents.each do |incident|
       %tr
+        %td= incident.id
         %td= incident.date.strftime("%d/%m/%Y")
         - if incident.city != nil; city_name = incident.city.name; state_name = incident.city.state.name; end
         %td= city_name

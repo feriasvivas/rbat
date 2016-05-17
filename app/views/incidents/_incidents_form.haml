@@ -1,3 +1,6 @@
+= label :incident, :id, 'ID' if @incident
+= @incident.id if @incident
+
 = label :incident, :date, 'Data do acidente'
 = text_field :incident, :date, :value => @date
 
