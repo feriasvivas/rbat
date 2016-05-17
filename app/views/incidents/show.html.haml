@@ -98,6 +98,7 @@
 %table#victims
   %thead
     %tr
+      %th ID
       %th Nome
       %th Idade
       %th Gênero
@@ -110,6 +111,7 @@
   %tbody
     - @incident.victims.each do |victim|
       %tr
+        %td= victim.id
         %td= victim.name
         %td= victim.age
         %td= victim.gender
