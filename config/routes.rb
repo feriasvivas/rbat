@@ -21,7 +21,8 @@ Rails.application.routes.draw do
 
    get 'cities/:id' => 'cities#index'
 
-   get 'users/confirm/:id' => 'users#confirm', as: :confirm
+   get 'users/lock/:id' => 'users#lock', as: :lock
+   get 'users/unlock/:id' => 'users#unlock', as: :unlock
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

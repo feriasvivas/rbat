@@ -12,11 +12,8 @@
     - @users.each do |user|
       %tr
         %td= link_to user.name, edit_user_path(user)
-        %td= link_to user.email, edit_user_path(user)
+        %td= user.email
         %td= user.institution.name if user.institution
         %td= user.roleLabel
-        - if user.confirmation_sent_at
-          %td Sim
-        - else
-          %td Não
-        %td= link_to 'Liberar', confirm_url(user)
+        %td= user.access_locked? ? 'Não' : 'Sim'
+        %td= user.access_locked? ? link_to('Ativar', unlock_url(user)) : link_to('Desativar', lock_url(user))

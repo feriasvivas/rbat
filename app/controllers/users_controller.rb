@@ -42,9 +42,15 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
-  def confirm
+  def lock
     @user = User.find(params[:id])
-    @user.send_confirmation_instructions
+    @user.lock_access!
+    redirect_to users_path
+  end
+
+  def unlock
+    @user = User.find(params[:id])
+    @user.unlock_access!
     redirect_to users_path
   end
 
