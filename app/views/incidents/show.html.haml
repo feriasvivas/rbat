@@ -6,7 +6,7 @@
     = @incident.id
   %li
     Data:
-    = @incident.date.strftime("%d/%m/%Y")
+    = @incident.date.strftime("%d/%m/%Y") if @incident.date
   %li
     Cidade:
     - if @incident.city
