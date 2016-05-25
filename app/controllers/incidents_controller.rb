@@ -2,7 +2,15 @@ class IncidentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @incidents = Incident.all
+    case current_user.roles
+    when 1
+      @incidents = Incident.all
+    when 2
+      @subordinates = User.where(supervisor_id: current_user.id)
+      @incidents = Incident.where(user_id: @subordinates)
+    else
+      @incidents = Incident.where(user_id: current_user.id)
+    end
   end
 
   def show
@@ -47,7 +55,7 @@ class IncidentsController < ApplicationController
     @property_signaling = @incident.property_signaling
     @equipment_failure = @incident.equipment_failure
     @adequacy_to_norms = @incident.adequacy_to_norms
-    @date = @incident.date.strftime("%d/%m/%Y")
+    @date = @incident.date.strftime("%d/%m/%Y") if @incident.date
     @tags = @incident.tags
     if @incident.city
       @state = @incident.city.state_id
