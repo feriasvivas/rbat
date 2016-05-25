@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, unless: -> {request.xhr?}
-  before_filter :admin_required
+  before_filter :admin_required, unless: -> {request.xhr?}
 
   def index
     @users = User.all
