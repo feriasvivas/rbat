@@ -1,5 +1,6 @@
 class InstitutionsController < ApplicationController
   before_action :authenticate_user!
+  before_filter :admin_required, only: %w(create update)
 
   def index
     @institutions = Institution.all
