@@ -5721,3 +5721,5 @@ Experience.create(name: "Experiente")
 Experience.create(name: "Profissional")
 
 Institution.create(name: "Associação Férias Vivas")
+
+User.create(name: "Admin", email: "rbat@feriasvivas.org.br", roles: 1, password: "1q2w3e4r", confirmed_at: Time.now)

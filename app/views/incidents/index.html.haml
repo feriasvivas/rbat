@@ -1,4 +1,4 @@
-%h2 Ocorrêcnias
+%h2 Ocorrências
 
 %table
   %thead
@@ -9,7 +9,7 @@
       %th UF
       %th Categoria
       %th Sub-categoria
-      %th Acompanhamento AFV
+      %th Finalidade
       %th Mais detalhes
   %tbody
     - @incidents.each do |incident|
@@ -23,7 +23,7 @@
         %td= category
         - if incident.sub_category; sub_category = incident.sub_category.name; end
         %td= sub_category
-        %td= if incident.following; 'Sim'; else; 'Não'; end
+        %td= incident.finalidade.name if incident.finalidade
         %td= link_to "Mais...", incident_path(incident)
 
 = link_to "Adicionar", new_incident_path
