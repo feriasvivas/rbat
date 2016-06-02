@@ -77,7 +77,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: 'webmail-seguro.com.br/feriasvivas.org.br' }
+  config.action_mailer.default_url_options = { host: 'rbat.herokuapp.com' }
 
   config.action_mailer.delivery_method = :smtp
 
