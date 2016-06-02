@@ -77,7 +77,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: 'http://rbat.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'webmail-seguro.com.br/feriasvivas.org.br' }
 
   config.action_mailer.delivery_method = :smtp
 
@@ -86,8 +86,10 @@ Rails.application.configure do
     port: ENV["MAIL_PORT"],
     domain: ENV["MAIL_DOMAIN"],
     authentication: "plain",
-    enable_starttls_auto: true,
+    enable_starttls_auto: false,
     user_name: ENV["MAIL_USERNAME"],
     password: ENV["MAIL_PASSWORD"]
+    openssl_verify_mode: 'none'
   }
+
 end
