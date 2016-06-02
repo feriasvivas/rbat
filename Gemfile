@@ -41,13 +41,14 @@ gem "refile-mini_magick"
 
 gem 'easy_roles'
 
-gem 'pg'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
   gem 'foreman'
+  gem 'sqlite3'
 end
 
 group :development do
@@ -64,4 +65,5 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'pg'
 end
