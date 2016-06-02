@@ -47,7 +47,7 @@
 = text_field_tag :tags, tags2string(@tags), size: 50
 
 - if current_user.is_supervisor?
-  = label :incident, :purpose_id, 'Finalidade'
+  = label :incident, :purpose_id, 'Finalidade (validação)'
   = select :incident, :purpose_id, options_from_collection_for_select(@purposes, 'id', 'name', @purpose), include_blank: true
 
 %h3 Dados do local
