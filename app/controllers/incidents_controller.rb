@@ -75,7 +75,7 @@ class IncidentsController < ApplicationController
   end
 
   def destroy
-    @incident = Incident.find(param[:id])
+    @incident = Incident.find(params[:id])
     @incident.destroy
     redirect_to incidents_path
   end
