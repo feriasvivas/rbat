@@ -6,8 +6,9 @@ class IncidentsController < ApplicationController
     when 1
       @incidents = Incident.all
     when 2
-      @subordinates = User.where(supervisor_id: current_user.id)
-      @incidents = Incident.where(user_id: @subordinates)
+      user_ids = User.where(supervisor_id: current_user.id).map{ |e| e.id }
+      user_ids.insert(0, current_user.id)
+      @incidents = Incident.where(user_id: user_ids)
     else
       @incidents = Incident.where(user_id: current_user.id)
     end
