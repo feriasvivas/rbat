@@ -23,7 +23,7 @@
         %td= category
         - if incident.sub_category; sub_category = incident.sub_category.name; end
         %td= sub_category
-        %td= incident.finalidade.name if incident.finalidade
+        %td= incident.purpose.name if incident.purpose
         %td= link_to "Mais...", incident_path(incident)
 
 = link_to "Adicionar", new_incident_path
