@@ -13,12 +13,6 @@
 = label :victim, :severity_id, 'Gravidade'
 = select :victim, :severity_id, options_from_collection_for_select(@severities, 'id', 'name', @severity), include_blank: true
 
-= label :victim, :effect_alcohol, 'Sob efeito de álcool'
-= yesNoNAselect :victim, :effect_alcohol, @effect_alcohol
-
-= label :victim, :effect_drugs, 'Sob efeito de entorpecentes'
-= yesNoNAselect :victim, :effect_drugs, @effect_drugs
-
 = label :victim, :physically_challenged, 'Limitação física'
 = yesNoNAselect :victim, :physically_challenged, @physically_challenged
 

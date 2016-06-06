@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160606183301) do
+ActiveRecord::Schema.define(version: 20160606183809) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -110,10 +110,10 @@ ActiveRecord::Schema.define(version: 20160606183301) do
     t.string   "name"
     t.string   "url"
     t.string   "text"
-    t.string   "file"
+    t.string   "image_file_id"
     t.integer  "incident_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "states", force: :cascade do |t|
@@ -168,7 +168,27 @@ ActiveRecord::Schema.define(version: 20160606183301) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["supervisor_id"], name: "index_users_on_supervisor_id"
 
-# Could not dump table "victims" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "victims", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "age"
+    t.string   "gender"
+    t.integer  "severity_id"
+    t.integer  "physically_challenged"
+    t.integer  "experience_id"
+    t.integer  "incident_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "equipment"
+    t.integer  "tourist_imprudence"
+    t.integer  "guide_malpractice"
+    t.integer  "guide_negligence"
+    t.integer  "climate_conditions"
+    t.string   "incident_report_number"
+    t.string   "process_number"
+    t.integer  "first_aid_conducted"
+    t.integer  "first_aid_equipment"
+    t.integer  "staff_trained_in_first_aid"
+    t.integer  "doctor_on_call"
+  end
 
 end
