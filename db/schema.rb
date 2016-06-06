@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160525200040) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20160606183301) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -36,7 +33,7 @@ ActiveRecord::Schema.define(version: 20160525200040) do
     t.datetime "updated_at",           null: false
   end
 
-  add_index "cities", ["state_id"], name: "index_cities_on_state_id", using: :btree
+  add_index "cities", ["state_id"], name: "index_cities_on_state_id"
 
   create_table "experiences", force: :cascade do |t|
     t.string   "name"
@@ -57,12 +54,11 @@ ActiveRecord::Schema.define(version: 20160525200040) do
     t.integer  "chapter_id"
     t.integer  "purpose_id"
     t.string   "proposal_for_action"
-    t.boolean  "following",             default: false, null: false
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.boolean  "following",            default: false, null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.integer  "occurrence_factor_id"
     t.integer  "property_usage_id"
-    t.string   "property_jurisdiction"
     t.string   "property_company"
     t.string   "tourist_guide"
     t.integer  "property_signaling"
@@ -70,15 +66,15 @@ ActiveRecord::Schema.define(version: 20160525200040) do
     t.integer  "adequacy_to_norms"
   end
 
-  add_index "incidents", ["occurrence_factor_id"], name: "index_incidents_on_occurrence_factor_id", using: :btree
+  add_index "incidents", ["occurrence_factor_id"], name: "index_incidents_on_occurrence_factor_id"
 
   create_table "incidents_tags", id: false, force: :cascade do |t|
     t.integer "incident_id"
     t.integer "tag_id"
   end
 
-  add_index "incidents_tags", ["incident_id"], name: "index_incidents_tags_on_incident_id", using: :btree
-  add_index "incidents_tags", ["tag_id"], name: "index_incidents_tags_on_tag_id", using: :btree
+  add_index "incidents_tags", ["incident_id"], name: "index_incidents_tags_on_incident_id"
+  add_index "incidents_tags", ["tag_id"], name: "index_incidents_tags_on_tag_id"
 
   create_table "institutions", force: :cascade do |t|
     t.string   "name"
@@ -114,10 +110,10 @@ ActiveRecord::Schema.define(version: 20160525200040) do
     t.string   "name"
     t.string   "url"
     t.string   "text"
-    t.string   "image_file_id"
+    t.string   "file"
     t.integer  "incident_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "states", force: :cascade do |t|
@@ -133,7 +129,7 @@ ActiveRecord::Schema.define(version: 20160525200040) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "sub_categories", ["category_id"], name: "index_sub_categories_on_category_id", using: :btree
+  add_index "sub_categories", ["category_id"], name: "index_sub_categories_on_category_id"
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
@@ -166,38 +162,13 @@ ActiveRecord::Schema.define(version: 20160525200040) do
     t.string   "unconfirmed_email"
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["institution_id"], name: "index_users_on_institution_id", using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["supervisor_id"], name: "index_users_on_supervisor_id", using: :btree
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["institution_id"], name: "index_users_on_institution_id"
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["supervisor_id"], name: "index_users_on_supervisor_id"
 
-  create_table "victims", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "age"
-    t.string   "gender"
-    t.integer  "severity_id"
-    t.integer  "effect_alcohol"
-    t.integer  "effect_drugs"
-    t.integer  "physically_challenged"
-    t.integer  "experience_id"
-    t.integer  "incident_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.integer  "equipment"
-    t.integer  "tourist_imprudence"
-    t.integer  "guide_malpractice"
-    t.integer  "guide_negligence"
-    t.integer  "climate_conditions"
-    t.string   "incident_report_number"
-    t.string   "process_number"
-    t.integer  "first_aid_conducted"
-    t.integer  "first_aid_equipment"
-    t.integer  "staff_trained_in_first_aid"
-    t.integer  "doctor_on_call"
-  end
+# Could not dump table "victims" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
-  add_foreign_key "cities", "states"
-  add_foreign_key "incidents", "occurrence_factors"
-  add_foreign_key "sub_categories", "categories"
 end

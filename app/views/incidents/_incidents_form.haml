@@ -54,9 +54,6 @@
 = label :incident, :property_usage_id, 'Uso da propriedade'
 = select :incident, :property_usage_id, options_from_collection_for_select(@property_usages, 'id', 'name', @property_usage), include_blank: true
 
-= label :incident, :property_jurisdiction, 'Jurisdição'
-= text_field :incident, :property_jurisdiction
-
 = label :incident, :property_company, 'Empresa atuante'
 = text_field :incident, :property_company
 
