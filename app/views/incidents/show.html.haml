@@ -19,13 +19,13 @@
     CEP:
     = @incident.post_code
   %li
-    Localização:
+    Localização (Latitude/Logitude):
     = @incident.location
   %li
     Polo turístico:
     = @incident.tourist_attraction
   %li
-    Contato:
+    Contatos:
     = simple_format @incident.contact
   %li
     Categoria:
@@ -51,7 +51,7 @@
     Proposta de ação:
     = @incident.proposal_for_action
   %li
-    Acompanhamento AFV:
+    Acompanhamento pela Férias Vivas:
     - if @incident.following
       Sim
     - else
@@ -79,13 +79,13 @@
     Guia contratado:
     = @incident.tourist_guide
   %li
-    Sinalização:
+    Havia sinalização sobre risco?
     = yesNoNA2text @incident.property_signaling
   %li
-    Falha de equipamento:
+    Houve falha de equipamento?
     = yesNoNA2text @incident.equipment_failure
   %li
-    Adequação às normas:
+    A atividade estava em acordo com as normas de segurança?
     = yesNoNA2text @incident.adequacy_to_norms
 
 %h3 Vítimas

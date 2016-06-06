@@ -4,6 +4,9 @@
 = label :incident, :date, 'Data do acidente'
 = text_field :incident, :date, :value => @date
 
+= label :incident, :description, 'Descrição'
+= text_area :incident, :description, :size => '50x10'
+
 = label :incident, :state, 'UF'
 = select_tag :state, options_from_collection_for_select(@states, 'id', 'name', @state), include_blank: true
 
@@ -16,13 +19,13 @@
 = label :incident, :post_code, 'CEP'
 = text_field :incident, :post_code
 
-= label :incident, :location, 'Localização'
+= label :incident, :location, 'Localização (Latitude/Longitude)'
 = text_field :incident, :location
 
 = label :incident, :tourist_attraction, 'Polo turístico'
 = text_field :incident, :tourist_attraction
 
-= label :incident, :contact, 'Contato'
+= label :incident, :contact, 'Contatos'
 = text_area :incident, :contact, :size => '50x10'
 
 = label :incident, :sub_category_id, 'Categoria/Sub-categoria'
@@ -37,11 +40,8 @@
 = label :incident, :proposal_for_action, 'Proposta de ação'
 = text_field :incident, :proposal_for_action
 
-= label :incident, :following, 'Acompanhamento AFV'
+= label :incident, :following, 'Acompanhamento pela Férias Vivas'
 = check_box :incident, :following
-
-= label :incident, :description, 'Descrição'
-= text_area :incident, :description, :size => '50x10'
 
 = label_tag :tags, 'Tags'
 = text_field_tag :tags, tags2string(@tags), size: 50
@@ -60,13 +60,13 @@
 = label :incident, :tourist_guide, 'Guia contratado'
 = text_field :incident, :tourist_guide
 
-= label :incident, :property_signaling, 'Sinalização'
+= label :incident, :property_signaling, 'Havia sinalização sobre risco?'
 = yesNoNAselect :incident, :property_signaling, @property_signaling
 
-= label :incident, :equipment_failure, 'Falha de equipamento'
+= label :incident, :equipment_failure, 'Houve falha de equipamento?'
 = yesNoNAselect :incident, :equipment_failure, @equipment_failure
 
-= label :incident, :adequacy_to_norms, 'Adequação às normas'
+= label :incident, :adequacy_to_norms, 'A atividade estava em acordo com as normas de segurança?'
 = yesNoNAselect :incident, :adequacy_to_norms, @adequacy_to_norms
 
 %br
