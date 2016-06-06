@@ -7,12 +7,13 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    - if flash[:notice]
-      #notice.message= flash[:notice]
-    - elsif flash[:warning]
-      #warning.message= flash[:warning]
-    - if user_signed_in?
-      = link_to 'Home', root_path
-      = link_to 'Meus dados', edit_user_registration_path
-      = link_to 'Sair', destroy_user_session_path,  :method => :delete
-    = yield
+    %div{:style => "margin-left:45px; width:95%;"}
+      - if flash[:notice]
+        #notice.message= flash[:notice]
+      - elsif flash[:warning]
+        #warning.message= flash[:warning]
+      - if user_signed_in?
+        = link_to 'Home', root_path
+        = link_to 'Meus dados', edit_user_registration_path
+        = link_to 'Sair', destroy_user_session_path,  :method => :delete
+      = yield
