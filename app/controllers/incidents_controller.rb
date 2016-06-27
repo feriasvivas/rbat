@@ -4,13 +4,13 @@ class IncidentsController < ApplicationController
   def index
     case current_user.roles
     when 1
-      @incidents = Incident.all
+      @incidents = Incident.page(params[:page])
     when 2
       user_ids = User.where(supervisor_id: current_user.id).map{ |e| e.id }
       user_ids.insert(0, current_user.id)
-      @incidents = Incident.where(user_id: user_ids)
+      @incidents = Incident.where(user_id: user_ids).page(params[:page])
     else
-      @incidents = Incident.where(user_id: current_user.id)
+      @incidents = Incident.where(user_id: current_user.id).page(params[:page])
     end
   end
 
