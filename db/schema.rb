@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160606183809) do
+ActiveRecord::Schema.define(version: 20160627203927) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 20160606183809) do
     t.string   "contact"
     t.integer  "sub_category_id"
     t.integer  "chapter_id"
-    t.integer  "purpose_id"
     t.string   "proposal_for_action"
     t.boolean  "following",            default: false, null: false
     t.datetime "created_at",                           null: false
@@ -64,6 +63,7 @@ ActiveRecord::Schema.define(version: 20160606183809) do
     t.integer  "property_signaling"
     t.integer  "equipment_failure"
     t.integer  "adequacy_to_norms"
+    t.boolean  "verified"
   end
 
   add_index "incidents", ["occurrence_factor_id"], name: "index_incidents_on_occurrence_factor_id"
@@ -89,12 +89,6 @@ ActiveRecord::Schema.define(version: 20160606183809) do
   end
 
   create_table "property_usages", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "purposes", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -160,6 +154,7 @@ ActiveRecord::Schema.define(version: 20160606183809) do
     t.integer  "failed_attempts",        default: 0,  null: false
     t.datetime "locked_at"
     t.string   "unconfirmed_email"
+    t.integer  "purpose_id"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

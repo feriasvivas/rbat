@@ -43,12 +43,12 @@
 = label :incident, :following, 'Acompanhamento pela Férias Vivas'
 = check_box :incident, :following
 
-= label_tag :tags, 'Tags'
+= label_tag :tags, 'Palavras-chave (separadas por ponto e vírgula)'
 = text_field_tag :tags, tags2string(@tags), size: 50
 
 - if current_user.is_supervisor?
-  = label :incident, :purpose_id, 'Finalidade (validação)'
-  = select :incident, :purpose_id, options_from_collection_for_select(@purposes, 'id', 'name', @purpose), include_blank: true
+  = label :incident, :verified, 'Validado'
+  = check_box :incident, :verified
 
 %h3 Dados do local
 = label :incident, :property_usage_id, 'Uso da propriedade'

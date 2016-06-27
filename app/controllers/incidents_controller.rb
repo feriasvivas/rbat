@@ -44,11 +44,9 @@ class IncidentsController < ApplicationController
     @states = State.all
     @categories = Category.all
     @chapters = Chapter.all
-    @purposes = Purpose.all
     @occurrence_factors = OccurrenceFactor.all
     @property_usages = PropertyUsage.all
     @chapter = @incident.chapter_id
-    @purpose = @incident.purpose_id
     @occurrence_factor = @incident.occurrence_factor_id
     @sub_category = @incident.sub_category_id
     @city = @incident.city_id
