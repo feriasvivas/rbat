@@ -44,9 +44,11 @@
     - if @incident.chapter
       = @incident.chapter.name
   %li
-    Finalidade:
-    - if @incident.purpose
-      = @incident.purpose.name
+    Validado:
+    - if @incident.verified
+      Sim
+    - else
+      Não
   %li
     Proposta de ação:
     = @incident.proposal_for_action
@@ -60,7 +62,7 @@
     Responsável:
     = @incident.user.name
   %li
-    Tags:
+    Palavras-chave:
     = tags2string(@incident.tags)
 
 %h3 Descrição:
