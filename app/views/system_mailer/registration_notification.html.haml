@@ -1,8 +1,13 @@
 %p
   Novo usuário cadastrado!
 
-%p Nome: @user.name
-%p Email: @user.email
-%p Instituição: @user.institution.name
-%p Perfil: @user.roleLabel
-%p Supervisor: @user.supervisor.name if @user.supervisor
+%p Nome:
+= @user.name
+%p Email:
+= @user.email
+%p Instituição:
+= @user.institution.name
+%p Perfil:
+= @user.roleLabel
+%p Supervisor:
+= @user.supervisor.name if @user.supervisor

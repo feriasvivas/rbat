@@ -12,7 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     def create
   #    params[:roles] = "--- [#{params[:roles]}]"
       super
-      SystemMailer.registration_notification(resource)
+      SystemMailer.registration_notification(resource).deliver_now
     end
 
   # GET /resource/edit
