@@ -23,7 +23,7 @@ class IncidentsController < ApplicationController
     @incident.user_id = current_user.id
     tags2incident
     if @incident.save
-      redirect_to incidents_path
+      redirect_to incident_path(@incident)
     else
       render 'new'
     end
