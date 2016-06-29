@@ -1,11 +1,18 @@
 %h2 Categoria
 
+= link_to 'Editar', edit_category_path(@category)
+= link_to 'Apagar', category_path(@category), :method => :delete
+= link_to 'Voltar', categories_path
+
 %ul#details
   %li
     Nome:
     = @category.name
 
 %h3 Sub-categorias
+
+= link_to 'Adicionar', new_category_sub_category_path(@category)
+
 %table
   %thead
     %tr
@@ -16,9 +23,3 @@
       %tr
         %td= link_to sub_category.name, edit_category_sub_category_path(@category, sub_category)
         %td= link_to 'Apagar', category_sub_category_path(@category, sub_category), :method => :delete
-    %tr
-      %td= link_to 'Adicionar', new_category_sub_category_path(@category)
-
-= link_to 'Editar', edit_category_path(@category)
-= link_to 'Apagar', category_path(@category), :method => :delete
-= link_to 'Voltar', categories_path

@@ -1,5 +1,9 @@
 %h2 Detalhes da ocorrência
 
+= link_to 'Editar', edit_incident_path(@incident)
+= link_to 'Apagar', incident_path(@incident), :method => :delete
+= link_to 'Voltar para listagem', incidents_path
+
 %ul#details
   %li
     ID:
@@ -91,6 +95,9 @@
     = yesNoNA2text @incident.adequacy_to_norms
 
 %h3 Vítimas
+
+= link_to 'Adicionar vítima', new_incident_victim_path(@incident)
+
 %table#victims
   %thead
     %tr
@@ -113,10 +120,11 @@
         %td= yesNoNA2text victim.physically_challenged
         %td= victim.experience.name if victim.experience
         %td= link_to('Alterar', edit_incident_victim_path(@incident, victim)) + " " + link_to('Apagar', incident_victim_path(@incident, victim), :method => :delete)
-    %tr
-      %td= link_to 'Adicionar vítima', new_incident_victim_path(@incident)
 
 %h3 Fontes
+
+= link_to 'Adicionar fonte', new_incident_source_path(@incident)
+
 %table#sources
   %thead
     %tr
@@ -130,9 +138,3 @@
         %td= content_tag(:a, source.url, :href => source.url)
         -#%td= image_tag(attachment_url(source, :image_file, 300, 300, format: "jpg")) if source.image_file_id
         %td= link_to('Alterar', edit_incident_source_path(@incident, source)) + " " + link_to('Apagar', incident_source_path(@incident, source), :method => :delete)
-    %tr
-      %td= link_to 'Adicionar fonte', new_incident_source_path(@incident)
-
-= link_to 'Editar', edit_incident_path(@incident)
-= link_to 'Apagar', incident_path(@incident), :method => :delete
-= link_to 'Voltar para listagem', incidents_path
