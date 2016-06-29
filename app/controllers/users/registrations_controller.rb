@@ -11,6 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
     def create
   #    params[:roles] = "--- [#{params[:roles]}]"
+      @institutions = Institution.all
       super
       SystemMailer.registration_notification(resource).deliver_now
     end
