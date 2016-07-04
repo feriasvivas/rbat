@@ -1,5 +1,6 @@
 class IncidentsController < ApplicationController
   before_action :authenticate_user!
+  respond_to :xlsx, :html
 
   def index
     case current_user.roles
@@ -11,6 +12,11 @@ class IncidentsController < ApplicationController
       @incidents = Incident.where(user_id: user_ids).page(params[:page])
     else
       @incidents = Incident.where(user_id: current_user.id).page(params[:page])
+    end
+
+    respond_to do |format|
+      format.html
+      format.xlsx { render xlsx: :index, filename: "rbat_incidents" }
     end
   end
 
