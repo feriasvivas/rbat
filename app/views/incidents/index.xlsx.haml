@@ -1,0 +1,25 @@
+%table
+  %thead
+    %tr
+      %td Data
+      %td UF
+      %td Cidade
+      %td Vítima
+  %tbody
+    - @incidents.each do |incident|
+      - if incident.victims.length > 0
+        - incident.victims.each do |victim|
+          %tr
+            %td= incident.date.strftime("%d/%m/%Y") if incident.date
+            %td= incident.city.state.name if incident.city
+            %td= incident.city.name if incident.city
+            %td= victim.name
+      - else
+        %tr
+          %td= incident.date.strftime("%d/%m/%Y") if incident.date
+          %td= incident.city.state.name if incident.city
+          %td= incident.city.name if incident.city
+          %td= ''
+  %tfoot
+    %tr
+      %td(colspan="4")

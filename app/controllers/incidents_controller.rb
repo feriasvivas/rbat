@@ -1,16 +1,22 @@
 class IncidentsController < ApplicationController
   before_action :authenticate_user!
+  respond_to :xlsx, :html
 
   def index
     case current_user.roles
     when 1
-      @incidents = Incident.page(params[:page])
+      @incidents = Incident.all
     when 2
       user_ids = User.where(supervisor_id: current_user.id).map{ |e| e.id }
       user_ids.insert(0, current_user.id)
-      @incidents = Incident.where(user_id: user_ids).page(params[:page])
+      @incidents = Incident.where(user_id: user_ids)
     else
-      @incidents = Incident.where(user_id: current_user.id).page(params[:page])
+      @incidents = Incident.where(user_id: current_user.id)
+    end
+
+    respond_to do |format|
+      format.html {@incidents = @incidents.page(params[:page])}
+      format.xlsx { render xlsx: :index, filename: "rbat_incidents" }
     end
   end
 
