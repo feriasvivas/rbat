@@ -1,25 +1,44 @@
 %table
   %thead
     %tr
-      %td Data
-      %td UF
-      %td Cidade
-      %td Vítima
+      %th ID_Ocorrência
+      %th Pesquisador
+      %th Supervisor
+      %th Data
+      %th Ano
+      %th UF
+      %th Cidade
+      %th CEP
+      %th Localização
+      %th Polo turístico
+      %th Contatos
+      %th Categoria
+      %th sub-categoria
+      %th Fator de ocorrência
+      %th Capítulo
+      %th Proposta de ação
+      %th Acompanhamento AFV
+      %th Palavras-chave
+      %th Validado
+      %th Uso da propriedade
+      %th Empresa atuante
+      %th Guia contratado
+      %th Havia sinalização de risco?
+      %th Houve falha de equipamento?
+      %th A atividade estava em acordo com as normas de segurança?
+
+
+      %th Vítima
   %tbody
     - @incidents.each do |incident|
       - if incident.victims.length > 0
         - incident.victims.each do |victim|
           %tr
-            %td= incident.date.strftime("%d/%m/%Y") if incident.date
-            %td= incident.city.state.name if incident.city
-            %td= incident.city.name if incident.city
+            = render 'export', incident: incident
             %td= victim.name
       - else
         %tr
-          %td= incident.date.strftime("%d/%m/%Y") if incident.date
-          %td= incident.city.state.name if incident.city
-          %td= incident.city.name if incident.city
-          %td= ''
+          = render 'export', incident: incident
   %tfoot
     %tr
       %td(colspan="4")
