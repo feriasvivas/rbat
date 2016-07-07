@@ -18,6 +18,11 @@ class IncidentsController < ApplicationController
       format.html {@incidents = @incidents.page(params[:page])}
       format.xlsx { render xlsx: :index, filename: "rbat_incidents" }
     end
+
+    respond_to do |format|
+      format.html
+      format.xlsx { render xlsx: :index, filename: "rbat_incidents" }
+    end
   end
 
   def show
