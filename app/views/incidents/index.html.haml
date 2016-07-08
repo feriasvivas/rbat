@@ -3,7 +3,7 @@
 = link_to "Adicionar", new_incident_path
 = link_to "Exportar XLSX", incidents_path(format: :xlsx)
 
-%table
+%table{:class => "table table-striped"}
   %thead
     %tr
       %th ID
