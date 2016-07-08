@@ -13,7 +13,12 @@
       - elsif flash[:warning]
         #warning.message= flash[:warning]
       - if user_signed_in?
-        = link_to 'Home', root_path
+        - if current_user.is_admin?
+          = link_to 'Usuários', users_path
+          = link_to 'Instituições', institutions_path
+          = link_to 'Categorias', categories_path
+        = link_to 'Ocorrências', incidents_path
+
         = link_to 'Meus dados', edit_user_registration_path
         = link_to 'Sair', destroy_user_session_path,  :method => :delete
       = yield
