@@ -29,6 +29,7 @@
 
       %th ID_Vítima
       %th Nome
+      %th Iniciais
       %th Idade
       %th Gênero
       %th Gravidade
@@ -53,6 +54,7 @@
             = render 'export', incident: incident
             %td= victim.id
             %td= victim.name
+            %td= initials(victim.name)
             %td= victim.age
             %td= victim.gender
             %td= victim.severity.name if victim.severity
