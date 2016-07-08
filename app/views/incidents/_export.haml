@@ -1,5 +1,5 @@
 %td= incident.id
-%td= incident.user.name
+%td= incident.user.name if incident.user
 %td= incident.user.supervisor.name if incident.user.supervisor
 %td= incident.date.strftime("%d/%m/%Y") if incident.date
 %td= incident.date.strftime("%Y") if incident.date
