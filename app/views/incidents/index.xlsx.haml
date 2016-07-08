@@ -27,15 +27,48 @@
       %th Houve falha de equipamento?
       %th A atividade estava em acordo com as normas de segurança?
 
-
-      %th Vítima
+      %th ID_Vítima
+      %th Nome
+      %th Idade
+      %th Gênero
+      %th Gravidade
+      %th Limitação física
+      %th Experiência turística
+      %th Equipamento de segurança da atividade
+      %th Imprudêcnia do turista
+      %th Imperícia do prestador
+      %th Negligência do prestador
+      %th Condições climáticas
+      %th Boletim de ocorrência
+      %th Processo judicial
+      %th Realização de primeiros socorros
+      %th Existência de equipamentos de primeiros socorros
+      %th Funcionários capacitados como socorristas
+      %th Médico de plantão
   %tbody
     - @incidents.each do |incident|
       - if incident.victims.length > 0
         - incident.victims.each do |victim|
           %tr
             = render 'export', incident: incident
+            %td= victim.id
             %td= victim.name
+            %td= victim.age
+            %td= victim.gender
+            %td= victim.severity.name if victim.severity
+            %td= yesNoNA2text victim.physically_challenged
+            %td= victim.experience.name if victim.experience
+            %td= yesNoNA2text victim.equipment
+            %td= yesNoNA2text victim.tourist_imprudence
+            %td= yesNoNA2text victim.guide_malpractice
+            %td= yesNoNA2text victim.guide_negligence
+            %td= yesNoNA2text victim.climate_conditions
+            %td= victim.incident_report_number
+            %td= victim.process_number
+            %td= yesNoNA2text victim.first_aid_conducted
+            %td= yesNoNA2text victim.first_aid_equipment
+            %td= yesNoNA2text victim.staff_trained_in_first_aid
+            %td= yesNoNA2text victim.doctor_on_call
       - else
         %tr
           = render 'export', incident: incident
