@@ -17,7 +17,7 @@
 %td= incident.following ? 'Sim' : 'Não'
 %td= tags2string incident.tags
 %td= incident.verified ? 'Sim' : "Não"
-%td= incident.property_usage
+%td= incident.property_usage.name if incident.property_usage
 %td= incident.property_company
 %td= incident.tourist_guide
 %td= yesNoNA2text incident.property_signaling
