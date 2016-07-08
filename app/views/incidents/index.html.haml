@@ -20,7 +20,7 @@
     - @incidents.each do |incident|
       %tr
         %td= incident.id
-        %td= incident.user.name
+        %td= incident.user.name if incident.user
         %td= incident.date.strftime("%d/%m/%Y") if incident.date
         - if incident.city != nil; city_name = incident.city.name; state_name = incident.city.state.name; end
         %td= city_name
