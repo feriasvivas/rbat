@@ -1,31 +1,37 @@
-%h2 Registro
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :name, 'Nome'
-    = f.text_field :name, autofocus: true
-  .field
-    = f.label :email
-    = f.email_field :email
-  .field
-    = f.label :roles, 'Perfil'
-    = f.select :roles, options_for_select([["Supervisor", 2], ["Pesquisador", 4]])
-  .field
-    = f.label :institution, 'Instituição'
-    = f.select :institution_id, options_from_collection_for_select(@institutions, 'id', 'name')
-  .field
-    = f.label :supervisor
-    = f.select :supervisor_id, []
-  .field
-    = f.label :password, "Senha"
-    - if @minimum_password_length
-      %em
-        (no mínimo #{@minimum_password_length} caracteres)
-    %br
-    = f.password_field :password, autocomplete: "off"
-  .field
-    = f.label :password_confirmation, "Confirmação da senha"
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .actions
-    = f.submit "Enviar"
-= render "users/shared/links"
+%div{:class => "bg-login"}  
+  %div{:class => "row"}  
+    %div{:class => "col-sm-8 col-sm-offset-2 form-box"}
+      %h1
+        %strong Registro
+      .sign-in-form
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = devise_error_messages!
+          .form-group
+            = f.label :name, 'Nome'
+            = f.text_field :name, autofocus: true, :class => "form-control"
+          .form-group 
+            = f.label :email
+            = f.email_field :email, :class => "form-control"
+          .form-group
+            = f.label :roles, 'Perfil'
+            = f.select :roles, options_for_select([["Supervisor", 2], ["Pesquisador", 4]]), :class => "form-control"
+          .form-group
+            = f.label :institution, 'Instituição'
+            = f.select :institution_id, options_from_collection_for_select(@institutions, 'id', 'name')
+          .form-group
+            = f.label :supervisor
+            = f.select :supervisor_id, [], :class => "form-control"
+          .form-group
+            = f.label :password, "Senha"
+            - if @minimum_password_length
+              %em
+                (no mínimo #{@minimum_password_length} caracteres)
+            %br
+            = f.password_field :password, autocomplete: "off", :class => "form-control"
+          .form-group
+            = f.label :password_confirmation, "Confirmação da senha"
+            = f.password_field :password_confirmation, autocomplete: "off", :class => "form-control"
+          .form-group
+            .actions
+              = f.submit "Enviar", :class => "btn btn-lg btn-info"
+        = render "users/shared/links"

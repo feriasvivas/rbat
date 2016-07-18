@@ -7,7 +7,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    %div{:class => "container"}
+    %div{:class => "top-content"}
       - if flash[:notice]
         #notice.message= flash[:notice]
       - elsif flash[:warning]
@@ -22,3 +22,15 @@
         = link_to 'Meus dados', edit_user_registration_path
         = link_to 'Sair', destroy_user_session_path,  :method => :delete
       = yield
+    %footer{:id => "footer", :class => "fusion-footer-copyright-area"}
+      %div{:class => "row"}
+        %div{:class => "col-sm-8 col-sm-offset-2 text"}
+          %p
+            Copyright 2016  
+            = succeed "| All Rights Reserved" do
+              %a{:href => "http://http://www.feriasvivas.org.br/"}
+                %strong Associação Férias Vivas
+        %div{:class => "col-sm-8 col-sm-offset-2 footer-links"}
+
+
+  
