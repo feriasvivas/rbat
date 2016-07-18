@@ -8,20 +8,21 @@
     = csrf_meta_tags
   %body
     %div{:class => "top-content"}
-      - if flash[:notice]
-        #notice.message= flash[:notice]
-      - elsif flash[:warning]
-        #warning.message= flash[:warning]
-      - if user_signed_in?
-        - if current_user.is_admin?
-          = link_to 'Usuários', users_path
-          = link_to 'Instituições', institutions_path
-          = link_to 'Categorias', categories_path
-        = link_to 'Ocorrências', incidents_path
-        %span{:class => "glyphicon glyphicon-star", :ariahidden => "true"}
-        = link_to 'Meus dados', edit_user_registration_path
-        = link_to 'Sair', destroy_user_session_path,  :method => :delete
-      = yield
+      %div{:class => "container"}
+        - if flash[:notice]
+          #notice.message= flash[:notice]
+        - elsif flash[:warning]
+          #warning.message= flash[:warning]
+        - if user_signed_in?
+          - if current_user.is_admin?
+            = link_to 'Usuários', users_path
+            = link_to 'Instituições', institutions_path
+            = link_to 'Categorias', categories_path
+          = link_to 'Ocorrências', incidents_path
+          %span{:class => "glyphicon glyphicon-star", :ariahidden => "true"}
+          = link_to 'Meus dados', edit_user_registration_path
+          = link_to 'Sair', destroy_user_session_path,  :method => :delete
+        = yield
     %footer{:id => "footer", :class => "fusion-footer-copyright-area"}
       %div{:class => "row"}
         %div{:class => "col-sm-8 col-sm-offset-2 text"}
