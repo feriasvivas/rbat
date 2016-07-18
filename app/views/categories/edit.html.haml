@@ -1,4 +1,5 @@
 %h2 Atualizar categoria
+.container.bgwhite
 
-= form_tag category_path(@category), :method => :put do
-  = render :partial => 'categories_form'
+  = form_tag category_path(@category), :method => :put do
+    = render :partial => 'categories_form'
