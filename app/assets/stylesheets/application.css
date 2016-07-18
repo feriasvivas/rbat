@@ -6841,6 +6841,17 @@ input {
   color: #000;
 }
 
+
+/* menu ferias vivas  */
+.navbar-default .navbar-nav > li > a {
+  font-size: 16px;
+  color: #fff;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #19b9e7;
+  background-color: #fff;
+}
+
 /******* user sessions session new registrations new edit *******/
 .form-box {
   padding-top: 50px;
