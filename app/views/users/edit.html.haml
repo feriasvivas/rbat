@@ -1,22 +1,23 @@
 %h2 Atualizar usuário
+.container.bgwhite.col-sm-6.col-sm-offset-3
+  =form_tag user_path(@user), :class => "form-meu", :method => :put do
+    .form-group
+      = label :user, :name, 'Nome'
+      = text_field :user, :name, :class => "form-control"
+    .form-group
+      = label :user, :email, 'e-mail'
+      = text_field :user, :email, :class => "form-control"
+    .form-group
+      = label :user, :institution_id, 'Instituição'
+      = select :user, :institution_id, options_from_collection_for_select(@institutions, 'id', 'name', @user.institution_id)
+    .form-group
+      = label :user, :roles, 'Perfil'
+      = select :user, :roles, options_for_select([["Administrador", 1], ["Supervisor", 2], ["Pesquisador", 4]], @user.roles)
+    .form-group
+      = label :user, :supervisor_id, 'Supervidor'
+      = select :user, :supervisor_id, options_from_collection_for_select(@supervisors, 'id', 'name', @user.supervisor_id)
 
-=form_tag user_path(@user), :method => :put do
-  = label :user, :name, 'Nome'
-  = text_field :user, :name
+    %br
 
-  = label :user, :email, 'e-mail'
-  = text_field :user, :email
-
-  = label :user, :institution_id, 'Instituição'
-  = select :user, :institution_id, options_from_collection_for_select(@institutions, 'id', 'name', @user.institution_id)
-
-  = label :user, :roles, 'Perfil'
-  = select :user, :roles, options_for_select([["Administrador", 1], ["Supervisor", 2], ["Pesquisador", 4]], @user.roles)
-
-  = label :user, :supervisor_id, 'Supervidor'
-  = select :user, :supervisor_id, options_from_collection_for_select(@supervisors, 'id', 'name', @user.supervisor_id)
-
-  %br
-
-  = submit_tag 'Salvar'
-  = link_to 'Excluir', user_path(@user), :method => :delete
+    = submit_tag 'Salvar', :class => "btn btn-lg btn-primary"
+    = link_to 'Excluir', user_path(@user), :method => :delete, :class => "btn btn-lg btn-danger btn-excluir"
