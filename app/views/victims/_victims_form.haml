@@ -1,65 +1,66 @@
-= label :victim, :id, 'ID' if @victim.id
-= @victim.id if @victim.id
-
-= label :victim, :name, 'Nome'
-= text_field :victim, :name
-
-= label :victim, :gender, 'Gênero'
-= select :victim, :gender, options_for_select(['Masculino', 'Feminino'], @gender), include_blank: true
-
-=label :victim, :age, 'Idade'
-= text_field :victim, :age
-
-= label :victim, :severity_id, 'Gravidade'
-= select :victim, :severity_id, options_from_collection_for_select(@severities, 'id', 'name', @severity), include_blank: true
-
-= label :victim, :physically_challenged, 'Limitação física'
-= yesNoNAselect :victim, :physically_challenged, @physically_challenged
-
-= label :victim, :experience_id, 'Experiência do turista'
-= select :victim, :experience_id, options_from_collection_for_select(@experiences, 'id', 'name', @experience), include_blank: true
+.form-group
+  = label :victim, :id, 'ID' if @victim.id
+  = @victim.id if @victim.id
+.form-group
+  = label :victim, :name, 'Nome'
+  = text_field :victim, :name
+.form-group
+  = label :victim, :gender, 'Gênero'
+  = select :victim, :gender, options_for_select(['Masculino', 'Feminino'], @gender), include_blank: true
+.form-group
+  =label :victim, :age, 'Idade'
+  = text_field :victim, :age
+.form-group
+  = label :victim, :severity_id, 'Gravidade'
+  = select :victim, :severity_id, options_from_collection_for_select(@severities, 'id', 'name', @severity), include_blank: true
+.form-group
+  = label :victim, :physically_challenged, 'Limitação física'
+  = yesNoNAselect :victim, :physically_challenged, @physically_challenged
+.form-group
+  = label :victim, :experience_id, 'Experiência do turista'
+  = select :victim, :experience_id, options_from_collection_for_select(@experiences, 'id', 'name', @experience), include_blank: true
 
 
 %h3 Condições do acidente
-= label :victim, :equipment, 'Equipamento de segurança da atividade'
-= yesNoNAselect :victim, :equipment, @equipment
-
-= label :victim, :tourist_imprudence, 'Imprudência do turista'
-= yesNoNAselect :victim, :tourist_imprudence, @tourist_imprudence
-
-= label :victim, :guide_malpractice, 'Imperícia do prestador'
-= yesNoNAselect :victim, :guide_malpractice, @guide_malpractice
-
-= label :victim, :guide_negligence, 'Negligência do prestador'
-= yesNoNAselect :victim, :guide_negligence, @guide_negligence
-
-= label :victim, :climate_conditions, 'Condições climáticas'
-= yesNoNAselect :victim, :climate_conditions, @climate_conditions
+.form-group
+  = label :victim, :equipment, 'Equipamento de segurança da atividade'
+  = yesNoNAselect :victim, :equipment, @equipment
+.form-group
+  = label :victim, :tourist_imprudence, 'Imprudência do turista'
+  = yesNoNAselect :victim, :tourist_imprudence, @tourist_imprudence
+.form-group
+  = label :victim, :guide_malpractice, 'Imperícia do prestador'
+  = yesNoNAselect :victim, :guide_malpractice, @guide_malpractice
+.form-group
+  = label :victim, :guide_negligence, 'Negligência do prestador'
+  = yesNoNAselect :victim, :guide_negligence, @guide_negligence
+.form-group
+  = label :victim, :climate_conditions, 'Condições climáticas'
+  = yesNoNAselect :victim, :climate_conditions, @climate_conditions
 
 
 %h3 Denúncias
-=label :victim, :incident_report_number, 'Número do Boletim de Ocorrência'
-= text_field :victim, :incident_report_number
-
-=label :victim, :process_number, 'Dados do Processo Judicial'
-= text_field :victim, :process_number
+.form-group
+  =label :victim, :incident_report_number, 'Número do Boletim de Ocorrência'
+  = text_field :victim, :incident_report_number
+.form-group
+  =label :victim, :process_number, 'Dados do Processo Judicial'
+  = text_field :victim, :process_number
 
 
 %h3 Primeiros socorros
-= label :victim, :first_aid_conducted, 'Realização de primeiros socorros'
-= yesNoNAselect :victim, :first_aid_conducted, @first_aid_conducted
+.form-group
+  = label :victim, :first_aid_conducted, 'Realização de primeiros socorros'
+  = yesNoNAselect :victim, :first_aid_conducted, @first_aid_conducted
+.form-group
+  = label :victim, :first_aid_equipment, 'Existência de equipamentos de primeiros socorros'
+  = yesNoNAselect :victim, :first_aid_equipment, @first_aid_equipment
+.form-group
+  = label :victim, :staff_trained_in_first_aid, 'Funcionários capacitados como socorristas'
+  = yesNoNAselect :victim, :staff_trained_in_first_aid, @staff_trained_in_first_aid
+.form-group
+  = label :victim, :doctor_on_call, 'Médico de plantão'
+  = yesNoNAselect :victim, :doctor_on_call, @doctor_on_call
 
-= label :victim, :first_aid_equipment, 'Existência de equipamentos de primeiros socorros'
-= yesNoNAselect :victim, :first_aid_equipment, @first_aid_equipment
-
-= label :victim, :staff_trained_in_first_aid, 'Funcionários capacitados como socorristas'
-= yesNoNAselect :victim, :staff_trained_in_first_aid, @staff_trained_in_first_aid
-
-= label :victim, :doctor_on_call, 'Médico de plantão'
-= yesNoNAselect :victim, :doctor_on_call, @doctor_on_call
-
-%br
-
-
-
-= submit_tag 'Salvar'
+.form-group
+  = submit_tag 'Salvar', :class => "btn btn-lg btn-primary"

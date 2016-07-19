@@ -1,140 +1,141 @@
 %h2 Detalhes da ocorrência
+.container.bgwhite
 
-= link_to 'Editar', edit_incident_path(@incident)
-= link_to 'Apagar', incident_path(@incident), :method => :delete
-= link_to 'Voltar para listagem', incidents_path
+  = link_to 'Editar', edit_incident_path(@incident), :class => "btn btn-lg btn-primary"
+  = link_to 'Apagar', incident_path(@incident), :method => :delete, :class => "btn btn-lg btn-danger"
+  = link_to 'Voltar', incidents_path
 
-%ul#details
-  %li
-    ID:
-    = @incident.id
-  %li
-    Data:
-    = @incident.date.strftime("%d/%m/%Y") if @incident.date
-  %li
-    Cidade:
-    - if @incident.city
-      = @incident.city.name
-  %li
-    UF:
-    - if @incident.city
-      = @incident.city.state.name
-  %li
-    CEP:
-    = @incident.post_code
-  %li
-    Localização (Latitude/Logitude):
-    = @incident.location
-  %li
-    Polo turístico:
-    = @incident.tourist_attraction
-  %li
-    Contatos:
-    = simple_format @incident.contact
-  %li
-    Categoria:
-    - if @incident.sub_category
-      = @incident.sub_category.category.name
-  %li
-    Subcategoria:
-    - if @incident.sub_category
-      = @incident.sub_category.name
-  %li
-    Fator de ocorrência:
-    - if @incident.occurrence_factor
-      = @incident.occurrence_factor.name
-  %li
-    Capítulo:
-    - if @incident.chapter
-      = @incident.chapter.name
-  %li
-    Validado:
-    - if @incident.verified
-      Sim
-    - else
-      Não
-  %li
-    Proposta de ação:
-    = @incident.proposal_for_action
-  %li
-    Acompanhamento pela Férias Vivas:
-    - if @incident.following
-      Sim
-    - else
-      Não
-  %li
-    Responsável:
-    = @incident.user.name
-  %li
-    Palavras-chave:
-    = tags2string(@incident.tags)
+  %ul.details
+    %li
+      ID:
+      = @incident.id
+    %li
+      Data:
+      = @incident.date.strftime("%d/%m/%Y") if @incident.date
+    %li
+      Cidade:
+      - if @incident.city
+        = @incident.city.name
+    %li
+      UF:
+      - if @incident.city
+        = @incident.city.state.name
+    %li
+      CEP:
+      = @incident.post_code
+    %li
+      Localização (Latitude/Logitude):
+      = @incident.location
+    %li
+      Polo turístico:
+      = @incident.tourist_attraction
+    %li
+      Contatos:
+      = simple_format @incident.contact
+    %li
+      Categoria:
+      - if @incident.sub_category
+        = @incident.sub_category.category.name
+    %li
+      Subcategoria:
+      - if @incident.sub_category
+        = @incident.sub_category.name
+    %li
+      Fator de ocorrência:
+      - if @incident.occurrence_factor
+        = @incident.occurrence_factor.name
+    %li
+      Capítulo:
+      - if @incident.chapter
+        = @incident.chapter.name
+    %li
+      Validado:
+      - if @incident.verified
+        Sim
+      - else
+        Não
+    %li
+      Proposta de ação:
+      = @incident.proposal_for_action
+    %li
+      Acompanhamento pela Férias Vivas:
+      - if @incident.following
+        Sim
+      - else
+        Não
+    %li
+      Responsável:
+      = @incident.user.name
+    %li
+      Palavras-chave:
+      = tags2string(@incident.tags)
 
-%h3 Descrição:
-%p#descricao= simple_format @incident.description
+  %h3 Descrição:
+  %p#descricao= simple_format @incident.description
 
-%h3 Dados do local:
-%ul#location
-  %li
-    Uso da propriedade:
-    - if @incident.property_usage
-      = @incident.property_usage.name
-  %li
-    Empresa atuante:
-    = @incident.property_company
-  %li
-    Guia contratado:
-    = @incident.tourist_guide
-  %li
-    Havia sinalização sobre risco?
-    = yesNoNA2text @incident.property_signaling
-  %li
-    Houve falha de equipamento?
-    = yesNoNA2text @incident.equipment_failure
-  %li
-    A atividade estava em acordo com as normas de segurança?
-    = yesNoNA2text @incident.adequacy_to_norms
+  %h3 Dados do local:
+  %ul#location
+    %li
+      Uso da propriedade:
+      - if @incident.property_usage
+        = @incident.property_usage.name
+    %li
+      Empresa atuante:
+      = @incident.property_company
+    %li
+      Guia contratado:
+      = @incident.tourist_guide
+    %li
+      Havia sinalização sobre risco?
+      = yesNoNA2text @incident.property_signaling
+    %li
+      Houve falha de equipamento?
+      = yesNoNA2text @incident.equipment_failure
+    %li
+      A atividade estava em acordo com as normas de segurança?
+      = yesNoNA2text @incident.adequacy_to_norms
 
-%h3 Vítimas
+  %h3 Vítimas
 
-= link_to 'Adicionar vítima', new_incident_victim_path(@incident)
+  = link_to 'Adicionar vítima', new_incident_victim_path(@incident)
 
-%table#victims
-  %thead
-    %tr
-      %th ID
-      %th Nome
-      %th Idade
-      %th Gênero
-      %th Gravidade
-      %th Limitação física
-      %th Experiência
-      %th Ação
-  %tbody
-    - @incident.victims.each do |victim|
+  %table{:class => "table table-striped"}
+    %thead
       %tr
-        %td= victim.id
-        %td= victim.name
-        %td= victim.age
-        %td= victim.gender
-        %td= victim.severity.name if victim.severity
-        %td= yesNoNA2text victim.physically_challenged
-        %td= victim.experience.name if victim.experience
-        %td= link_to('Alterar', edit_incident_victim_path(@incident, victim)) + " " + link_to('Apagar', incident_victim_path(@incident, victim), :method => :delete)
+        %th ID
+        %th Nome
+        %th Idade
+        %th Gênero
+        %th Gravidade
+        %th Limitação física
+        %th Experiência
+        %th Ação
+    %tbody
+      - @incident.victims.each do |victim|
+        %tr
+          %td= victim.id
+          %td= victim.name
+          %td= victim.age
+          %td= victim.gender
+          %td= victim.severity.name if victim.severity
+          %td= yesNoNA2text victim.physically_challenged
+          %td= victim.experience.name if victim.experience
+          %td= link_to('Alterar', edit_incident_victim_path(@incident, victim)) + " " + link_to('Apagar', incident_victim_path(@incident, victim), :method => :delete)
 
-%h3 Fontes
+  %h3 Fontes
 
-= link_to 'Adicionar fonte', new_incident_source_path(@incident)
+  = link_to 'Adicionar fonte', new_incident_source_path(@incident)
 
-%table#sources
-  %thead
-    %tr
-      %th Fonte
-      %th Link
-      %th Ação
-  %tbody
-    - @incident.sources.each do |source|
+  %table{:class => "table table-striped"}
+    %thead
       %tr
-        %td= source.name
-        %td= content_tag(:a, source.url, :href => source.url)
-        -#%td= image_tag(attachment_url(source, :image_file, 300, 300, format: "jpg")) if source.image_file_id
-        %td= link_to('Alterar', edit_incident_source_path(@incident, source)) + " " + link_to('Apagar', incident_source_path(@incident, source), :method => :delete)
+        %th Fonte
+        %th Link
+        %th Ação
+    %tbody
+      - @incident.sources.each do |source|
+        %tr
+          %td= source.name
+          %td= content_tag(:a, source.url, :href => source.url)
+          -#%td= image_tag(attachment_url(source, :image_file, 300, 300, format: "jpg")) if source.image_file_id
+          %td= link_to('Alterar', edit_incident_source_path(@incident, source)) + " " + link_to('Apagar', incident_source_path(@incident, source), :method => :delete)

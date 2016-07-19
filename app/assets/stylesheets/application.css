@@ -7022,15 +7022,36 @@ Deixar borda quando tem erro no form **ver js
 /* ---------------- Forms e tableas paginas internas --------------------*/
 
 /******* botões ****** */
+
+.btn-export {
+  color: #000;
+  background-color: red;
+  border-color: #255625;
+}
+
+.btn-export:focus,
+.btn-export.focus {
+  color: #000;
+  background-color: black;
+  border-color: #255625;
+}
+.btn-export:hover {
+  color: #000;
+  background-color: black;
+  border-color: #398439;
+}
+
 .btn-excluir,
 .btn-excluir a,
 .bgwhite .btn-excluir a,
 a.btn.btn-lg.btn-danger.btn-excluir {
   color: #fff;
 }
-a.btn-danger, a.btn-success, a.btn-info {
+a.btn-danger, a.btn-success, a.btn-info, a.btn-primary {
   color: #fff;
 }
+
+
 
 /* *********** formularios - Gambiarras ********/
 
@@ -7053,3 +7074,8 @@ a.btn-danger, a.btn-success, a.btn-info {
 .table > tfoot > tr > td {
   text-align: left;
 } 
+
+/*  ****** ul details ****  */
+.details {
+}
+

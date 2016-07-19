@@ -1,5 +1,6 @@
-= label :incident, :id, 'ID' if @incident
-= @incident.id if @incident
+.form-group
+  = label :incident, :id, 'ID' if @incident
+  = @incident.id if @incident
 .form-group
   = label :incident, :date, 'Data do acidente'
   = text_field :incident, :date, :value => @date
@@ -70,7 +71,8 @@
   = yesNoNAselect :incident, :adequacy_to_norms, @adequacy_to_norms
 
   %br
-  = submit_tag 'Salvar'
+.form-group
+  = submit_tag 'Salvar', :class => "btn btn-lg btn-primary"
   - if @incident
     = link_to 'Voltar', incident_path(@incident)
   - else

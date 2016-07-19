@@ -1,5 +1,5 @@
 %h2 Atualizar instituição
 .container.bgwhite
 
-  = form_tag institution_path(@institution), :method => :put do
+  = form_tag institution_path(@institution), :class => "form-meu", :method => :put do
     = render :partial => 'institutions_form'

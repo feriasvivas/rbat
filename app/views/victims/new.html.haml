@@ -1,4 +1,5 @@
 %h2 Cadastrar nova vítima
+.container.bgwhite
 
-= form_tag incident_victims_path(@incident) do
-	= render :partial => 'victims_form'
+  = form_tag incident_victims_path(@incident), :class => "form-meu" do
+    = render :partial => 'victims_form'

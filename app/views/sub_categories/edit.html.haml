@@ -1,5 +1,5 @@
 %h2 Atualizar sub-categoria
 .container.bgwhite
 
-  = form_tag category_sub_category_path(@sub_category.category, @sub_category), :method => :put do
+  = form_tag category_sub_category_path(@sub_category.category, @sub_category), :class => "form-meu",  :method => :put do
     = render :partial => 'sub_categories_form'

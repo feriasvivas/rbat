@@ -1,4 +1,4 @@
 %h2 Nova instituição
 .container.bgwhite
-  = form_tag institutions_path, :method => :post do
+  = form_tag institutions_path, :class => "form-meu", :method => :post do
     = render :partial => 'institutions_form'

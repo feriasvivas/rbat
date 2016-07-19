@@ -1,13 +1,14 @@
-= label :source, :name, 'Fonte'
-= text_field :source, :name
-
-= label :source, :url, 'Link'
-= text_field :source, :url
-
-= label :source, :text, 'Texto'
-= text_area :source, :text, :size => '50x10'
+.form-group
+  = label :source, :name, 'Fonte'
+  = text_field :source, :name
+.form-group
+  = label :source, :url, 'Link'
+  = text_field :source, :url
+.form-group
+  = label :source, :text, 'Texto'
+  = text_area :source, :text, :size => '50x10'
 
 -#= label :source, :file, 'Imagem'
 -#= file_field :source, :image_file
-
-= submit_tag 'Salvar'
+.form-group
+  = submit_tag 'Salvar', :class => "btn btn-lg btn-primary"

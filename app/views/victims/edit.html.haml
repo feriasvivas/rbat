@@ -1,4 +1,5 @@
 %h2 Atualizar vítima
+.container.bgwhite
 
-= form_tag incident_victim_path(@incident, @victim), :method => :put do
-	= render :partial => 'victims_form'
+  = form_tag incident_victim_path(@incident, @victim), :class => "form-meu",  :method => :put do
+    = render :partial => 'victims_form'

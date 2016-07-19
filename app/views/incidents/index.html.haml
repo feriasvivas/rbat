@@ -1,8 +1,8 @@
 %div{:class => "container"}
   %h2 Ocorrências
   .bgwhite
-    = link_to "Adicionar", new_incident_path
-    = link_to "Exportar XLSX", incidents_path(format: :xlsx)
+    = link_to "Adicionar", new_incident_path, :class => "btn btn-lg btn-success"
+    = link_to "Exportar XLSX", incidents_path(format: :xlsx), :class => "btn btn-lg btn-info"
 
     %table{:class => "table table-striped"}
       %thead
