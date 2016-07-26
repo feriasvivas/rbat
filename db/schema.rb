@@ -154,7 +154,6 @@ ActiveRecord::Schema.define(version: 20160627203927) do
     t.integer  "failed_attempts",        default: 0,  null: false
     t.datetime "locked_at"
     t.string   "unconfirmed_email"
-    t.integer  "purpose_id"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
