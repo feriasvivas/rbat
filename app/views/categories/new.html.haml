@@ -1,4 +1,5 @@
 %h2 Nova categoria
+.container.bgwhite
 
-= form_tag categories_path, :method => :post do
-  = render :partial => 'categories_form'
+  = form_tag categories_path, :class => "form-meu", :method => :post do
+    = render :partial => 'categories_form'

@@ -1,4 +1,4 @@
 %h2 Nova ocorrência
-
-= form_tag incidents_path, :method => :post do
-  = render :partial => 'incidents_form'
+.container.bgwhite
+  = form_tag incidents_path, :class => "form-meu", :method => :post do
+    = render :partial => 'incidents_form'

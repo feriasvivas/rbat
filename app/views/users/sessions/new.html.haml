@@ -1,18 +1,32 @@
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  .field
-    = f.label :password, "Senha"
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  - if devise_mapping.rememberable?
-    .field
-      %label.checkbox{ :for => :remember_me}
-        = f.check_box :remember_me
-        = "Lembre de mim"
+%div{:class => "container bg-login"}
+  %div{:class => "row"}  
+    %div{:class => "col-sm-8 col-sm-offset-2 text"}
+      %h1
+        %strong RBAT
+        Relatório Brasileiro de Acidentes em Lazer e Turismo
+      .description
+        %p
+          Esta é uma iniciativa da 
+          = succeed ": Turismo e Lazer com Segurança." do
+            %a{:href => "http://http://www.feriasvivas.org.br/"}
+              %strong Associação Férias Vivas
+  %div{:class => "row"}  
+    %div{:class => "col-sm-4 col-sm-offset-4 form-box"}
+      .sign-in-form
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .form-group
+            = f.label :email
+            = f.email_field :email, autofocus: true, :class => "form-control"
+          .form-group
+            = f.label :password, "Senha"
+            = f.password_field :password, autocomplete: "off", :class => "form-control"
+          .form-group
+            - if devise_mapping.rememberable?
+              .checkbox
+                %label.checkbox{ :for => :remember_me}
+                  = f.check_box :remember_me
+                  = "Lembre de mim"
 
-  .actions
-    = f.submit "Entrar"
-= render "users/shared/links"
+            .actions
+              = f.submit "Entrar", :class => "btn btn-info btn-lg"
+          = render "users/shared/links"

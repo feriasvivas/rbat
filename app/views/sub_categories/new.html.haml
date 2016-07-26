@@ -1,4 +1,5 @@
 %h2 Nova sub-categoria
+.container.bgwhite
 
-= form_tag category_sub_categories_path(@category) do
-  = render :partial => 'sub_categories_form'
+  = form_tag category_sub_categories_path(@category), :class => "form-meu" do
+    = render :partial => 'sub_categories_form'

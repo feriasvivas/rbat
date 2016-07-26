@@ -1,4 +1,4 @@
 %h2 Cadastrar nova fonte
-
-= form_tag incident_sources_path(@incident) do
-  = render :partial => 'sources_form'
+.container.bgwhite
+  = form_tag incident_sources_path(@incident), :class => "form-meu" do
+    = render :partial => 'sources_form'
