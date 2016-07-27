@@ -34,20 +34,22 @@
 .form-group
   = label :incident, :occurrence_factor_id, 'Fator de ocorrência'
   = select :incident, :occurrence_factor_id, options_from_collection_for_select(@occurrence_factors, 'id', 'name', @occurrence_factor), include_blank: true
-.form-group
-  = label :incident, :chapter_id, 'Capítulo'
-  = select :incident, :chapter_id, options_from_collection_for_select(@chapters, 'id', 'name', @chapter), include_blank: true
+- if current_user.is_admin?
+  .form-group
+    = label :incident, :chapter_id, 'Capítulo'
+    = select :incident, :chapter_id, options_from_collection_for_select(@chapters, 'id', 'name', @chapter), include_blank: true
 .form-group
   = label :incident, :proposal_for_action, 'Proposta de ação'
   = text_field :incident, :proposal_for_action
-.form-group
-  = label :incident, :following, 'Acompanhamento pela Férias Vivas'
-  = check_box :incident, :following
+- if current_user.is_admin?
+  .form-group
+    = label :incident, :following, 'Acompanhamento pela Férias Vivas'
+    = check_box :incident, :following
 .form-group
   = label_tag :tags, 'Palavras-chave (separadas por ponto e vírgula)'
   = text_field_tag :tags, tags2string(@tags), size: 50
 
-  - if current_user.is_supervisor?
+  - if current_user.is_supervisor? or current_user.is_admin?
     = label :incident, :verified, 'Validado'
     = check_box :incident, :verified
 .form-group
