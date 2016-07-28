@@ -65,7 +65,7 @@
         Não
     %li
       Responsável:
-      = @incident.user.name
+      = @incident.user.name if @incident.user
     %li
       Palavras-chave:
       = tags2string(@incident.tags)
