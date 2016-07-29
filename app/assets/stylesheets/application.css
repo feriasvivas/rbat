@@ -7077,4 +7077,5 @@ a.btn-danger, a.btn-success, a.btn-info, a.btn-primary {
 
 /*  ****** ul details ****  */
 .details {
+  text-align: left;
 }

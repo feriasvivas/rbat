@@ -74,7 +74,8 @@
   %p#descricao= simple_format @incident.description
 
   %h3 Dados do local:
-  %ul#location
+
+  %ul.details
     %li
       Uso da propriedade:
       - if @incident.property_usage
