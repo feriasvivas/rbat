@@ -32,18 +32,13 @@ class IncidentsController < ApplicationController
     if @incident.save
       redirect_to incident_path(@incident)
     else
+      lists4selects
       render 'new'
     end
   end
 
   def new
-    @states = State.all
-    @categories = Category.all
-    @chapters = Chapter.all
-    @purposes = Purpose.all
-    @occurrence_factors = OccurrenceFactor.all
-    @states = State.all
-    @property_usages = PropertyUsage.all
+    lists4selects
   end
 
   def edit
@@ -106,5 +101,15 @@ class IncidentsController < ApplicationController
   private
   def incident_params
     params.require(:incident).permit!
+  end
+
+  def lists4selects
+    @states = State.all
+    @categories = Category.all
+    @chapters = Chapter.all
+    @purposes = Purpose.all
+    @occurrence_factors = OccurrenceFactor.all
+    @states = State.all
+    @property_usages = PropertyUsage.all
   end
 end
