@@ -13,7 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #    params[:roles] = "--- [#{params[:roles]}]"
       @institutions = Institution.all
       super
-      SystemMailer.registration_notification(resource).deliver_now
+      # SystemMailer.registration_notification(resource).deliver_now
     end
 
   # GET /resource/edit
@@ -61,7 +61,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_inactive_sign_up_path_for(resource)
+    "/users/sign_in"
+   #super(resource)
+  end
 end

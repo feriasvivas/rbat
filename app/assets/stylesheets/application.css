@@ -9,9 +9,9 @@
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url('../fonts/glyphicons-halflings-regular.eot');
-  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
-       url('../fonts/glyphicons-halflings-regular.woff') format('woff'), 
-       url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), 
+  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/glyphicons-halflings-regular.woff') format('woff'),
+       url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'),
        url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 @import 'https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i&subset=latin-ext';
@@ -6778,7 +6778,7 @@ button.close {
 
 /******* geral *******/
 
-#notice, #warning {
+#notice, #warning, #alert {
   background: rosybrown;
   margin:1em 0;
   padding: 4px;
@@ -6904,7 +6904,7 @@ input {
     color: #fff;
     -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
 }
-.btn-link-2:hover, .btn-link-2:focus, 
+.btn-link-2:hover, .btn-link-2:focus,
 .btn-link-2:active, .btn-link-2:active:focus { outline: 0; opacity: 0.6; background: rgba(0, 0, 0, 0.3); color: #fff; }
 
 
@@ -6946,7 +6946,7 @@ ul.navbar-nav {
   font-size: 28px;
   vertical-align: middle;
 }
-.navbar-inverse ul.navbar-nav li .li-social a:hover, 
+.navbar-inverse ul.navbar-nav li .li-social a:hover,
 .navbar-inverse ul.navbar-nav li .li-social a:focus { border: 0; color: #19b9e7; }
 
 .navbar-brand {
@@ -6982,7 +6982,7 @@ ul.navbar-nav {
   color: #fff;
   font-weight: 700;
 }
-.description a:hover, 
+.description a:hover,
 .description a:focus { border-bottom: 1px dotted #fff; }
 
 
@@ -7073,9 +7073,8 @@ a.btn-danger, a.btn-success, a.btn-info, a.btn-primary {
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
   text-align: left;
-} 
+}
 
 /*  ****** ul details ****  */
 .details {
 }
-
