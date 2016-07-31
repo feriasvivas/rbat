@@ -1,4 +1,5 @@
 %td= incident.id
+%td= incident.information_origin
 %td= incident.user.name if incident.user
 %td= incident.user.supervisor.name if incident.user and incident.user.supervisor
 %td= incident.description
