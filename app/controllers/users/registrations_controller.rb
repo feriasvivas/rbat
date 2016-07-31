@@ -13,7 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #    params[:roles] = "--- [#{params[:roles]}]"
       @institutions = Institution.all
       super
-      # SystemMailer.registration_notification(resource).deliver_now
+      SystemMailer.registration_notification(resource).deliver_now
     end
 
   # GET /resource/edit
