@@ -10,6 +10,9 @@
       ID:
       = @incident.id
     %li
+      Origem da informação:
+      = @incident.information_origin
+    %li
       Data:
       = @incident.date.strftime("%d/%m/%Y") if @incident.date
     %li
@@ -24,8 +27,11 @@
       CEP:
       = @incident.post_code
     %li
-      Localização (Latitude/Logitude):
+      Latitude:
       = @incident.location
+    %li
+      Longitude:
+      = @incident.location2
     %li
       Polo turístico:
       = @incident.tourist_attraction
@@ -108,7 +114,6 @@
         %th Idade
         %th Gênero
         %th Gravidade
-        %th Limitação física
         %th Experiência
         %th Ação
     %tbody
@@ -119,7 +124,6 @@
           %td= victim.age
           %td= victim.gender
           %td= victim.severity.name if victim.severity
-          %td= yesNoNA2text victim.physically_challenged
           %td= victim.experience.name if victim.experience
           %td= link_to('Alterar', edit_incident_victim_path(@incident, victim)) + " " + link_to('Apagar', incident_victim_path(@incident, victim), :method => :delete)
 

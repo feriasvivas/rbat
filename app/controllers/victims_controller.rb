@@ -27,7 +27,6 @@ class VictimsController < ApplicationController
     @experience = @victim.experience_id
     @severity = @victim.severity_id
 		@incident = @victim.incident
-    @physically_challenged = @victim.physically_challenged
     @equipment = @victim.equipment
     @tourist_imprudence = @victim.tourist_imprudence
     @guide_malpractice = @victim.guide_malpractice

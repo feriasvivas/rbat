@@ -2,6 +2,10 @@
   = label :incident, :id, 'ID' if @incident
   = @incident.id if @incident
 .form-group
+  = label :incident, :information_origin, 'Origem da informação'
+  = select :incident, :information_origin, options_for_select(["reportagem", "depoimento pessoal", "APP Ei Vivi"], @incident ? @incident.information_origin : "reportagem")
+
+.form-group
   = label :incident, :date, 'Data do acidente'
   = text_field :incident, :date, :value => @date
 .form-group
@@ -20,8 +24,11 @@
   = label :incident, :post_code, 'CEP'
   = text_field :incident, :post_code
 .form-group
-  = label :incident, :location, 'Localização (Latitude/Longitude)'
+  = label :incident, :location, 'Latitude'
   = text_field :incident, :location
+.form-group
+  = label :incident, :location2, 'Longitude'
+  = text_field :incident, :location2
 .form-group
   = label :incident, :tourist_attraction, 'Polo turístico'
   = text_field :incident, :tourist_attraction

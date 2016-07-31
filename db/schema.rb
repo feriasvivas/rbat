@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160627203927) do
+ActiveRecord::Schema.define(version: 20160729204106) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -64,6 +64,8 @@ ActiveRecord::Schema.define(version: 20160627203927) do
     t.integer  "equipment_failure"
     t.integer  "adequacy_to_norms"
     t.boolean  "verified"
+    t.string   "location2"
+    t.string   "information_origin"
   end
 
   add_index "incidents", ["occurrence_factor_id"], name: "index_incidents_on_occurrence_factor_id"
@@ -154,6 +156,7 @@ ActiveRecord::Schema.define(version: 20160627203927) do
     t.integer  "failed_attempts",        default: 0,  null: false
     t.datetime "locked_at"
     t.string   "unconfirmed_email"
+    t.integer  "purpose_id"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
@@ -167,7 +170,6 @@ ActiveRecord::Schema.define(version: 20160627203927) do
     t.integer  "age"
     t.string   "gender"
     t.integer  "severity_id"
-    t.integer  "physically_challenged"
     t.integer  "experience_id"
     t.integer  "incident_id"
     t.datetime "created_at",                 null: false

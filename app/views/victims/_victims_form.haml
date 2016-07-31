@@ -14,16 +14,13 @@
   = label :victim, :severity_id, 'Gravidade'
   = select :victim, :severity_id, options_from_collection_for_select(@severities, 'id', 'name', @severity), include_blank: true
 .form-group
-  = label :victim, :physically_challenged, 'Limitação física'
-  = yesNoNAselect :victim, :physically_challenged, @physically_challenged
-.form-group
   = label :victim, :experience_id, 'Experiência do turista'
   = select :victim, :experience_id, options_from_collection_for_select(@experiences, 'id', 'name', @experience), include_blank: true
 
 
 %h3 Condições do acidente
 .form-group
-  = label :victim, :equipment, 'Equipamento de segurança da atividade'
+  = label :victim, :equipment, 'A atividade estava sendo realizada com os equipamentos adequados?'
   = yesNoNAselect :victim, :equipment, @equipment
 .form-group
   = label :victim, :tourist_imprudence, 'Imprudência do turista'
@@ -35,7 +32,7 @@
   = label :victim, :guide_negligence, 'Negligência do prestador'
   = yesNoNAselect :victim, :guide_negligence, @guide_negligence
 .form-group
-  = label :victim, :climate_conditions, 'Condições climáticas'
+  = label :victim, :climate_conditions, 'O clima estava propício para a atividade?'
   = yesNoNAselect :victim, :climate_conditions, @climate_conditions
 
 
@@ -50,16 +47,16 @@
 
 %h3 Primeiros socorros
 .form-group
-  = label :victim, :first_aid_conducted, 'Realização de primeiros socorros'
+  = label :victim, :first_aid_conducted, 'Houve realização de primeiros socorros?'
   = yesNoNAselect :victim, :first_aid_conducted, @first_aid_conducted
 .form-group
-  = label :victim, :first_aid_equipment, 'Existência de equipamentos de primeiros socorros'
+  = label :victim, :first_aid_equipment, 'Havia no local equipamentos de primeiros socorros?'
   = yesNoNAselect :victim, :first_aid_equipment, @first_aid_equipment
 .form-group
-  = label :victim, :staff_trained_in_first_aid, 'Funcionários capacitados como socorristas'
+  = label :victim, :staff_trained_in_first_aid, 'Havia socorristas ou salva-vidas no local?'
   = yesNoNAselect :victim, :staff_trained_in_first_aid, @staff_trained_in_first_aid
 .form-group
-  = label :victim, :doctor_on_call, 'Médico de plantão'
+  = label :victim, :doctor_on_call, 'Havia médico de plantão no local?'
   = yesNoNAselect :victim, :doctor_on_call, @doctor_on_call
 
 .form-group

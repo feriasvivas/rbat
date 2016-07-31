@@ -10,7 +10,8 @@
       %th UF
       %th Cidade
       %th CEP
-      %th Localização
+      %th Latitude
+      %th Longitude
       %th Polo turístico
       %th Contatos
       %th Categoria
@@ -34,7 +35,6 @@
       %th Idade
       %th Gênero
       %th Gravidade
-      %th Limitação física
       %th Experiência turística
       %th Equipamento de segurança da atividade
       %th Imprudêcnia do turista
@@ -59,7 +59,6 @@
             %td= victim.age
             %td= victim.gender
             %td= victim.severity.name if victim.severity
-            %td= yesNoNA2text victim.physically_challenged
             %td= victim.experience.name if victim.experience
             %td= yesNoNA2text victim.equipment
             %td= yesNoNA2text victim.tourist_imprudence
