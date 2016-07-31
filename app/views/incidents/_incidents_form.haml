@@ -82,7 +82,7 @@
   %br
 .form-group
   = submit_tag 'Salvar', :class => "btn btn-lg btn-primary"
-  - if @incident.id
+  - if @incident and @incident.id
     = link_to 'Voltar', incident_path(@incident)
   - else
     = link_to 'Voltar', incidents_path
