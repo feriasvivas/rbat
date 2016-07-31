@@ -32,6 +32,7 @@ class IncidentsController < ApplicationController
     if @incident.save
       redirect_to incident_path(@incident)
     else
+      flash[:warning] = @incident.errors.full_messages.to_sentence
       render 'new'
     end
   end
@@ -75,6 +76,7 @@ class IncidentsController < ApplicationController
     if @incident.update_attributes(incident_params)
       redirect_to incident_path(@incident)
     else
+      flash[:warning] = @incident.errors.full_messages.to_sentence
       render 'edit'
     end
   end
