@@ -1,4 +1,29 @@
 %h2 Cadastrar nova fonte
 .container.bgwhite
-  = form_tag incident_sources_path(@incident), :class => "form-meu" do
-    = render :partial => 'sources_form'
+  .row
+    .col-sm-6
+      = form_tag incident_sources_path(@incident), :class => "form-meu" do
+        = render :partial => 'sources_form'
+    .col-sm-6.form-info
+      %h1
+        Dicas de Preenchimento:
+        
+      %strong
+        Fonte e Link
+      %p
+        Por favor, inserir nome e links das fontes consultadas.
+      %strong
+        Observações:
+      %p
+        * Para casos em que situação partiu de um
+        %strong depoimento pessoal
+        e não de uma reportagem publicada, inclua os dados de contato.
+      %p
+        * No caso de existir
+        %strong diversas fontes
+        de sites e jornais consultados, você poderá incluir todas, salvando uma fonte de cada vez.
+
+      %strong
+        Texto na íntegra
+      %p
+        Copiar nesse campo o texto da reportagem ou do relato na íntegra, incluindo data de publicação, quando disponível.

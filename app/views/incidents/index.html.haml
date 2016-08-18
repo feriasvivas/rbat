@@ -1,6 +1,15 @@
 %div{:class => "container"}
   %h2 Ocorrências
+
   .bgwhite
+    .description-left
+      %p
+        * Inicie o trabalho de pesquisa clicando em "Adicionar" para incluir um novo caso pesquisado.
+        %br
+        * Nós registramos apenas casos de acidentes de turismo e lazer, dentro do
+        %strong território nacional
+        , independentemente, de o turista ser brasileiro ou não.
+
     = link_to "Adicionar", new_incident_path, :class => "btn btn-lg btn-success"
     = link_to "Exportar XLSX", incidents_path(format: :xlsx), :class => "btn btn-lg btn-info"
 

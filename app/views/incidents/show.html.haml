@@ -1,6 +1,23 @@
 %h2 Detalhes da ocorrência
 .container.bgwhite
 
+  %p.form-info
+    %strong ** ATENÇÃO **
+    %br
+    * Lembre-se de preencher os campos 
+    %strong vítima e fontes
+    localizados ao final desta página.
+  %p.form-info
+    * Ocorrências que
+    %strong não
+    estiverem com esses campos
+    %strong preenchidos
+    , infelizmente,
+    %strong não serão aceitos
+    no banco de dados. 
+  %p.form-info
+    * Preencha da forma mais completa possível.
+
   = link_to 'Editar', edit_incident_path(@incident), :class => "btn btn-lg btn-primary"
   = link_to 'Apagar', incident_path(@incident), :method => :delete, :class => "btn btn-lg btn-danger"
   = link_to 'Voltar', incidents_path

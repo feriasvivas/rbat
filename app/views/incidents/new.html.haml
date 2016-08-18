@@ -1,4 +1,110 @@
 %h2 Nova ocorrência
 .container.bgwhite
-  = form_tag incidents_path, :class => "form-meu", :method => :post do
-    = render :partial => 'incidents_form'
+  .row
+    .col-sm-6
+      = form_tag incidents_path, :class => "form-meu", :method => :post do
+        = render :partial => 'incidents_form'
+    .col-sm-6.form-info
+      %strong
+        Origem da informação
+      %p
+        ? Selecione o campo correspondente à origem da informação:
+        %br
+        REPORTAGEM (dados disponíveis em portais de notícias, jornais, etc.)
+        %br
+        DEPOIMENTO PESSOAL (informação disponibilizada pela própria vítima ou por um familiar)
+        %br
+        APP EU VIVI (acidentes relatados como exṕeriências recebidas pelo sistema APP Eu Vivi uso exclusivo da equipe do projeto)
+
+      %strong
+        Descrição
+      %p
+        Faça uma breve descrição do acidente. Você pode copiar enxertos das reportagens originais, se houver, e na seção "Fonte"
+        haverá um campo para que o texto seja incluído na íntegra.
+
+      %strong
+        UF
+      %p
+        Selecione a sigla da Unidade Federativa / Estado
+
+      %strong
+        Cidade
+      %p
+        Incluir a cidade em que aconteceu a ocorrência.
+
+      %strong
+        Latitude e Longitude
+      %p
+        Inserir coordenadas de Latitude e Longitude. Recomendamos o site
+        %a{:href => "http://www.mapcoordinates.net/pt"}
+          %strong www.mapcoordinates.net/pt
+        Para casos em que não for possível encontrar as corrdenatas exatas, é possível deixar a localização aproximada.
+
+      %strong
+        Polo turístico
+      %p
+        Inserir como o destino turístico é popularmente chamado. Ex.: "Cristo Redentor", "Praia de Copacabana", "Chapada Diamantina", "Cachoeira Véu da Noiva", etc.
+
+      %strong
+        Contatos
+      %p
+        Caso encontre nome de entrevistados, familiares ou qualquer pessoa envolvida no acidente, inserir o nome, o grau de parentesco/envolvimento e os dados de contato, se houver. Ex.: José da Silva, Comandante do 2º Subgrupamento de Bombeiros.
+
+      %strong
+        Proposta de ação
+      %p
+        Escreva aqui quais medidas você acredita que possam ser feitas para evitar novos acidentes.
+
+      %strong
+        Palavra-Chave
+      %p
+        Listar cerca de 5 a 8 palavras chaves que resumem o acidente.
+
+      %strong
+        Validado (visivel apenas aos professores)
+      %p
+        Campo para sinalizar os casos que já foram analisados pelo professor.
+
+      %br
+      %h1
+        DADOS DO LOCAL
+
+      %strong
+        Uso da propriedade
+      %p
+        Determinar se o local era de uso:
+      %p
+        PÚBLICO (locais com acesso livre, ex.: parques municipais)
+      %p
+        COLETIVO (locais em que um público grande de pessoas possui acesso, ex.: hotéis, piscina de clubes, casa de eventos)
+      %p
+        PRIVADO (propriedades particulares, ex.: residências e chácaras.)
+
+      %strong
+        Empresa atuante
+      %p
+        Caso tenha uma empresa envolvida, inserir o nome.
+
+      %strong
+        Guia contratado
+      %p
+        Inserir nome e contato do guia/monitor, se houver.
+
+      %strong
+        Havia sinalização sobre risco?
+      %p
+        Indicar se no local havia algum tipo de sinalização explícita indicando riscos da atividade.
+        Ex.: placa de sinalização indicando profunidade de uma piscina, ou um alerta indicando tratar-se de área de alta incidência de raios.
+
+      %strong
+        Houve falha de equipamento?
+      %p
+        O acidente ocorreu devido à quebra ou falha no equipamento? Ex.: falha no sistema de frenagem e trava de uma tirolesa.
+
+      %strong
+        A atividade estava em acordo com as normas de segurança?
+      %p
+        Determinadas atividades de turismo são regulamentadas por normas técnicas de segurança. Selecione a opção, caso esta informação tenha sido citada por um especialista.
+
+      
+

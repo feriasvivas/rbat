@@ -1,12 +1,12 @@
 .form-group
   = label :source, :name, 'Fonte'
-  = text_field :source, :name
+  = text_field :source, :name, :class => "form-control"
 .form-group
   = label :source, :url, 'Link'
-  = text_field :source, :url
+  = text_field :source, :url, :class => "form-control"
 .form-group
-  = label :source, :text, 'Texto'
-  = text_area :source, :text, :size => '50x10'
+  = label :source, :text, 'Texto na íntegra'
+  = text_area :source, :text, :size => '50x10', :class => "form-control"
 
 -#= label :source, :file, 'Imagem'
 -#= file_field :source, :image_file

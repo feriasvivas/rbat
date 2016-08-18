@@ -8,10 +8,10 @@
         %p
           Esta é uma iniciativa da 
           = succeed ": Turismo e Lazer com Segurança." do
-            %a{:href => "http://http://www.feriasvivas.org.br/"}
+            %a{:href => "http://www.feriasvivas.org.br/"}
               %strong Associação Férias Vivas
   %div{:class => "row"}  
-    %div{:class => "col-sm-4 col-sm-offset-4 form-box"}
+    %div{:class => "col-sm-4 col-sm-offset-2 form-box"}
       .sign-in-form
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           .form-group
@@ -29,4 +29,19 @@
 
             .actions
               = f.submit "Entrar", :class => "btn btn-info btn-lg"
-          = render "users/shared/links"
+            %br
+            = render "users/shared/links"
+
+    %div{:class => "col-sm-5 text"}
+      .description-left
+        %br
+        %p
+          O levantantamento de casos de acidentes em turismo é feito por nossa equipe de voluntários, 
+          consolidando um relatório estatístico que é usado para embasar novas ações e políticas públicas
+          para prevenção de acidentes.
+        %p
+          A divulgação das informações também tem como objetivo sensibilizar a sociedade sobre a ocorrência
+          de acidentes e conscientizar que o registro de denúncia é o primeiro passo para impulsionar mudanças.
+        %p
+          O projeto combina a conscientização do turista e pressão política ao utilizar nossa base de casos de 
+          acidentes para identificar as regiões e atividades com os indicadores mais críticos.

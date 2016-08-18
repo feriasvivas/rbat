@@ -1,5 +1,89 @@
 %h2 Cadastrar nova vítima
 .container.bgwhite
+  .row
+    .col-sm-6
+      = form_tag incident_victims_path(@incident), :class => "form-meu" do
+        = render :partial => 'victims_form'
+    .col-sm-6.form-info
+      
+      %h1
+        Dicas de Preenchimento:
+      
+      %strong
+        Nome
+      %p
+        Inserir nome completo da vítima, caso o nome não tenha sido divulgado, preencher como "não identificado".
 
-  = form_tag incident_victims_path(@incident), :class => "form-meu" do
-    = render :partial => 'victims_form'
+      %strong
+        Idade
+      %p
+        Idade da vítima no momento do acidente.
+
+      %strong
+        Gravidade
+      %p
+        Inserir a gravidade do acidente, considerando os critérios abaixo:
+      %p
+        LEVE (apresentou escoriações na pele ou impactou em abalo emocional, porém sem lesões)
+      %p
+        MODERADA (necessitou de atendimento médico no local e/ou hospitalar)
+      %p
+        GRAVE (precisou de intervenção cirúrgica, resultando em possíveis sequelas)
+      %p
+        FATAL (óbito no local ou poesterior)
+
+      %strong
+        Experiência do turista
+      %p
+        Se citado, inserir a experiência do turista na atividade, considerando os critérios abaixo:
+      %p
+        LEIGO (possui pouca familiaridade com atividade, situação comum à grande maioria de turistas)
+      %p
+        AMADOR (realiza a atividade com certa frequência mas não domina a técnica)
+      %p
+        EXPERIENTE (possui domínio da técnica)
+      %p
+        PROFISSIONAL (possui formação técnica para atuar na atividade)
+
+      %strong
+        A atividade estava sendo realizada com os equipamentos adequados?
+      %p
+        Os equipamentos adequados podem ser tanto os equipamentos de proteção individual como os equipamentos de instalação da atividade, sempre em boas condições de uso. Ex.: Capacete, colete salva-vidas, bouldrier, mosquetão, corda para ancorgem, etc.
+
+      %strong
+        Imprudência do turista
+      %p
+        Houve imprudência? Entende-se por imprudência a tomada de decisão imediatista que envolveu atitudes de risco.
+
+      %strong
+        Imperícia do prestador
+      %p
+        Houve imperícia do responsável? Entende-se por imperícia falta de habilidade, qualificação e/ou conhecimento sobre a atividade.
+
+      %strong
+        Negligência do prestador
+      %p
+        Houve negligência? Entende-se por negligência o ato com descuido, indiferença aos riscos ou desatenção, agir sem tomar as devidas precauções.
+
+      %strong
+        O clima estava propício para a atividade?
+      %p
+        Selecionar a opção "não" no caso de as condiões climátivas não estarem adequadas para a realização da atividade, sendo este um dos fatores que causaram a ocorrência.
+
+      %h1
+        Denúncias
+      %p
+        Caso o processo tenha sido levado à justiça, citar os dados do processo.
+
+      %h1
+        Primeiros Socorros
+      %strong
+        Havia socorristas ou salva-vidas no local?
+      %p
+        "sim" apenas caso os profissionais tenham sido contratados pelo estabelecimento e estavam no exercício de sua função.
+
+      %strong
+        Havia médico de plantão no local?
+      %p
+        "sim" apenas caso os profissionais tenham sido contratados pelo estabelecimento e estavam no exercício de sua função.
+      
