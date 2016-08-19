@@ -12,7 +12,7 @@ module ApplicationHelper
   end
 
   def yesNoNAselect(model, property, selected)
-    select model, property, options_for_select([['NA', '0'], ['Sim', '1'], ['Não', '2']], selected)
+    select model, property, options_for_select([['NA', '0'], ['Sim', '1'], ['Não', '2']], selected), {}, { :class => 'form-control' }
   end
 
 end

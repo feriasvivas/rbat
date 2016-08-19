@@ -3,7 +3,7 @@
   = @incident.id if @incident
 .form-group
   = label :incident, :information_origin, 'Origem da informação'
-  = select :incident, :information_origin, options_for_select(["reportagem", "depoimento pessoal", "APP Eu Vivi"], @incident ? @incident.information_origin : "reportagem")
+  = select :incident, :information_origin, options_for_select(["reportagem", "depoimento pessoal", "APP Eu Vivi"], @incident ? @incident.information_origin : "reportagem"), {}, { :class => 'form-control' }
 
 .form-group
   = label :incident, :date, 'Data do acidente'
@@ -13,13 +13,13 @@
   = text_area :incident, :description, :size => '50x10', :class => "form-control"
 .form-group
   = label :incident, :state, 'UF'
-  = select_tag :state, options_from_collection_for_select(@states, 'id', 'name', @state), include_blank: true
+  = select_tag :state, options_from_collection_for_select(@states, 'id', 'name', @state), {:include_blank => true, :class => 'form-control' }
 .form-group
   = label :incident, :city_id, 'Cidade'
   - if @cities
     = render :partial => 'cities/cities_select', locals: {cities: @cities, city: @city}
   - else
-    = select :incident, :city_id, []
+    = select :incident, :city_id, [], {}, { :class => 'form-control' }
 .form-group
   = label :incident, :post_code, 'CEP'
   = text_field :incident, :post_code, :class => "form-control"
@@ -37,21 +37,21 @@
   = text_area :incident, :contact, :size => '50x10', :class => "form-control"
 .form-group
   = label :incident, :sub_category_id, 'Categoria/Sub-categoria'
-  = select :incident, :sub_category_id, option_groups_from_collection_for_select(@categories, :sub_categories, :name, :id, :name, @sub_category), include_blank: true
+  = select :incident, :sub_category_id, option_groups_from_collection_for_select(@categories, :sub_categories, :name, :id, :name, @sub_category), {:include_blank => true}, { :class => 'form-control' }
 .form-group
   = label :incident, :occurrence_factor_id, 'Fator de ocorrência'
-  = select :incident, :occurrence_factor_id, options_from_collection_for_select(@occurrence_factors, 'id', 'name', @occurrence_factor), include_blank: true
+  = select :incident, :occurrence_factor_id, options_from_collection_for_select(@occurrence_factors, 'id', 'name', @occurrence_factor), {:include_blank => true}, { :class => 'form-control' }
 - if current_user.is_admin?
   .form-group
     = label :incident, :chapter_id, 'Capítulo'
-    = select :incident, :chapter_id, options_from_collection_for_select(@chapters, 'id', 'name', @chapter), include_blank: true
+    = select :incident, :chapter_id, options_from_collection_for_select(@chapters, 'id', 'name', @chapter), {:include_blank => true}, { :class => 'form-control' }
 .form-group
   = label :incident, :proposal_for_action, 'Proposta de ação'
   = text_field :incident, :proposal_for_action, :class => "form-control"
 - if current_user.is_admin?
   .form-group
     = label :incident, :following, 'Acompanhamento pela Férias Vivas'
-    = check_box :incident, :following, :class => "form-control"
+    = check_box :incident, :following
 .form-group
   = label_tag :tags, 'Palavras-chave (separadas por ponto e vírgula)'
   = text_field_tag :tags, tags2string(@tags), size: 50, :class => "form-control"
@@ -62,7 +62,7 @@
 .form-group
   %h3 Dados do local
   = label :incident, :property_usage_id, 'Uso da propriedade'
-  = select :incident, :property_usage_id, options_from_collection_for_select(@property_usages, 'id', 'name', @property_usage), include_blank: true
+  = select :incident, :property_usage_id, options_from_collection_for_select(@property_usages, 'id', 'name', @property_usage), {:include_blank => true}, { :class => 'form-control' }
 .form-group
   = label :incident, :property_company, 'Empresa atuante'
   = text_field :incident, :property_company, :class => "form-control"
