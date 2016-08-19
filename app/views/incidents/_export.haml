@@ -7,6 +7,7 @@
 %td= incident.date.strftime("%Y") if incident.date
 %td= incident.city.state.name if incident.city
 %td= incident.city.name if incident.city
+%td= incident.city.inductor_destination ? 'Sim' : 'Não' if incident.city
 %td= incident.post_code
 %td= incident.location
 %td= incident.location2
