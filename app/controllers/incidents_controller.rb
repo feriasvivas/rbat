@@ -15,7 +15,7 @@ class IncidentsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html {@incidents = @incidents.page(params[:page])}
+      format.html #{@incidents = @incidents.page(params[:page])}
       format.xlsx { render xlsx: :index, filename: "rbat_incidents" }
     end
 
