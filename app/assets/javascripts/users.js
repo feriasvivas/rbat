@@ -1,4 +1,4 @@
-$(document).on('page:load', function(){
+$(document).ready function(){
   //$.fn.dataTable.moment('DD/MM/YYYY');
   $('#usersList').DataTable( {
     retrieve: true,
