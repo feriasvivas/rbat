@@ -1,5 +1,6 @@
 $(document).ready( function(){
   $.fn.dataTable.moment('DD/MM/YYYY');
+  $.fn.dataTableExt.oStdClasses.sWrapper = "row table-responsive dataTables_wrapper"
   $('#incidentsList').DataTable( {
     retrieve: true,
     pageLength: 100,

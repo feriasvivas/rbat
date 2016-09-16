@@ -7076,3 +7076,7 @@ a.form-info {
 .details {
   text-align: left;
 }
+
+table.dataTable tbody tr.odd {
+    background-color: #D7EDF4;
+}
