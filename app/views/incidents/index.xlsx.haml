@@ -31,6 +31,8 @@
       %th Houve falha de equipamento?
       %th A atividade estava em acordo com as normas de segurança?
 
+      %th fonte
+
       %th ID_Vítima
       %th Nome
       %th Iniciais
@@ -49,6 +51,7 @@
       %th Existência de equipamentos de primeiros socorros
       %th Funcionários capacitados como socorristas
       %th Médico de plantão
+
   %tbody
     - @incidents.each do |incident|
       - if incident.victims.length > 0
