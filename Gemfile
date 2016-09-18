@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.2.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
@@ -37,8 +37,8 @@ gem 'devise'
 gem 'haml'
 
 #file upload
-#gem "refile", require: "refile/rails"
-#gem "refile-mini_magick"
+gem "refile", require: "refile/rails"
+gem "refile-mini_magick"
 
 #role management
 gem 'easy_roles'
