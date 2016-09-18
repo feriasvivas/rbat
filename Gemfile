@@ -36,16 +36,24 @@ gem 'devise'
 
 gem 'haml'
 
-gem "refile", require: "refile/rails"
-gem "refile-mini_magick"
+#file upload
+#gem "refile", require: "refile/rails"
+#gem "refile-mini_magick"
 
+#role management
 gem 'easy_roles'
 
-gem 'kaminari'
+# paging on server side
+#gem 'kaminari'
 
+# views as excel spreadsheet
 gem 'to_spreadsheet'
 
+#
 gem 'jquery-turbolinks'
+
+#rails monitoring in heroku
+gem 'scout_apm'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
