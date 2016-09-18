@@ -1,0 +1,41 @@
+%h2 Nova ocorrência
+.container.bgwhite
+  Antes de cadastrar uma nova ocorrência, verificaremos se ela já foi cadastrada.
+  %br
+  Preencha os campos a seguir em clique em Consultar.
+  = form_tag incidents_filter_path, :class => "form-meu", :method => :put do
+    .form-group
+      = label :incident, :date, 'Data do acidente'
+      = text_field :incident, :date, :value => @date, :class => "form-control"
+    .form-group
+      = label :incident, :state, 'UF'
+      = select_tag :state, options_from_collection_for_select(@states, 'id', 'name', @state), {:include_blank => true, :class => 'form-control' }
+    .form-group
+      = label :incident, :city_id, 'Cidade'
+      - if @cities
+        = render :partial => 'cities/cities_select', locals: {cities: @cities, city: @city}
+      - else
+        = select :incident, :city_id, [], {}, { :class => 'form-control' }
+
+    .form-group
+      = submit_tag 'Consultar', :class => "btn btn-lg btn-primary"
+      = link_to 'Voltar', incidents_path
+
+  - if @incidents
+    %table{:class => "table table-striped"}
+      %thead
+        %tr
+          %th ID
+          %th Data
+          %th Cidade
+          %th Palavras-chave
+      %tbody
+        - @incidents.each do |incident|
+          %tr
+            %td= incident.id
+            %td= incident.date.strftime("%d/%m/%Y")
+            %td= incident.city.name + "/" + incident.city.state.name
+            %td= tags2string(incident.tags)
+
+    = link_to 'Continuar mesmo assim', new_incident_path, :class => "btn btn-lg btn-primary"
+    = link_to 'Voltar', incidents_path

@@ -16,10 +16,13 @@ Rails.application.routes.draw do
      resources :victims
      resources :sources
    end
+   get 'incidents_filter' => 'incidents#search'
+   put 'incidents_filter' => 'incidents#filter'
 
    resources :institutions
 
    get 'cities/:id' => 'cities#index'
+
 
    get 'users/lock/:id' => 'users#lock', as: :lock
    get 'users/unlock/:id' => 'users#unlock', as: :unlock

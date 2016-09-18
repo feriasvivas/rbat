@@ -18,7 +18,38 @@ class IncidentsController < ApplicationController
       format.html #{@incidents = @incidents.page(params[:page])}
       format.xlsx { render xlsx: :index, filename: "rbat_incidents" }
     end
+  end
 
+  def search
+    @states = State.all
+  end
+
+  def filter
+    @date = params[:incident][:date] unless params[:incident][:date].empty?
+    @state = params[:state] unless params[:state].empty?
+    @city = params[:incident][:city_id] unless params[:incident][:city_id].empty?
+    @states = State.all
+    @cities = City.where(state_id: @state)
+    if @date && @city
+      @incidents = Incident.where(city: @city, date: DateTime.strptime(@date, '%d/%m/%Y'))
+    elsif @date
+      if @state
+        @incidents = Incident.where(date: DateTime.strptime(@date, '%d/%m/%Y'), city: @cities)
+      else
+        @incidents = Incident.where(date: DateTime.strptime(@date, '%d/%m/%Y'))
+      end
+    elsif @city
+      @incidents = Incident.where(city: @city)
+    elsif @state
+      @incidents = Incident.where(city: @cities)
+    end
+
+    if @incidents.empty?
+      lists4selects
+      render 'new'
+    else
+      render 'search'
+    end
   end
 
   def show
