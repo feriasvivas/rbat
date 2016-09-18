@@ -33,6 +33,6 @@ var SupervisorFilter = {
   }
 }
 
-$(document).on('page:load', function(){
+$(document).ready( function(){
    SupervisorFilter.setup();
 });

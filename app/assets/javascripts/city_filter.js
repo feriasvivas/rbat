@@ -24,6 +24,6 @@ var CityFilter = {
   }
 }
 
-$(document).on('page:load', function(){
+$(document).ready(function(){
    CityFilter.setup();
 });
