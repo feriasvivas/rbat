@@ -33,8 +33,8 @@
         - @incidents.each do |incident|
           %tr
             %td= incident.id
-            %td= incident.date.strftime("%d/%m/%Y")
-            %td= incident.city.name + "/" + incident.city.state.name
+            %td= incident.date.strftime("%d/%m/%Y") if incident.date
+            %td= incident.city.name + "/" + incident.city.state.name if incident.city
             %td= tags2string(incident.tags)
 
     = link_to 'Continuar mesmo assim', new_incident_path, :class => "btn btn-lg btn-primary"
