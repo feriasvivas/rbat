@@ -52,8 +52,6 @@ gem 'to_spreadsheet'
 #
 gem 'jquery-turbolinks'
 
-#rails monitoring in heroku
-#gem 'scout_apm'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -78,4 +76,6 @@ end
 group :production do
   gem 'rails_12factor'
   gem 'pg'
+  #rails monitoring in heroku
+  gem 'scout_apm'
 end
