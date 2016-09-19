@@ -27,7 +27,7 @@ class IncidentsController < ApplicationController
   def filter
     @date = params[:incident][:date] unless params[:incident][:date].empty?
     @state = params[:state] unless params[:state].empty?
-    @city = params[:incident][:city_id] unless params[:incident][:city_id].empty?
+    @city = params[:incident][:city_id] if params[:incident][:city_id] && !params[:incident][:city_id].empty?
     @states = State.all
     @cities = City.where(state_id: @state)
     if @date && @city
@@ -42,6 +42,10 @@ class IncidentsController < ApplicationController
       @incidents = Incident.where(city: @city)
     elsif @state
       @incidents = Incident.where(city: @cities)
+    else
+      flash[:warning] = "Nenhum filtro foi definido."
+      render 'search'
+      return
     end
 
     if @incidents.empty?
