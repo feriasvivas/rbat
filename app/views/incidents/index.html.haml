@@ -13,7 +13,7 @@
     = link_to "Adicionar", incidents_filter_path, :class => "btn btn-lg btn-success"
     = link_to "Exportar XLSX", incidents_path(format: :xlsx), :class => "btn btn-lg btn-info"
 
-    %table#incidentsList{:class => "table table-striped"}
+    %table#incidentsList{:class => "table table-striped", "data-source" => incidents_path(format: "json")}
       %thead
         %tr
           %th ID
@@ -26,21 +26,6 @@
           %th Palavras-chave
           %th Validado
           %th Mais detalhes
-      %tbody
-        - @incidents.each do |incident|
-          %tr
-            %td= incident.id
-            %td= incident.user.name if incident.user
-            %td= incident.date.strftime("%d/%m/%Y") if incident.date
-            - if incident.city != nil; city_name = incident.city.name; state_name = incident.city.state.name; end
-            %td= city_name
-            %td= state_name
-            - if incident.sub_category; category = incident.sub_category.category.name; end
-            %td= category
-            - if incident.sub_category; sub_category = incident.sub_category.name; end
-            %td= sub_category
-            %td= tags2string(incident.tags)
-            %td=  'X' if incident.verified
-            %td= link_to "Mais...", incident_path(incident)
+      
 
     =# paginate @incidents

@@ -1,6 +1,6 @@
 class IncidentsController < ApplicationController
   before_action :authenticate_user!
-  respond_to :xlsx, :html
+  respond_to :xlsx, :html, :json
 
   def index
     case current_user.roles
@@ -17,7 +17,15 @@ class IncidentsController < ApplicationController
     respond_to do |format|
       format.html #{@incidents = @incidents.page(params[:page])}
       format.xlsx { render xlsx: :index, filename: "rbat_incidents" }
+      format.json { render json: IncidentsDatatable.new(view_context, @incidents) }
+      #format.json { render json: datatable }
     end
+  end
+
+  def datatable
+    #@incidents = Incident.all#fetch_incidents
+    @total_incidents = Incident.count
+    #render :datatable, :layout => false
   end
 
   def search
@@ -94,7 +102,7 @@ class IncidentsController < ApplicationController
     @equipment_failure = @incident.equipment_failure
     @adequacy_to_norms = @incident.adequacy_to_norms
     @date = @incident.date.strftime("%d/%m/%Y") if @incident.date
-    @tags = @incident.tags
+    @tags = @incident.tags2string
     if @incident.city
       @state = @incident.city.state_id
       @cities = City.where(state_id: @state)
@@ -152,4 +160,37 @@ class IncidentsController < ApplicationController
     @states = State.all
     @property_usages = PropertyUsage.all
   end
+
+  def fetch_incidents
+    incidents = Incident.order("#{sort_column} #{sort_direction}")
+    incidents = incidents.page(page).per_page(per_page)
+    if params[:sSearch].present?
+      incidents = incidents.where("user.name like :search or category like :search", search: "%#{params[:sSearch]}%")
+    end
+    incidents
+  end
+
+  def page
+    params[:iDisplayStart].to_i/per_page + 1
+  end
+
+  def per_page
+    params[:iDisplayLength].to_i > 0 ? params[:iDisplayLength].to_i : 10
+  end
+
+  def sort_column
+    columns = %w[id user.name date city.name state.name category.name sub_category.name tags verified]
+    columns[params[:iSortCol_0].to_i]
+  end
+
+  def sort_direction
+    params[:sSortDir_0] == "desc" ? "desc" : "asc"
+  end
+
+  def conditions
+    conditions = []
+    conditions << "(incidents.user.name ILIKE '%#{params[:sSearch]}%' OR incidents.city.name ILIKE '%#{params[:sSearch]}%')" if(params[:sSearch])
+    return conditions.join(" AND ")
+  end
+
 end

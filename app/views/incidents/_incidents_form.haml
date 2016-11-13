@@ -54,7 +54,7 @@
     = check_box :incident, :following
 .form-group
   = label_tag :tags, 'Palavras-chave (separadas por ponto e vírgula)'
-  = text_field_tag :tags, tags2string(@tags), size: 50, :class => "form-control"
+  = text_field_tag :tags, @tags, size: 50, :class => "form-control"
 
   - if current_user.is_supervisor? or current_user.is_admin?
     = label :incident, :verified, 'Validado'

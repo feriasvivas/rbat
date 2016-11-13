@@ -35,7 +35,7 @@
             %td= incident.id
             %td= incident.date.strftime("%d/%m/%Y") if incident.date
             %td= incident.city.name + "/" + incident.city.state.name if incident.city
-            %td= tags2string(incident.tags)
+            %td= incident.tags2string
 
     = link_to 'Continuar mesmo assim', new_incident_path, :class => "btn btn-lg btn-primary"
     = link_to 'Voltar', incidents_path

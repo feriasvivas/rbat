@@ -91,7 +91,7 @@
       = @incident.user.name if @incident.user
     %li
       Palavras-chave:
-      = tags2string(@incident.tags)
+      = @incident.tags2string
 
   %h3 Descrição:
   %p#descricao= simple_format @incident.description

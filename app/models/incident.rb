@@ -8,4 +8,15 @@ class Incident < ActiveRecord::Base
   has_many :victims, dependent: :destroy
   has_many :sources, dependent: :destroy
   has_and_belongs_to_many :tags
+
+  def tags2string 
+    a_tags = ''
+    if tags
+      tags.each do |t|
+        a_tags += (t.name + '; ')
+      end
+    end
+    a_tags
+  end
+
 end

@@ -45,6 +45,7 @@ gem 'easy_roles'
 
 # paging on server side
 #gem 'kaminari'
+gem 'will_paginate', '~> 3.1.0'
 
 # views as excel spreadsheet
 gem 'to_spreadsheet'
@@ -52,13 +53,19 @@ gem 'to_spreadsheet'
 #
 gem 'jquery-turbolinks'
 
+gem 'pg'
+
+group :assets do
+  #gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+  gem 'jquery-ui-rails'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
   gem 'foreman'
-  gem 'sqlite3'
+  #gem 'sqlite3'
 end
 
 group :development do
@@ -75,7 +82,7 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem 'pg'
+  #gem 'pg'
   #rails monitoring in heroku
   gem 'scout_apm'
 end
