@@ -17,7 +17,7 @@ class IncidentsController < ApplicationController
     respond_to do |format|
       format.html
       format.xlsx { render xlsx: :index, filename: "rbat_incidents" }
-      format.json { render json: IncidentsDatatable.new(view_context, @incidents) }
+      format.json { render json: IncidentsDatatable.new(view_context, self, @incidents) }
     end
   end
 

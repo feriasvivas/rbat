@@ -9,13 +9,3 @@
       %th Liberado
       %th Data de cadastro
       %th Ação
-    %tbody
-      - @users.each do |user|
-        %tr
-          %td= link_to user.name, edit_user_path(user)
-          %td= user.email
-          %td= user.institution.name if user.institution
-          %td= user.roleLabel
-          %td= user.access_locked? ? 'Não' : 'Sim'
-          %td= user.created_at.strftime("%d/%m/%Y") if user.created_at
-          %td= user.access_locked? ? link_to('Ativar', unlock_url(user)) : link_to('Desativar', lock_url(user))

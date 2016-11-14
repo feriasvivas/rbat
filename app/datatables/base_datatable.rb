@@ -1,8 +1,9 @@
 class BaseDatatable
   delegate :params, :link_to, to: :@view
 
-  def initialize(view, all_items)
+  def initialize(view, controller, all_items)
     @view = view
+    @controller = controller
     @all_items = all_items
   end
 
@@ -22,7 +23,7 @@ private
   end
 
   def fetch_items
-    items = joins(@all_items).page(page).per_page(per_page)
+    items = joins(@all_items).order("#{sort_column} #{sort_direction}").page(page).per_page(per_page)
     if params[:sSearch].present?
       items = items.where(search_string, search: "%#{params[:sSearch]}%")
     end
@@ -38,7 +39,6 @@ private
   end
 
   def sort_column
-    #columns = %w[id users.name date cities.name states.name categories.name sub_categories.name tags verified]
     columns[params[:iSortCol_0].to_i]
   end
 

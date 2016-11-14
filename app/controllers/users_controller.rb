@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, unless: -> {request.xhr?}
   before_filter :admin_required, unless: -> {request.xhr?}
+  respond_to :html, :json
 
   def index
-    @users = User.all
+    respond_to do |format|
+      format.html
+      format.json {render json: UsersDatatable.new(view_context, self, User.all)}
+    end
   end
 
   def show
