@@ -2,7 +2,7 @@ class UsersDatatable < BaseDatatable
   delegate :lock_url, :unlock_url, :edit_user_path, to: :@controller
 
   def columns
-    %w[name email institutions.name roleLabel locked_at created_at]
+    %w[name email institutions.name roles locked_at created_at]
   end
 
   def search_string
