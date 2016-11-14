@@ -8,7 +8,7 @@ class IncidentsDatatable < BaseDatatable
   end
 
   def joins(items)
-    items.joins("LEFT JOIN users ON incidents.user_id = users.id LEFT JOIN sub_categories ON incidents.sub_category_id = sub_categories.id LEFT JOIN categories ON categories.id = sub_categories.category_id LEFT JOIN cities ON cities.id = incidents.city_id LEFT JOIN states ON states.id = cities.state_id LEFT JOIN incidents_tags ON incidents_tags.incident_id = incidents.id LEFT JOIN tags ON tags.id = incidents_tags.tag_id").group("incidents.id, users.name, categories.name, sub_categories.name, cities.name, states.name")
+    items.joins("LEFT JOIN users ON incidents.user_id = users.id LEFT JOIN sub_categories ON incidents.sub_category_id = sub_categories.id LEFT JOIN categories ON categories.id = sub_categories.category_id LEFT JOIN cities ON cities.id = incidents.city_id LEFT JOIN states ON states.id = cities.state_id LEFT JOIN incidents_tags ON incidents_tags.incident_id = incidents.id LEFT JOIN tags ON tags.id = incidents_tags.tag_id").group("users.name, categories.name, sub_categories.name, cities.name, states.name, incidents.id")
   end
 
   def data
