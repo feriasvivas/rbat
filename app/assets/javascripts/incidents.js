@@ -3,9 +3,8 @@ $(document).ready( function(){
   $.fn.dataTableExt.oStdClasses.sWrapper = "row table-responsive dataTables_wrapper"
   $('#incidentsList').DataTable( {
     //retrieve: true,
-    //pageLength: 100,
-    //lengthMenu: [3, 5, 10, 20],
     paginationType: "full_numbers",
+    pageLength: 50,
     JQueryUI: true,
     processing: true,
     serverSide: true,

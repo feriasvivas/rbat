@@ -1,6 +1,6 @@
 %h2 Usuários
 .container.bgwhite
-  %table#usersList{:class => "table table-striped"}
+  %table#usersList{:class => "table table-striped", "data-source" => users_path(format: "json")}
     %thead
       %th Nome
       %th Email

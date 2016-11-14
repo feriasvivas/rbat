@@ -15,17 +15,10 @@ class IncidentsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html #{@incidents = @incidents.page(params[:page])}
+      format.html
       format.xlsx { render xlsx: :index, filename: "rbat_incidents" }
       format.json { render json: IncidentsDatatable.new(view_context, @incidents) }
-      #format.json { render json: datatable }
     end
-  end
-
-  def datatable
-    #@incidents = Incident.all#fetch_incidents
-    @total_incidents = Incident.count
-    #render :datatable, :layout => false
   end
 
   def search
