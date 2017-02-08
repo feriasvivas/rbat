@@ -31,13 +31,20 @@ class IncidentsController < ApplicationController
     @city = params[:incident][:city_id] if params[:incident][:city_id] && !params[:incident][:city_id].empty?
     @states = State.all
     @cities = City.where(state_id: @state)
-    if @date && @city
-      @incidents = Incident.where(city: @city, date: DateTime.strptime(@date, '%d/%m/%Y'))
-    elsif @date
-      if @state
-        @incidents = Incident.where(date: DateTime.strptime(@date, '%d/%m/%Y'), city: @cities)
+
+    if @date
+      if Date.valid_date? *@date.split('/').reverse.map(&:to_i)
+        if @city
+          @incidents = Incident.where(city: @city, date: DateTime.strptime(@date, '%d/%m/%Y'))
+        elsif @state
+          @incidents = Incident.where(date: DateTime.strptime(@date, '%d/%m/%Y'), city: @cities)
+        else
+          @incidents = Incident.where(date: DateTime.strptime(@date, '%d/%m/%Y'))
+        end
       else
-        @incidents = Incident.where(date: DateTime.strptime(@date, '%d/%m/%Y'))
+        flash[:warning] = "Data inválida."
+        render 'search'
+        return
       end
     elsif @city
       @incidents = Incident.where(city: @city)
@@ -48,6 +55,8 @@ class IncidentsController < ApplicationController
       render 'search'
       return
     end
+
+
 
     if @incidents.empty?
       lists4selects
