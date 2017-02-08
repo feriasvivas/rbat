@@ -18,6 +18,7 @@ default: &default
 development:
   <<: *default
   #database: db/development.sqlite3
+  host: localhost
   database: rbat_development
 
 # Warning: The database defined as "test" will be erased and
