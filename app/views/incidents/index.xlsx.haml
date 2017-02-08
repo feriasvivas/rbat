@@ -1,4 +1,4 @@
-%table
+%table{:caption => "ocorrencias"}
   %thead
     %tr
       %th ID_Ocorrência
@@ -82,3 +82,5 @@
   %tfoot
     %tr
       %td(colspan="4")
+- format_xls 'table' do
+  format 'td.date', num_fmt: 'DD/MM/YYYY'

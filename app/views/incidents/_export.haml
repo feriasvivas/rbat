@@ -3,7 +3,7 @@
 %td= incident.user.name if incident.user
 %td= incident.user.supervisor.name if incident.user and incident.user.supervisor
 %td= incident.description
-%td= incident.date.strftime("%d/%m/%Y") if incident.date
+%td.date= incident.date.strftime("%d/%m/%Y") if incident.date
 %td= incident.date.strftime("%Y") if incident.date
 %td= incident.city.state.name if incident.city
 %td= incident.city.name if incident.city
