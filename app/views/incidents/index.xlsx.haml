@@ -53,7 +53,7 @@
       %th Médico de plantão
 
   %tbody
-    - @incidents.find_each(batch_size: 100) do |incident|
+    - @incidents.find_each(batch_size: 200) do |incident|
       - if incident.victims.length > 0
         - incident.victims.each do |victim|
           %tr
