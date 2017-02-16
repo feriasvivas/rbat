@@ -3,16 +3,7 @@ class IncidentsController < ApplicationController
   respond_to :xlsx, :html, :json
 
   def index
-    case current_user.roles
-    when 1
-      @incidents = Incident.all
-    when 2
-      user_ids = User.where(supervisor_id: current_user.id).map{ |e| e.id }
-      user_ids.insert(0, current_user.id)
-      @incidents = Incident.where(user_id: user_ids)
-    else
-      @incidents = Incident.where(user_id: current_user.id)
-    end
+    @incidents = list(current_user.id)
 
     respond_to do |format|
       format.html
@@ -20,6 +11,7 @@ class IncidentsController < ApplicationController
       format.json { render json: IncidentsDatatable.new(view_context, self, @incidents) }
     end
   end
+
 
   def search
     @states = State.all
@@ -151,6 +143,21 @@ class IncidentsController < ApplicationController
   private
   def incident_params
     params.require(:incident).permit!
+  end
+
+  def list(user_id)
+    user = User.find(user_id)
+    case user.roles
+    when 1
+      incidents = Incident.all
+    when 2
+      user_ids = User.where(supervisor_id: current_user.id).map{ |e| e.id }
+      user_ids.insert(0, current_user.id)
+      incidents = Incident.where(user_id: user_ids)
+    else
+      incidents = Incident.where(user_id: current_user.id)
+    end
+    incidents
   end
 
   def lists4selects
