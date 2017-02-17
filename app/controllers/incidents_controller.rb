@@ -7,7 +7,14 @@ class IncidentsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.xlsx { render xlsx: :index, filename: "rbat_incidents" }
+      #format.xlsx { render xlsx: :index, filename: "rbat_incidents" } # codigo original
+      #format.xlsx {  redirect_to incidents_path  } # redireciona para o index
+      format.xlsx {
+        export(@incidents);
+        flash[:warning] = "Os dados exportados serão enviados para seu email."
+        redirect_to incidents_path
+      } # download da planilha se export retorna o resultado do render de to_spreadsheet
+
       format.json { render json: IncidentsDatatable.new(view_context, self, @incidents) }
     end
   end
@@ -159,6 +166,15 @@ class IncidentsController < ApplicationController
     end
     incidents
   end
+
+  def export(data)
+    #data = render xlsx: :index, filename: "rbat_incidents"
+
+    xls = render_to_string(layout: false, handlers: [:axlsx], formats: [:xlsx], template: 'incidents/index.xlsx.haml', locals: {:@incidents => data})
+
+    SystemMailer.incidents_export(current_user, xls).deliver
+  end
+
 
   def lists4selects
     @states = State.all
