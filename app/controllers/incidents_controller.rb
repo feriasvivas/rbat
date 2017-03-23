@@ -3,19 +3,22 @@ class IncidentsController < ApplicationController
   respond_to :xlsx, :html, :json
 
   def index
-    @incidents = list(current_user.id)
+
 
     respond_to do |format|
-      format.html
+      format.html { @incidents = list(current_user.id) }
       #format.xlsx { render xlsx: :index, filename: "rbat_incidents" } # codigo original
       #format.xlsx {  redirect_to incidents_path  } # redireciona para o index
       format.xlsx {
-        export(@incidents);
+        export(current_user);
         flash[:warning] = "Os dados exportados serão enviados para seu email."
         redirect_to incidents_path
       } # download da planilha se export retorna o resultado do render de to_spreadsheet
 
-      format.json { render json: IncidentsDatatable.new(view_context, self, @incidents) }
+      format.json {
+        @incidents = list(current_user.id);
+        render json: IncidentsDatatable.new(view_context, self, @incidents)
+      }
     end
   end
 
@@ -153,26 +156,11 @@ class IncidentsController < ApplicationController
   end
 
   def list(user_id)
-    user = User.find(user_id)
-    case user.roles
-    when 1
-      incidents = Incident.all
-    when 2
-      user_ids = User.where(supervisor_id: current_user.id).map{ |e| e.id }
-      user_ids.insert(0, current_user.id)
-      incidents = Incident.where(user_id: user_ids)
-    else
-      incidents = Incident.where(user_id: current_user.id)
-    end
-    incidents
+    Incident.list(user_id)
   end
 
-  def export(data)
-    #data = render xlsx: :index, filename: "rbat_incidents"
-
-    xls = render_to_string(layout: false, handlers: [:axlsx], formats: [:xlsx], template: 'incidents/index.xlsx.haml', locals: {:@incidents => data})
-
-    SystemMailer.incidents_export(current_user, xls).deliver
+  def export(user_id)
+    Reque.enqueue(IncidentsExport, user_id)
   end
 
 

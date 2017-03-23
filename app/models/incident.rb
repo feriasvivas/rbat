@@ -9,7 +9,7 @@ class Incident < ActiveRecord::Base
   has_many :sources, dependent: :destroy
   has_and_belongs_to_many :tags
 
-  def tags2string 
+  def tags2string
     a_tags = ''
     if tags
       tags.each do |t|
@@ -17,6 +17,21 @@ class Incident < ActiveRecord::Base
       end
     end
     a_tags
+  end
+
+  def self.list(user_id)
+    user = User.find(user_id)
+    case user.roles
+    when 1
+      incidents = self.all
+    when 2
+      user_ids = User.where(supervisor_id: current_user.id).map{ |e| e.id }
+      user_ids.insert(0, current_user.id)
+      incidents = self.where(user_id: user_ids)
+    else
+      incidents = self.where(user_id: current_user.id)
+    end
+    incidents
   end
 
 end

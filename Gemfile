@@ -53,6 +53,9 @@ gem 'to_spreadsheet'
 #
 gem 'jquery-turbolinks'
 
+# async jobs
+gem 'resque', "~> 1.22.0"
+
 gem 'pg'
 
 group :assets do
