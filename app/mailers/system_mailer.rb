@@ -1,5 +1,6 @@
-class SystemMailer < ApplicationMailer
+class SystemMailer < ActionMailer::Base
   default from: "rbat@feriasvivas.org.br"
+  layout 'mailer'
 
   def registration_notification(user)
     @user = user
