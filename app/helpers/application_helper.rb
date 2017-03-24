@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  def yesNoNA2text(value)
+  def ApplicationHelper.yesNoNA2text(value)
     case value
     when 1
       return "Sim"

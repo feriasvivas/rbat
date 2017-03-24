@@ -57,28 +57,31 @@
       - if incident.victims.length > 0
         - incident.victims.each do |victim|
           %tr
-            = render 'export', incident: incident
+            = render 'incidents/export', incident: incident
+
+
             %td= victim.id
             %td= victim.name
-            %td= initials(victim.name)
+            %td= victim.initials
             %td= victim.age
             %td= victim.gender
             %td= victim.severity.name if victim.severity
             %td= victim.experience.name if victim.experience
-            %td= yesNoNA2text victim.equipment
-            %td= yesNoNA2text victim.tourist_imprudence
-            %td= yesNoNA2text victim.guide_malpractice
-            %td= yesNoNA2text victim.guide_negligence
-            %td= yesNoNA2text victim.climate_conditions
+            %td= ApplicationHelper.yesNoNA2text victim.equipment
+            %td= ApplicationHelper.yesNoNA2text victim.tourist_imprudence
+            %td= ApplicationHelper.yesNoNA2text victim.guide_malpractice
+            %td= ApplicationHelper.yesNoNA2text victim.guide_negligence
+            %td= ApplicationHelper.yesNoNA2text victim.climate_conditions
             %td= victim.incident_report_number
             %td= victim.process_number
-            %td= yesNoNA2text victim.first_aid_conducted
-            %td= yesNoNA2text victim.first_aid_equipment
-            %td= yesNoNA2text victim.staff_trained_in_first_aid
-            %td= yesNoNA2text victim.doctor_on_call
+            %td= ApplicationHelper.yesNoNA2text victim.first_aid_conducted
+            %td= ApplicationHelper.yesNoNA2text victim.first_aid_equipment
+            %td= ApplicationHelper.yesNoNA2text victim.staff_trained_in_first_aid
+            %td= ApplicationHelper.yesNoNA2text victim.doctor_on_call
       - else
         %tr
-          = render 'export', incident: incident
+          = render 'incidents/export', incident: incident
+          
   %tfoot
     %tr
       %td(colspan="4")

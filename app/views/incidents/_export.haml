@@ -24,7 +24,7 @@
 %td= incident.property_usage.name if incident.property_usage
 %td= incident.property_company
 %td= incident.tourist_guide
-%td= yesNoNA2text incident.property_signaling
-%td= yesNoNA2text incident.equipment_failure
-%td= yesNoNA2text incident.adequacy_to_norms
+%td= ApplicationHelper.yesNoNA2text incident.property_signaling
+%td= ApplicationHelper.yesNoNA2text incident.equipment_failure
+%td= ApplicationHelper.yesNoNA2text incident.adequacy_to_norms
 %td= incident.sources[0].url if incident.sources[0]

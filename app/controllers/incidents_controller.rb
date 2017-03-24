@@ -10,7 +10,7 @@ class IncidentsController < ApplicationController
       #format.xlsx { render xlsx: :index, filename: "rbat_incidents" } # codigo original
       #format.xlsx {  redirect_to incidents_path  } # redireciona para o index
       format.xlsx {
-        export(current_user);
+        export(current_user.id);
         flash[:warning] = "Os dados exportados serão enviados para seu email."
         redirect_to incidents_path
       } # download da planilha se export retorna o resultado do render de to_spreadsheet
@@ -160,7 +160,8 @@ class IncidentsController < ApplicationController
   end
 
   def export(user_id)
-    Reque.enqueue(IncidentsExport, user_id)
+    Resque.enqueue(IncidentsExport, user_id)
+    #IncidentsExport.perform(user_id)
   end
 
 
