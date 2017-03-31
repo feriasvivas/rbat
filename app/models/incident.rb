@@ -25,11 +25,11 @@ class Incident < ActiveRecord::Base
     when 1
       incidents = self.all
     when 2
-      user_ids = User.where(supervisor_id: current_user.id).map{ |e| e.id }
-      user_ids.insert(0, current_user.id)
+      user_ids = User.where(supervisor_id: user.id).map{ |e| e.id }
+      user_ids.insert(0, user.id)
       incidents = self.where(user_id: user_ids)
     else
-      incidents = self.where(user_id: current_user.id)
+      incidents = self.where(user_id: user.id)
     end
     incidents
   end
