@@ -7,13 +7,12 @@ class IncidentsController < ApplicationController
 
     respond_to do |format|
       format.html { @incidents = list(current_user.id) }
-      #format.xlsx { render xlsx: :index, filename: "rbat_incidents" } # codigo original
-      #format.xlsx {  redirect_to incidents_path  } # redireciona para o index
+      #format.xlsx { @incidents = list(current_user.id); render xlsx: :index, filename: "rbat_incidents" } # codigo original
       format.xlsx {
         export(current_user.id);
-        flash[:warning] = "Os dados exportados serão enviados para seu email."
+        flash[:warning] = "Os dados exportados serão enviados para seu email em breve."
         redirect_to incidents_path
-      } # download da planilha se export retorna o resultado do render de to_spreadsheet
+      }
 
       format.json {
         @incidents = list(current_user.id);
