@@ -111,13 +111,13 @@
       = @incident.tourist_guide
     %li
       Havia sinalização sobre risco?
-      = yesNoNA2text @incident.property_signaling
+      = ApplicationHelper.yesNoNA2text @incident.property_signaling
     %li
       Houve falha de equipamento?
-      = yesNoNA2text @incident.equipment_failure
+      = ApplicationHelper.yesNoNA2text @incident.equipment_failure
     %li
       A atividade estava em acordo com as normas de segurança?
-      = yesNoNA2text @incident.adequacy_to_norms
+      = ApplicationHelper.yesNoNA2text @incident.adequacy_to_norms
 
   %h3 Vítimas
 
