@@ -86,10 +86,9 @@ Rails.application.configure do
     port: ENV["MAIL_PORT"],
     domain: ENV["MAIL_DOMAIN"],
     authentication: "plain",
-    enable_starttls_auto: false,
+    enable_starttls_auto: true,
     user_name: ENV["MAIL_USERNAME"],
-    password: ENV["MAIL_PASSWORD"],
-    openssl_verify_mode: 'none'
+    password: ENV["MAIL_PASSWORD"]
   }
 
 end
