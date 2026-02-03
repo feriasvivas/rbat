@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails', '4.2.11'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -57,6 +57,8 @@ gem 'jquery-turbolinks'
 gem 'resque', "~> 1.22.0"
 
 gem 'pg'
+
+gem 'loofah', '~> 2.19.1'
 
 group :assets do
   #gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
