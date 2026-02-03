@@ -35,3 +35,25 @@ Then, you can access RBAT in `http://localhost:3000`
 ### Upgrading rails versions
 
 Please check https://www.fastruby.io/blog/rails/upgrade/rails-upgrade-series.html
+
+To update a rails version, change it in your Gemfile and run
+
+```
+docker-compose run --rm web bundle update rails
+```
+
+You may also need to run
+
+```
+docker-compose run --rm web bundle update
+```
+
+to get the proper (compatible) versions of your gems.
+
+Then, run
+
+```
+docker-compose run --rm web bundle exec rake rails:update
+```
+
+as described in the documentation linked above.
