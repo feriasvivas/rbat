@@ -1,6 +1,5 @@
 require 'rails_helper'
 
 RSpec.describe Purpose, type: :model do
-  it { should validate_presence_of(:name) }
-  it { should validate_uniqueness_of(:name) }
+  it "got its tests removed from #{__FILE__}. The purposes table was removed."
 end
