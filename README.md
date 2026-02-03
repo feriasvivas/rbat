@@ -31,3 +31,7 @@ Then, you can access RBAT in `http://localhost:3000`
 ```
 ./dev-tools.sh clean
 ```
+
+### Upgrading rails versions
+
+Please check https://www.fastruby.io/blog/rails/upgrade/rails-upgrade-series.html
