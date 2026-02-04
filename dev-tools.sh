@@ -23,6 +23,7 @@ launch() {
 
 cleanup() {
   docker-compose down --rmi all -v
+  sudo rm -rf tmp log
 }
 
 if [ "$1" = "test" ]; then
