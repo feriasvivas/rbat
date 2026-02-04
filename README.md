@@ -32,6 +32,14 @@ Then, you can access RBAT in `http://localhost:3000`
 ./dev-tools.sh clean
 ```
 
+### Debugging
+
+Get a shell within one of the containers:
+
+```
+docker-compose exec -- worker /bin/bash
+```
+
 ### Upgrading rails versions
 
 Please check https://www.fastruby.io/blog/rails/upgrade/rails-upgrade-series.html
