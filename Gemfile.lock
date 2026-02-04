@@ -241,9 +241,8 @@ GEM
       nokogiri
       rails
       responders
-    turbolinks (5.2.1)
-      turbolinks-source (~> 5.2)
-    turbolinks-source (5.2.0)
+    turbolinks (2.5.3)
+      coffee-rails
     tzinfo (1.2.11)
       thread_safe (~> 0.1)
     uglifier (4.2.0)
@@ -290,7 +289,7 @@ DEPENDENCIES
   spring
   sqlite3 (~> 1.3.6)
   to_spreadsheet
-  turbolinks
+  turbolinks (= 2.5.3)
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
   will_paginate (~> 3.1.0)
