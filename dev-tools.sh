@@ -24,6 +24,7 @@ launch() {
 cleanup() {
   docker-compose down --rmi all -v
   sudo rm -rf tmp log
+  git clean -xdf
 }
 
 if [ "$1" = "test" ]; then
