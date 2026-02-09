@@ -59,10 +59,10 @@ gem 'jquery-turbolinks'
 
 # async jobs
 # 1.27.4 is the last version before 2.x where support for ruby < 2.3 and rails < 4 was dropped
-# 2.x adds support for redis 4. So, let's also force redis 4.0 here for compliance.
+# 2.x adds support for redis 4. So, let's remain in redis < 4 for now
 # the major reason is that Redis.connect was dropped in favor of Redis.new
-gem 'resque', "~> 2.0"
-gem 'redis', "~> 4.0"
+gem 'resque', "~> 1.27.4"
+gem 'redis', "< 4"
 
 gem 'pg'
 
