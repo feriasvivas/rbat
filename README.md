@@ -5,6 +5,12 @@ spreadsheet reports. It currently uses resque 1.22. Therefore, this might be
 relevant since it shows up in a specific warning currently being triggered:
 https://web.archive.org/web/20130630113005/http://hone.heroku.com/resque/2012/08/21/resque-signals.html
 
+## Upgrade checklist
+
+- [ ] Image uploads
+- [ ] Email generation
+- [ ] Working drop-downs (turbo)
+
 ## Development
 
 We have a dev-tools.sh script in the root of the project. Please read it.
