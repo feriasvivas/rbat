@@ -1,4 +1,4 @@
-class CreatePropertyUsages < ActiveRecord::Migration
+class CreatePropertyUsages < ActiveRecord::Migration[4.2]
   def change
     create_table :property_usages do |t|
       t.string :name

@@ -1,4 +1,4 @@
-class CreateIncidents < ActiveRecord::Migration
+class CreateIncidents < ActiveRecord::Migration[4.2]
   def change
     create_table :incidents do |t|
       t.datetime    'date'

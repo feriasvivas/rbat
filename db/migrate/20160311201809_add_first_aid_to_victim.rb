@@ -1,4 +1,4 @@
-class AddFirstAidToVictim < ActiveRecord::Migration
+class AddFirstAidToVictim < ActiveRecord::Migration[4.2]
   def up
     add_column :victims, :first_aid_conducted, :integer
     add_column :victims, :first_aid_equipment, :integer

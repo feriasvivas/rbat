@@ -1,4 +1,4 @@
-class IncidentOrigin < ActiveRecord::Migration
+class IncidentOrigin < ActiveRecord::Migration[4.2]
   def up
     add_column :incidents, :information_origin, :string
   end

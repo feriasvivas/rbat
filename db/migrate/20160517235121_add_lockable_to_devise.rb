@@ -1,4 +1,4 @@
-class AddLockableToDevise < ActiveRecord::Migration
+class AddLockableToDevise < ActiveRecord::Migration[4.2]
   def up
     add_column :users,  :failed_attempts, :integer, :null => false, :default => 0
     add_column :users, :locked_at, :datetime

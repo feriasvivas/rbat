@@ -1,4 +1,4 @@
-class LatitudeLongitude < ActiveRecord::Migration
+class LatitudeLongitude < ActiveRecord::Migration[4.2]
   def up
     add_column :incidents, :location2, :string
   end

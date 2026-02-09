@@ -1,4 +1,4 @@
-class AddPlaceDataToIncident < ActiveRecord::Migration
+class AddPlaceDataToIncident < ActiveRecord::Migration[4.2]
 
   def change
     change_table :incidents do |t|

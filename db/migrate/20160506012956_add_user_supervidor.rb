@@ -1,4 +1,4 @@
-class AddUserSupervidor < ActiveRecord::Migration
+class AddUserSupervidor < ActiveRecord::Migration[4.2]
   def change
     reversible do |dir|
       change_table :users do |t|

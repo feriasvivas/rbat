@@ -1,4 +1,4 @@
-class AddNametoUsers < ActiveRecord::Migration
+class AddNametoUsers < ActiveRecord::Migration[4.2]
   def change
     change_table :users do |t|
       t.string 'name'

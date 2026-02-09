@@ -1,4 +1,4 @@
-class ChangeIncidentsOccurrenceFactor < ActiveRecord::Migration
+class ChangeIncidentsOccurrenceFactor < ActiveRecord::Migration[4.2]
   def change
     remove_column :incidents, :occurrence_factor, :integer
     add_reference :incidents, :occurrence_factor, index: true, foreign_key: true

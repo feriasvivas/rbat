@@ -1,4 +1,4 @@
-class AddIncidentConditionsToVictim < ActiveRecord::Migration
+class AddIncidentConditionsToVictim < ActiveRecord::Migration[4.2]
   def up
     add_column :victims, :equipment, :integer
     add_column :victims, :tourist_imprudence, :integer

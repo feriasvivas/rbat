@@ -1,4 +1,4 @@
-class AddLegalProceedingToVictim < ActiveRecord::Migration
+class AddLegalProceedingToVictim < ActiveRecord::Migration[4.2]
   def up
     add_column :victims, :incident_report_number, :string
     add_column :victims, :process_number, :string

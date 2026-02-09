@@ -1,4 +1,4 @@
-class ReplacePurposeByVerified < ActiveRecord::Migration
+class ReplacePurposeByVerified < ActiveRecord::Migration[4.2]
   def up
     remove_column :incidents, :purpose_id
     add_column :incidents, :verified, :boolean
