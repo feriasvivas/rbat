@@ -8,7 +8,7 @@ run_tests() {
   docker-compose run --rm web bundle exec rake db:create RAILS_ENV=test
   docker-compose run --rm web bundle exec rake db:migrate RAILS_ENV=test
   docker-compose run --rm web bundle exec rake db:seed RAILS_ENV=test
-  docker-compose run --rm web bundle exec rspec
+  docker-compose run -e RAILS_ENV=test --rm web bundle exec rspec
 }
 
 devel_setup() {
