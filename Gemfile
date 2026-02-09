@@ -41,6 +41,9 @@ gem 'haml'
 #file upload
 # pulling mini_magic from github is a workaround for a minimum sinatra version
 # then, we also need refile from github for compatibility
+# TODO: it seems refile is not being used anymore (or was never used
+# The only bit where it is needed is the source model where it declares an attachment.
+# could we just remove that field in a new migration?
 gem "refile", require: "refile/rails", git: 'https://github.com/refile/refile.git'
 gem 'refile-mini_magick', git: 'https://github.com/refile/refile-mini_magick.git'
 
