@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   #before_create :skip_confirmation_notification!
   has_many :Incident
   belongs_to :institution

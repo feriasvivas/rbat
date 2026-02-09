@@ -1,4 +1,4 @@
-class Purpose < ActiveRecord::Base
+class Purpose < ApplicationRecord
   has_many :incident
 
   validates :name, presence: true, uniqueness: {case_sensitive: false}

@@ -1,4 +1,4 @@
-class Incident < ActiveRecord::Base
+class Incident < ApplicationRecord
   belongs_to :city
   belongs_to :user
   belongs_to :sub_category

@@ -1,4 +1,4 @@
-class Chapter < ActiveRecord::Base
+class Chapter < ApplicationRecord
   has_many :incident
 
   validates :name, presence: true, uniqueness: {case_sensitive: false}

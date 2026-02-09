@@ -1,4 +1,4 @@
-class Experience < ActiveRecord::Base
+class Experience < ApplicationRecord
   has_many :victims
 
   validates :name, presence: true, uniqueness: {case_sensitive: false}

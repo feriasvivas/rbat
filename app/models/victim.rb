@@ -1,4 +1,4 @@
-class Victim < ActiveRecord::Base
+class Victim < ApplicationRecord
   belongs_to :incident
   belongs_to :severity
   belongs_to :experience

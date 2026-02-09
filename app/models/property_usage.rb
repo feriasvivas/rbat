@@ -1,4 +1,4 @@
-class PropertyUsage < ActiveRecord::Base
+class PropertyUsage < ApplicationRecord
   has_many :incident
 
   validates :name, presence: true, uniqueness: {case_sensitive: false}
