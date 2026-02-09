@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.11'
+gem 'rails', '~> 5.0', '>= 5.0.7.2'
+gem 'sinatra', '~> 2.0', '>= 2.0.8.1'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -38,8 +39,10 @@ gem 'devise'
 gem 'haml'
 
 #file upload
-gem "refile", require: "refile/rails"
-gem "refile-mini_magick"
+# pulling mini_magic from github is a workaround for a minimum sinatra version
+# then, we also need refile from github for compatibility
+gem "refile", require: "refile/rails", git: 'https://github.com/refile/refile.git'
+gem 'refile-mini_magick', git: 'https://github.com/refile/refile-mini_magick.git'
 
 #role management
 gem 'easy_roles'
@@ -56,10 +59,10 @@ gem 'jquery-turbolinks'
 
 # async jobs
 # 1.27.4 is the last version before 2.x where support for ruby < 2.3 and rails < 4 was dropped
-# 2.x adds support for redis 4. So, let's also force redis < 4 here for compliance.
+# 2.x adds support for redis 4. So, let's also force redis 4.0 here for compliance.
 # the major reason is that Redis.connect was dropped in favor of Redis.new
-gem 'resque', "~> 1.27.4"
-gem 'redis', "< 4"
+gem 'resque', "~> 2.0"
+gem 'redis', "~> 4.0"
 
 gem 'pg'
 
