@@ -67,7 +67,7 @@ to get the proper (compatible) versions of your gems.
 Then, run
 
 ```
-docker-compose run --rm web bundle exec rake rails:update
+docker-compose run -e THOR_MERGE=vimdiff --rm web bundle exec rails app:update
 ```
 
 as described in the documentation linked above.
