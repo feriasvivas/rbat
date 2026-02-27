@@ -1,6 +1,6 @@
 class SubCategoriesController < ApplicationController
   before_action :authenticate_user!
-  before_filter :category_exists, :only => [:new, :create]
+  before_action :category_exists, :only => [:new, :create]
 
   protected
   def category_exists

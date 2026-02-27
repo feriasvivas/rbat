@@ -1,6 +1,6 @@
 class SourcesController < ApplicationController
   before_action :authenticate_user!
-  before_filter :incident_exists, :only => [:new, :create]
+  before_action :incident_exists, :only => [:new, :create]
 
   protected
   def incident_exists

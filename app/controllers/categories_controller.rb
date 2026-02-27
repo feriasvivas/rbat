@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
-  before_filter :admin_required, only: %w(create update)
+  before_action :admin_required, only: %w(create update)
 
   def index
     @categories = Category.all
