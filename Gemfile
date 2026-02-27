@@ -49,7 +49,11 @@ gem "refile", require: "refile/rails", git: 'https://github.com/refile/refile.gi
 gem 'refile-mini_magick', git: 'https://github.com/refile/refile-mini_magick.git'
 
 #role management
-gem 'easy_roles'
+# This works around a removed method needed by the latest version available of easy_roles
+# once we move to rails 6, we can replace easy_roles with its fork: slow_your_roles
+# https://github.com/one-more-alex/easy_roles
+# https://github.com/platform45/easy_roles/pull/27
+gem 'easy_roles', git: 'https://github.com/one-more-alex/easy_roles.git'
 
 # paging on server side
 #gem 'kaminari'
