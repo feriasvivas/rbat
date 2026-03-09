@@ -12,9 +12,9 @@ run_tests() {
 }
 
 devel_setup() {
-  docker-compose run --rm web bundle exec rake db:create
-  docker-compose run --rm web bundle exec rake db:migrate
-  docker-compose run --rm web bundle exec rake db:seed
+  docker-compose run -e RAILS_ENV=development --rm web bundle exec rake db:create RAILS_ENV=development
+  docker-compose run -e RAILS_ENV=development --rm web bundle exec rake db:migrate RAILS_ENV=development
+  docker-compose run -e RAILS_ENV=development --rm web bundle exec rake db:seed RAILS_ENV=development
 }
 
 launch() {
