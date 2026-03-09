@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   #before_create :skip_confirmation_notification!
   has_many :Incident
-  belongs_to :institution
-  belongs_to :supervisor, class_name: "User"
+  belongs_to :institution, optional: true
+  belongs_to :supervisor, class_name: "User", optional: true
   has_many :subordinates, class_name: "User", foreign_key: "supervisor_id"
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
