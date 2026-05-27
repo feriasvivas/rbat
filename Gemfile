@@ -3,6 +3,7 @@ ruby '2.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
+gem 'bootsnap', '1.4.2'
 # activesupport 5.1 requires this listen gem
 gem 'listen'
 gem 'sinatra', '~> 2.0', '>= 2.0.8.1'
