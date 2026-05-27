@@ -71,3 +71,7 @@ docker-compose run -e THOR_MERGE=vimdiff --rm web bundle exec rails app:update
 ```
 
 as described in the documentation linked above.
+
+# Known issues
+
+Turbolinks is broken after creating a resource
