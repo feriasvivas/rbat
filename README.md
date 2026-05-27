@@ -18,6 +18,18 @@ We have a dev-tools.sh script in the root of the project. Please read it.
 To run it, you should have `docker` and `docker-compose` installed and
 configured in your system.
 
+### Create the base image
+
+While working with Ruby 2.3, we need a ruby 2.3 image. The one in Dockerhub is
+quite old and presents several certificate issues when you try to install
+packages through APT. The Dockerfile.base file contains instructions to build a
+similar image based on Ubuntu, leveraging the Dockerhub debian base images
+Dockerfiles.
+
+```
+docker build -t localhost/ruby:2.3.1 -f Dockerfile.base .
+```
+
 ### Run test suite
 
 ```
