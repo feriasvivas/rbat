@@ -1,17 +1,18 @@
 source 'https://rubygems.org'
-ruby '3.2.0'
+ruby '~> 3.2.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.2.0'
+gem 'rails', '~> 8.0.0'
+gem 'puma'
 gem 'bootsnap', '>= 1.7.0'
 # activesupport 5.1 requires this listen gem
 gem 'listen'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
-# Use SCSS for stylesheets
-gem 'sass-rails', '>= 6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+# asset pipeline
+gem 'sprockets-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -41,12 +42,11 @@ gem 'haml'
 
 # file upload via ActiveStorage (built in, see db/migrate/*_create_active_storage_tables)
 
-#role management
-gem 'slow_your_roles'
+#role management: inline bitmask in User (see ROLES), no gem needed
 
 # paging on server side
 #gem 'kaminari'
-gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate', '>= 3.1'
 
 # views as excel spreadsheet
 gem 'to_spreadsheet'
@@ -60,8 +60,6 @@ gem 'redis', ">= 4"
 
 gem 'pg'
 
-gem 'loofah', '~> 2.19.1'
-
 group :assets do
   #gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
   gem 'jquery-ui-rails'
@@ -72,7 +70,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '>= 3.9'
   gem 'foreman'
-  gem "sqlite3", "~> 1.4"
+  gem "sqlite3", ">= 1.6"
 end
 
 group :development do

@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     @user.roles = []
     @user.add_role params[:roles]
 
-    if @user.update_attributes(user_params)
+    if @user.update(user_params)
       redirect_to users_path
     else
       render 'edit'
