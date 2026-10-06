@@ -1,4 +1,4 @@
 class Source < ApplicationRecord
   belongs_to :incident, optional: true
-  attachment :image_file
+  has_one_attached :image_file
 end

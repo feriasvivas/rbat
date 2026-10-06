@@ -88,6 +88,5 @@ Rails.application.configure do
     openssl_verify_mode: 'none'
   }
 
-  config.web_console.whitelisted_ips = '172.19.0.0/12'
   config.web_console.permissions = '172.19.0.0/12'
 end

@@ -1,21 +1,17 @@
 source 'https://rubygems.org'
-ruby '2.7.0'
+ruby '3.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1.0'
-gem 'bootsnap', '1.4.2'
+gem 'rails', '~> 7.0.0'
+gem 'bootsnap', '>= 1.7.0'
 # activesupport 5.1 requires this listen gem
 gem 'listen'
-gem 'sinatra', '~> 2.0', '>= 2.0.8.1'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-# 4.2.2 is the last version supporting Rails < 5.2
-gem 'coffee-rails', '~> 4.2.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -39,18 +35,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'devise', '~> 4.7'
+gem 'devise', '~> 4.8'
 
 gem 'haml'
 
-#file upload
-# pulling mini_magic from github is a workaround for a minimum sinatra version
-# then, we also need refile from github for compatibility
-# TODO: it seems refile is not being used anymore (or was never used
-# The only bit where it is needed is the source model where it declares an attachment.
-# could we just remove that field in a new migration?
-gem "refile", require: "refile/rails", git: 'https://github.com/refile/refile.git'
-gem 'refile-mini_magick', git: 'https://github.com/refile/refile-mini_magick.git'
+# file upload via ActiveStorage (built in, see db/migrate/*_create_active_storage_tables)
 
 #role management
 gem 'slow_your_roles'
@@ -66,11 +55,8 @@ gem 'to_spreadsheet'
 gem 'jquery-turbolinks'
 
 # async jobs
-# 1.27.4 is the last version before 2.x where support for ruby < 2.3 and rails < 4 was dropped
-# 2.x adds support for redis 4. So, let's remain in redis < 4 for now
-# the major reason is that Redis.connect was dropped in favor of Redis.new
-gem 'resque', "~> 1.27.4"
-gem 'redis', "< 4"
+gem 'resque', "~> 2.0"
+gem 'redis', ">= 4"
 
 gem 'pg'
 
@@ -84,26 +70,24 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails', '>= 3.9'
   gem 'foreman'
   gem "sqlite3", "~> 1.4"
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '>= 4.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
 
 group :test do
-  gem 'shoulda-matchers', '~> 4.0', require: false
+  gem 'shoulda-matchers', '~> 5.0', require: false
 end
 
 group :production do
-  gem 'rails_12factor'
-  #gem 'pg'
   #rails monitoring in heroku
   gem 'scout_apm'
 end
