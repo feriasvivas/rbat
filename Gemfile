@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-ruby '3.0.0'
+ruby '3.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.0.0'
+gem 'rails', '~> 7.1.0'
 gem 'bootsnap', '>= 1.7.0'
 # activesupport 5.1 requires this listen gem
 gem 'listen'
@@ -35,7 +35,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'devise', '~> 4.8'
+gem 'devise', '~> 4.9'
 
 gem 'haml'
 
