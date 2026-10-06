@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-ruby '2.6.6'
+ruby '2.7.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.0'
+gem 'rails', '~> 6.1.0'
 gem 'bootsnap', '1.4.2'
 # activesupport 5.1 requires this listen gem
 gem 'listen'
