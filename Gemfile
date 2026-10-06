@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-ruby '3.1.0'
+ruby '3.2.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.1.0'
+gem 'rails', '~> 7.2.0'
 gem 'bootsnap', '>= 1.7.0'
 # activesupport 5.1 requires this listen gem
 gem 'listen'
@@ -84,7 +84,7 @@ group :development do
 end
 
 group :test do
-  gem 'shoulda-matchers', '~> 5.0', require: false
+  gem 'shoulda-matchers', '>= 5.0', require: false
 end
 
 group :production do
