@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-ruby '2.3.1'
+ruby '2.6.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 6.0.0'
 gem 'bootsnap', '1.4.2'
 # activesupport 5.1 requires this listen gem
 gem 'listen'
@@ -10,7 +10,7 @@ gem 'sinatra', '~> 2.0', '>= 2.0.8.1'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '>= 6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -39,7 +39,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'devise'
+gem 'devise', '~> 4.7'
 
 gem 'haml'
 
@@ -53,11 +53,7 @@ gem "refile", require: "refile/rails", git: 'https://github.com/refile/refile.gi
 gem 'refile-mini_magick', git: 'https://github.com/refile/refile-mini_magick.git'
 
 #role management
-# This works around a removed method needed by the latest version available of easy_roles
-# once we move to rails 6, we can replace easy_roles with its fork: slow_your_roles
-# https://github.com/one-more-alex/easy_roles
-# https://github.com/platform45/easy_roles/pull/27
-gem 'easy_roles', git: 'https://github.com/one-more-alex/easy_roles.git'
+gem 'slow_your_roles'
 
 # paging on server side
 #gem 'kaminari'
@@ -90,7 +86,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
   gem 'foreman'
-  gem "sqlite3", "~> 1.3.6"
+  gem "sqlite3", "~> 1.4"
 end
 
 group :development do
@@ -102,7 +98,7 @@ group :development do
 end
 
 group :test do
-  gem 'shoulda-matchers', '~> 2.8', require: false
+  gem 'shoulda-matchers', '~> 4.0', require: false
 end
 
 group :production do
