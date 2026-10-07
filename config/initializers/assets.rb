@@ -13,3 +13,4 @@ Rails.application.config.assets.version = '1.0'
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 Rails.application.config.assets.precompile += %w( jquery.dataTables.css bootstrap.css )
+Rails.application.config.assets.precompile += %w( FeriasVivas-logo.png )
