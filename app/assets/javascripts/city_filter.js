@@ -1,6 +1,6 @@
 var CityFilter = {
   setup: function() {
-    $('#state').change(CityFilter.list);
+    $('#state').off('change', CityFilter.list).on('change', CityFilter.list);
   },
   list: function() {
     if ($('#state').val()) {
@@ -24,6 +24,6 @@ var CityFilter = {
   }
 }
 
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
    CityFilter.setup();
 });

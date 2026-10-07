@@ -1,7 +1,7 @@
 var SupervisorFilter = {
   setup: function() {
-    $('#user_institution_id').change(SupervisorFilter.list);
-    $('#user_roles').change(SupervisorFilter.isResearcher);
+    $('#user_institution_id').off('change', SupervisorFilter.list).on('change', SupervisorFilter.list);
+    $('#user_roles').off('change', SupervisorFilter.isResearcher).on('change', SupervisorFilter.isResearcher);
   },
   isResearcher: function() {
     //$('#user_supervisor_id').prop("disabled", ($('#user_roles').val() != 4));
@@ -33,6 +33,6 @@ var SupervisorFilter = {
   }
 }
 
-$(document).ready( function(){
+$(document).on('turbolinks:load', function(){
    SupervisorFilter.setup();
 });

@@ -1,6 +1,7 @@
-$(document).ready( function(){
+$(document).on('turbolinks:load', function(){
   $.fn.dataTable.moment('DD/MM/YYYY');
   $.fn.dataTableExt.oStdClasses.sWrapper = "row table-responsive dataTables_wrapper"
+  if ($('#incidentsList').length && !$.fn.DataTable.isDataTable('#incidentsList')) {
   $('#incidentsList').DataTable( {
     //retrieve: true,
     paginationType: "full_numbers",
@@ -25,4 +26,5 @@ $(document).ready( function(){
       {orderable: false}
     ]
   } );
+  }
 });
