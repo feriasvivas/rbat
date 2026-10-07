@@ -1,5 +1,3 @@
-require "application_helper"
-
 class IncidentsExport
   @queue = :export
 
