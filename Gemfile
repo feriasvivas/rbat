@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '~> 3.4.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 8.0.0'
+gem 'rails', '~> 8.1.0'
 gem 'puma'
 gem 'bootsnap', '>= 1.7.0'
 # activesupport 5.1 requires this listen gem
