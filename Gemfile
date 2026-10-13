@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '~> 3.4.0'
+ruby '~> 3.4.11'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'json', '2.3.1'

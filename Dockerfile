@@ -1,4 +1,4 @@
-FROM ruby:3.4
+FROM ruby:3.4.11
 
 RUN apt-get update && apt-get install -y nodejs vim tzdata
 RUN adduser rails
