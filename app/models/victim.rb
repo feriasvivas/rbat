@@ -1,7 +1,7 @@
 class Victim < ApplicationRecord
   belongs_to :incident, optional: true
-  belongs_to :severit, optional: true
-  belongs_to :experienc, optional: true
+  belongs_to :severity, optional: true
+  belongs_to :experience, optional: true
 
   def initials
     nameParts = self.name.split(' ')
