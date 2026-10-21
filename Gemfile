@@ -10,8 +10,6 @@ gem 'bootsnap', '>= 1.7.0'
 gem 'listen'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
 # asset pipeline
 gem 'sprockets-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
