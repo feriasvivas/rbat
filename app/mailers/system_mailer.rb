@@ -11,7 +11,7 @@ class SystemMailer < ActionMailer::Base
     @user = user
     file_name = 'rbat_'+user.id.to_s+'_'+Time.now.strftime("%d-%m-%Y-%H-%M")+'.xlsx'
     attachments[file_name] = {
-      mime_type: Mime::XLSX,
+      mime_type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
       encoding: 'base64',
       content: Base64.encode64(data)
     }
