@@ -25,7 +25,7 @@ class InstitutionsController < ApplicationController
 
   def update
     @institution = Institution.find(params[:id])
-    if @institution.update_attributes(institution_params)
+    if @institution.update(institution_params)
       redirect_to institutions_path
     else
       render 'edit'

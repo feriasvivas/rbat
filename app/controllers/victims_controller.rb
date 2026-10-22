@@ -40,7 +40,7 @@ class VictimsController < ApplicationController
 
 	def update
 		@victim = Victim.find params[:id]
-		if @victim.update_attributes(victim_params)
+		if @victim.update(victim_params)
 		  redirect_to incident_path(@victim.incident)
 		else
 		  render 'edit'

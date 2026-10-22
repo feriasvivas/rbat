@@ -115,7 +115,7 @@ class IncidentsController < ApplicationController
   def update
     @incident = Incident.find(params[:id])
     tags2incident
-    if @incident.update_attributes(incident_params)
+    if @incident.update(incident_params)
       redirect_to incident_path(@incident)
     else
       lists4selects

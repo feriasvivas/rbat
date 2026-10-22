@@ -25,7 +25,7 @@ class SubCategoriesController < ApplicationController
 
   def update
     @sub_category = SubCategory.find(params[:id])
-    if @sub_category.update_attributes(sub_category_params)
+    if @sub_category.update(sub_category_params)
       redirect_to category_path(@sub_category.category)
     else
       render 'edit'
