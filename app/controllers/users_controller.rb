@@ -31,8 +31,6 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.roles = []
-    @user.add_role params[:roles]
 
     if @user.update(user_params)
       redirect_to users_path
